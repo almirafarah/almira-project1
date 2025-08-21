@@ -1,0 +1,9 @@
+C:/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/final/hw3/build/CMakeFiles/simulator_212934582_323964676.dir
+C:/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/final/hw3/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/final/hw3/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/final/hw3/build/Algorithm/CMakeFiles/TankAlgorithm.dir
+C:/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/final/hw3/build/Algorithm/CMakeFiles/ALL_BUILD.dir
+C:/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/final/hw3/build/GameManager/CMakeFiles/GameManager.dir
+C:/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/final/hw3/build/GameManager/CMakeFiles/ALL_BUILD.dir
+C:/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/final/hw3/build/Simulator/CMakeFiles/AlgorithmRegistrar.dir
+C:/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/final/hw3/build/Simulator/CMakeFiles/ALL_BUILD.dir

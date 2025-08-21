@@ -1,0 +1,8 @@
+game_maps_folder=test_files/maps
+game_manager=GameManager_212934582_323964676.cpp
+
+registration_all_212934582 23
+TankAlgorithm_Simple_212934582 20
+AggressiveTankAI 17
+Player_212934582 16
+TankAlgorithm_212934582 14

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Almira Farah\Documents\computer science\hw2 try2 algorithem\final\hw3\Algorithm\build\CMakeFiles\4efab4d8d7971437e12f4030e2e49d28\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{A79DE8E4-92A1-3F8A-A351-C6EEDEBB44BC}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

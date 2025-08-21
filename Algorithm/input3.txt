@@ -1,0 +1,10 @@
+2-Another Small battlefield
+MaxSteps=10
+NumShells=200
+Rows= 4
+Cols=12
+############ 0
+# 2    1   # 1
+  #  2 @  #   2
+############ 3
+012345678901
