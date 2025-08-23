@@ -8,12 +8,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include_directories(../common)
 
 # Source files
+# Core simulator sources (registration is provided by shared library)
 set(SOURCES
     Simulator.cpp
-    GameManagerRegistration.cpp
-    AlgorithmRegistrar.cpp
-    PlayerRegistration.cpp
-    TankAlgorithmRegistration.cpp
     DynamicLibraryLoader.cpp
 )
 

@@ -9,8 +9,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
-# Registration core library (must be defined before subdirectories that link it)
-add_library(registration STATIC
+# Registration core library (shared so that all DLLs use the same registrar)
+add_library(registration SHARED
     Simulator/AlgorithmRegistrar.cpp
     Simulator/PlayerRegistration.cpp
     Simulator/TankAlgorithmRegistration.cpp

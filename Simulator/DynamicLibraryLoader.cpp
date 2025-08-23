@@ -1,8 +1,13 @@
 #include "DynamicLibraryLoader.h"
 #include <iostream>
 
+// Avoid explicitly unloading libraries in the destructor. Some of the
+// dynamically loaded modules register global objects whose destructors may
+// run after the Simulator shuts down. Calling dlclose/FreeLibrary here could
+// invalidate code that these destructors rely on and lead to crashes at
+// program termination.
 DynamicLibraryLoader::~DynamicLibraryLoader() {
-    unload();
+    // Intentionally left empty; rely on the OS to unload libraries at exit.
 }
 
 bool DynamicLibraryLoader::loadLibrary(const std::string& library_path) {
