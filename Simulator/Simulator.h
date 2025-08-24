@@ -120,18 +120,18 @@ private:
     // Note: Simulator creates Player objects as raw pointers (cannot assume copy constructors exist)
     // Passes references to GameManager, ownership stays with Simulator
     SimulatorGameResult executeGame(const GameTask& task);
-    std::unique_ptr<SatelliteView> createMapFromFile(const std::string& map_path, size_t width, size_t height);
-    
+    static std::unique_ptr<SatelliteView> createMapFromFile(const std::string& map_path, size_t width, size_t height);
+
     // Output generation
-    void writeComparativeResults(const std::string& output_folder, 
-                               const std::vector<SimulatorGameResult>& results);
-    void writeCompetitionResults(const std::string& output_folder,
-                                const std::vector<SimulatorGameResult>& results);
-    
+    static void writeComparativeResults(const std::string& output_folder,
+                                        const std::vector<SimulatorGameResult>& results);
+    static void writeCompetitionResults(const std::string& output_folder,
+                                        const std::vector<SimulatorGameResult>& results);
+
     // Utility functions
-    std::string getLibraryName(const std::string& path);
-    std::vector<std::string> getFilesInFolder(const std::string& folder, const std::string& extension);
-    std::string generateTimestamp();
+    static std::string getLibraryName(const std::string& path);
+    static std::vector<std::string> getFilesInFolder(const std::string& folder, const std::string& extension);
+    static std::string generateTimestamp();
     
     // Thread pool members
     std::vector<std::thread> workers_;

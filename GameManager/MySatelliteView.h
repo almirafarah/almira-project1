@@ -56,32 +56,32 @@ public:
     }
 
     // SatelliteView interface implementation
-    virtual char getObjectAt(size_t x, size_t y) const override {
+    [[nodiscard]] char getObjectAt(size_t xCoord, size_t yCoord) const override {
         // 1) Outside board boundaries - board_[row][col], where row=y, col=x
-        if (board_.empty() || y >= board_.size() || board_[0].empty() || x >= board_[0].size()) {
+        if (board_.empty() || yCoord >= board_.size() || board_[0].empty() || xCoord >= board_[0].size()) {
             return '&';
         }
-        
+
         // 2) This tank's own spot marked as '%'
-        if (x == highlight_x_ && y == highlight_y_) {
+        if (xCoord == highlight_x_ && yCoord == highlight_y_) {
             return '%';
         }
-        
+
         // 3) If a shell is flying over (x,y) marked as '*'
-        if (shells_.count({x, y})) {
+        if (shells_.count({xCoord, yCoord})) {
             return '*';
         }
-        
+
         // 4) Otherwise return the static board character - board_[row][col] = board_[y][x]
-        char c = board_[y][x];
+        char c = board_[yCoord][xCoord];
         if (c == '#' || c == '@' || c == '1' || c == '2' || c == ' ') {
             return c;
         }
         return ' ';  // Unknown characters become empty space
     }
-    
+
     // Clone method for copying
-    virtual std::unique_ptr<SatelliteView> clone() const override {
+    [[nodiscard]] std::unique_ptr<SatelliteView> clone() const override {
         return std::make_unique<MySatelliteView>(*this);
     }
 

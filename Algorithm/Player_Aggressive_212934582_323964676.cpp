@@ -9,6 +9,7 @@ Player_Aggressive_212934582_323964676::Player_Aggressive_212934582_323964676(int
 }
 
 void Player_Aggressive_212934582_323964676::updateTankWithBattleInfo(TankAlgorithm& tank_algo, SatelliteView& satellite_view) {
+    (void)satellite_view;
     // Create a battle info object for aggressive player
     BattleInfo info;
     

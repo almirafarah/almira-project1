@@ -59,6 +59,7 @@ static bool canShootFrom(
     Direction d,
     int myPlayerIndex
 ) {
+    (void)enemyPositions;
     auto [dr, dc] = DirectionUtils::toVector(d);
     
     for (int rr = r + dr, cc = c + dc;

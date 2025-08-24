@@ -9,6 +9,7 @@ Player_Simple_212934582_323964676::Player_Simple_212934582_323964676(int player_
 }
 
 void Player_Simple_212934582_323964676::updateTankWithBattleInfo(TankAlgorithm& tank_algo, SatelliteView& satellite_view) {
+    (void)satellite_view;
     // Create a battle info object for simple/defensive player
     BattleInfo info;
     

@@ -11,7 +11,12 @@ SRC_DIR = .
 OBJ_DIR = $(BUILD_DIR)/obj
 
 # Source files
-SOURCES = Player_212934582_323964676.cpp TankAlgorithm_212934582_323964676.cpp
+SOURCES = \
+    Player_Aggressive_212934582_323964676.cpp \
+    AggressiveTankAI_212934582_323964676.cpp \
+    Player_Simple_212934582_323964676.cpp \
+    TankAlgorithm_Simple_212934582_323964676.cpp \
+    registration_all_212934582_323964676.cpp
 OBJECTS = $(SOURCES:%.cpp=$(OBJ_DIR)/%.o)
 
 # Target library
