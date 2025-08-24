@@ -702,5 +702,7 @@ bool GameManager_212934582_323964676::executeShoot(TankState& tank, size_t map_w
 
 // Auto-registration
 #include "../common/GameManagerRegistration.h"
-using GameManagerType = GameManager_212934582_323964676::GameManager_212934582_323964676;
-REGISTER_GAME_MANAGER(GameManagerType)
+using GameManagerClassAlias = GameManager_212934582_323964676::GameManager_212934582_323964676;
+#define GameManager_212934582_323964676 GameManagerClassAlias
+REGISTER_GAME_MANAGER(GameManager_212934582_323964676)
+#undef GameManager_212934582_323964676

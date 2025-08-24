@@ -5,8 +5,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/Algorithm_Simple_212934582_323964676.dir/Player_Simple_212934582_323964676.cpp.o.d"
   "CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simple_212934582_323964676.cpp.o"
   "CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simple_212934582_323964676.cpp.o.d"
-  "CMakeFiles/Algorithm_Simple_212934582_323964676.dir/library_init_simple_212934582_323964676.cpp.o"
-  "CMakeFiles/Algorithm_Simple_212934582_323964676.dir/library_init_simple_212934582_323964676.cpp.o.d"
 )
 
 # Per-language clean rules from dependency scanning.

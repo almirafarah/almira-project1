@@ -83,34 +83,18 @@ GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.s"
 	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/GameManager" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/GameManager/GameManager_212934582_323964676.cpp" -o CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.s
 
-GameManager/CMakeFiles/GameManager_212934582_323964676.dir/library_init_212934582_323964676.cpp.o: GameManager/CMakeFiles/GameManager_212934582_323964676.dir/flags.make
-GameManager/CMakeFiles/GameManager_212934582_323964676.dir/library_init_212934582_323964676.cpp.o: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/library_init_212934582_323964676.cpp
-GameManager/CMakeFiles/GameManager_212934582_323964676.dir/library_init_212934582_323964676.cpp.o: GameManager/CMakeFiles/GameManager_212934582_323964676.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object GameManager/CMakeFiles/GameManager_212934582_323964676.dir/library_init_212934582_323964676.cpp.o"
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/GameManager" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT GameManager/CMakeFiles/GameManager_212934582_323964676.dir/library_init_212934582_323964676.cpp.o -MF CMakeFiles/GameManager_212934582_323964676.dir/library_init_212934582_323964676.cpp.o.d -o CMakeFiles/GameManager_212934582_323964676.dir/library_init_212934582_323964676.cpp.o -c "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/GameManager/library_init_212934582_323964676.cpp"
-
-GameManager/CMakeFiles/GameManager_212934582_323964676.dir/library_init_212934582_323964676.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/GameManager_212934582_323964676.dir/library_init_212934582_323964676.cpp.i"
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/GameManager" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/GameManager/library_init_212934582_323964676.cpp" > CMakeFiles/GameManager_212934582_323964676.dir/library_init_212934582_323964676.cpp.i
-
-GameManager/CMakeFiles/GameManager_212934582_323964676.dir/library_init_212934582_323964676.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/GameManager_212934582_323964676.dir/library_init_212934582_323964676.cpp.s"
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/GameManager" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/GameManager/library_init_212934582_323964676.cpp" -o CMakeFiles/GameManager_212934582_323964676.dir/library_init_212934582_323964676.cpp.s
-
 # Object files for target GameManager_212934582_323964676
 GameManager_212934582_323964676_OBJECTS = \
-"CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.o" \
-"CMakeFiles/GameManager_212934582_323964676.dir/library_init_212934582_323964676.cpp.o"
+"CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.o"
 
 # External object files for target GameManager_212934582_323964676
 GameManager_212934582_323964676_EXTERNAL_OBJECTS =
 
 lib/libGameManager_212934582_323964676.so: GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.o
-lib/libGameManager_212934582_323964676.so: GameManager/CMakeFiles/GameManager_212934582_323964676.dir/library_init_212934582_323964676.cpp.o
 lib/libGameManager_212934582_323964676.so: GameManager/CMakeFiles/GameManager_212934582_323964676.dir/build.make
 lib/libGameManager_212934582_323964676.so: lib/libregistration.so
 lib/libGameManager_212934582_323964676.so: GameManager/CMakeFiles/GameManager_212934582_323964676.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX shared library ../lib/libGameManager_212934582_323964676.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library ../lib/libGameManager_212934582_323964676.so"
 	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/GameManager" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GameManager_212934582_323964676.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

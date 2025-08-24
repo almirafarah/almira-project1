@@ -205,4 +205,6 @@ Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/AggressiveTank
  /usr/include/c++/13/bits/locale_facets.tcc \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
- /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/optional
+ /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/optional \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/../common/TankAlgorithmRegistration.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/../common/TankAlgorithm.h

@@ -154,30 +154,6 @@ GameManager_212934582_323964676.cpp.s:
 	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f GameManager/CMakeFiles/GameManager_212934582_323964676.dir/build.make GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.s
 .PHONY : GameManager_212934582_323964676.cpp.s
 
-library_init_212934582_323964676.o: library_init_212934582_323964676.cpp.o
-.PHONY : library_init_212934582_323964676.o
-
-# target to build an object file
-library_init_212934582_323964676.cpp.o:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f GameManager/CMakeFiles/GameManager_212934582_323964676.dir/build.make GameManager/CMakeFiles/GameManager_212934582_323964676.dir/library_init_212934582_323964676.cpp.o
-.PHONY : library_init_212934582_323964676.cpp.o
-
-library_init_212934582_323964676.i: library_init_212934582_323964676.cpp.i
-.PHONY : library_init_212934582_323964676.i
-
-# target to preprocess a source file
-library_init_212934582_323964676.cpp.i:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f GameManager/CMakeFiles/GameManager_212934582_323964676.dir/build.make GameManager/CMakeFiles/GameManager_212934582_323964676.dir/library_init_212934582_323964676.cpp.i
-.PHONY : library_init_212934582_323964676.cpp.i
-
-library_init_212934582_323964676.s: library_init_212934582_323964676.cpp.s
-.PHONY : library_init_212934582_323964676.s
-
-# target to generate assembly for a file
-library_init_212934582_323964676.cpp.s:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f GameManager/CMakeFiles/GameManager_212934582_323964676.dir/build.make GameManager/CMakeFiles/GameManager_212934582_323964676.dir/library_init_212934582_323964676.cpp.s
-.PHONY : library_init_212934582_323964676.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -190,9 +166,6 @@ help:
 	@echo "... GameManager_212934582_323964676.o"
 	@echo "... GameManager_212934582_323964676.i"
 	@echo "... GameManager_212934582_323964676.s"
-	@echo "... library_init_212934582_323964676.o"
-	@echo "... library_init_212934582_323964676.i"
-	@echo "... library_init_212934582_323964676.s"
 .PHONY : help
 
 

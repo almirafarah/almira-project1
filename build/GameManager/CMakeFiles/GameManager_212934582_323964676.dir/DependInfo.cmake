@@ -9,7 +9,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/GameManager/GameManager_212934582_323964676.cpp" "GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.o" "gcc" "GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.o.d"
-  "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/GameManager/library_init_212934582_323964676.cpp" "GameManager/CMakeFiles/GameManager_212934582_323964676.dir/library_init_212934582_323964676.cpp.o" "gcc" "GameManager/CMakeFiles/GameManager_212934582_323964676.dir/library_init_212934582_323964676.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
