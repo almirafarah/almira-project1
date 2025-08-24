@@ -80,4 +80,12 @@ public:
     void clear() { algorithms.clear(); }
 };
 
+// C-style wrappers so external algorithm libraries can register themselves
+extern "C" {
+void createAlgorithmFactoryEntry(const char* name);
+void addPlayerFactoryToLastEntry(PlayerFactory factory);
+void addTankAlgorithmFactoryToLastEntry(TankAlgorithmFactory factory);
+void validateLastRegistration();
+}
+
 #endif // SIMULATOR_ALGORITHMREGISTRAR_H
