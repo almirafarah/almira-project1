@@ -49,4 +49,9 @@ void TankAlgorithm_Simple_212934582_323964676::updateBattleInfo(BattleInfo& info
 
 } // namespace Algorithm_212934582_323964676
 
+#include "../common/TankAlgorithmRegistration.h"
+using Algorithm_212934582_323964676::TankAlgorithm_Simple_212934582_323964676;
+REGISTER_TANK_ALGORITHM(TankAlgorithm_Simple_212934582_323964676)
+
+
 

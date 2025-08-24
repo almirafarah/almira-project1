@@ -14,7 +14,6 @@ set(SOURCES_AGGR
         Player_Aggressive_212934582_323964676.cpp
         AggressiveTankAI_212934582_323964676.cpp
         AggressiveTankAI_212934582_323964676.h
-        library_init_aggressive_212934582_323964676.cpp
 )
 add_library(Algorithm_Aggressive_212934582_323964676 SHARED ${SOURCES_AGGR})
 target_include_directories(Algorithm_Aggressive_212934582_323964676 PUBLIC
@@ -27,7 +26,6 @@ set(SOURCES_SIMPLE
         Player_Simple_212934582_323964676.cpp
         TankAlgorithm_Simple_212934582_323964676.cpp
         TankAlgorithm_Simple_212934582_323964676.h
-        library_init_simple_212934582_323964676.cpp
 )
 add_library(Algorithm_Simple_212934582_323964676 SHARED ${SOURCES_SIMPLE})
 target_include_directories(Algorithm_Simple_212934582_323964676 PUBLIC

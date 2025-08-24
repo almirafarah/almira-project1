@@ -10,7 +10,6 @@ include_directories(../common)
 # Source files
 set(SOURCES
     GameManager_212934582_323964676.cpp
-    library_init_212934582_323964676.cpp
 )
 
 # Create shared library (.so) with unique name

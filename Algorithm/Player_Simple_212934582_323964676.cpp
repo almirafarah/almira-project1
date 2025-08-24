@@ -19,3 +19,8 @@ void Player_Simple_212934582_323964676::updateTankWithBattleInfo(TankAlgorithm& 
 }
 
 } // namespace Algorithm_212934582_323964676
+
+#include "../common/PlayerRegistration.h"
+using Algorithm_212934582_323964676::Player_Simple_212934582_323964676;
+REGISTER_PLAYER(Player_Simple_212934582_323964676)
+

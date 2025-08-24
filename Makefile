@@ -37,7 +37,7 @@ simulator:
 test_main: game_manager algorithm
 	@echo "Building test executable..."
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $(BIN_DIR)/test_gamemanager test_main.cpp \
-		-L$(LIB_DIR) -lGameManager -lAlgorithm -lAlgorithmRegistrar
+		-L$(LIB_DIR) -lGameManager -lAlgorithm -lregistration
 
 # Clean all build artifacts
 clean:

@@ -27,7 +27,7 @@ directories:
 # Build the shared library
 $(TARGET): $(OBJECTS)
 	@echo "Linking GameManager library..."
-	$(CXX) -shared -o $@ $^
+	$(CXX) -shared -o $@ $^ -L../build/lib -lregistration
 	@echo "GameManager library built: $@"
 
 # Compile source files

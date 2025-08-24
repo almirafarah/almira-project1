@@ -366,3 +366,8 @@ void AggressiveTankAI_212934582_323964676::computePathToNearestEnemy() {
 }
 
 } // namespace Algorithm_212934582_323964676
+
+#include "../common/TankAlgorithmRegistration.h"
+using Algorithm_212934582_323964676::AggressiveTankAI_212934582_323964676;
+REGISTER_TANK_ALGORITHM(AggressiveTankAI_212934582_323964676)
+

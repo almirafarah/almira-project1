@@ -16,7 +16,6 @@ SOURCES = \
     AggressiveTankAI_212934582_323964676.cpp \
     Player_Simple_212934582_323964676.cpp \
     TankAlgorithm_Simple_212934582_323964676.cpp \
-    registration_all_212934582_323964676.cpp
 OBJECTS = $(SOURCES:%.cpp=$(OBJ_DIR)/%.o)
 
 # Target library
@@ -32,7 +31,7 @@ directories:
 # Build the shared library
 $(TARGET): $(OBJECTS)
 	@echo "Linking Algorithm library..."
-	$(CXX) -shared -o $@ $^
+	$(CXX) -shared -o $@ $^ -L../build/lib -lregistration
 	@echo "Algorithm library built: $@"
 
 # Compile source files
