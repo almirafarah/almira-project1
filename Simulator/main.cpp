@@ -4,10 +4,21 @@
 #include <map>
 #include <filesystem>
 
+// Platform-dependent dynamic library extension used in help messages
+#ifdef _WIN32
+static const char* DYN_LIB_EXT = ".dll";
+#else
+static const char* DYN_LIB_EXT = ".so";
+#endif
+
 void printUsage(const std::string& program_name, const std::string& error_msg = "") {
     std::cout << "Usage:" << std::endl;
-    std::cout << "  " << program_name << " -comparative game_map=<file> game_managers_folder=<folder> algorithm1=<.so> algorithm2=<.so> [num_threads=<N>] [-verbose]" << std::endl;
-    std::cout << "  " << program_name << " -competition game_maps_folder=<folder> game_manager=<.so> algorithms_folder=<folder> [num_threads=<N>] [-verbose]" << std::endl;
+    std::cout << "  " << program_name
+              << " -comparative game_map=<file> game_managers_folder=<folder> algorithm1=<" << DYN_LIB_EXT
+              << "> algorithm2=<" << DYN_LIB_EXT << "> [num_threads=<N>] [-verbose]" << std::endl;
+    std::cout << "  " << program_name
+              << " -competition game_maps_folder=<folder> game_manager=<" << DYN_LIB_EXT
+              << "> algorithms_folder=<folder> [num_threads=<N>] [-verbose]" << std::endl;
     std::cout << std::endl;
     std::cout << "Arguments:" << std::endl;
     std::cout << "  -comparative: Run all GameManagers in folder on single map with two algorithms" << std::endl;
