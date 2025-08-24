@@ -4,6 +4,11 @@ project(TankBattleSimulator)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Windows-specific settings for shared libraries
+if(WIN32)
+    set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+endif()
+
 # Set output directories
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
@@ -26,14 +31,15 @@ add_subdirectory(Simulator)
 # Print summary
 message(STATUS "Build targets:")
 message(STATUS "  - GameManager library: GameManager_212934582_323964676")
-message(STATUS "  - Algorithm library: Algorithm_212934582_323964676")
+message(STATUS "  - Algorithm libraries: Algorithm_Aggressive_212934582_323964676, Algorithm_Simple_212934582_323964676")
 message(STATUS "  - Simulator executable: simulator_212934582_323964676")
 
 # Optional: Create a custom target to build everything  
 add_custom_target(all_targets
     DEPENDS 
         GameManager_212934582_323964676
-        Algorithm_212934582_323964676
+        Algorithm_Aggressive_212934582_323964676
+        Algorithm_Simple_212934582_323964676
         simulator_212934582_323964676
     COMMENT "Building all targets (.so libraries and simulator)"
 )
