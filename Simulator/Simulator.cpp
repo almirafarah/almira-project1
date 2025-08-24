@@ -21,7 +21,9 @@
 #include <vector>
 #include <cctype>
 #include <charconv>
-
+#include <string>
+#include <map>
+#include <tuple>
 namespace {
 // Parses a positive integer from an arbitrary string using std::from_chars.
 // Returns 0 on failure.
@@ -349,20 +351,146 @@ std::unique_ptr<SatelliteView> Simulator::createMapFromFile(const std::string &m
 
 // ------------------------------------------------------------
 // Output writers
+
 // ------------------------------------------------------------
+namespace {
+    // Convert final game state into vector of lines for output
+    std::vector<std::string> gameStateToLines(const GameResult &gr, size_t width, size_t height) {
+        std::vector<std::string> lines;
+        if (!gr.gameState) return lines;
+        for (size_t y = 0; y < height; ++y) {
+            std::string row;
+            for (size_t x = 0; x < width; ++x) {
+                row.push_back(gr.gameState->getObjectAt(x, y));
+            }
+            lines.push_back(row);
+        }
+        return lines;
+    }
+
+    // Create a human readable message for game result
+    std::string resultMessage(const GameResult &gr) {
+        switch (gr.reason) {
+            case GameResult::ALL_TANKS_DEAD:
+                if (gr.winner == 0)
+                    return "Tie: all tanks destroyed";
+                else
+                    return "Player " + std::to_string(gr.winner) +
+                           " won: all opponent tanks destroyed";
+            case GameResult::MAX_STEPS:
+                if (gr.winner == 0)
+                    return "Tie: maximum rounds reached";
+                else
+                    return "Player " + std::to_string(gr.winner) +
+                           " won: more tanks remaining after maximum rounds";
+            case GameResult::ZERO_SHELLS:
+                if (gr.winner == 0)
+                    return "Tie: no shells remain";
+                else
+                    return "Player " + std::to_string(gr.winner) +
+                           " won: opponent ran out of shells";
+        }
+        return "";
+    }
+
+    struct ResultKey {
+        int winner;
+        GameResult::Reason reason;
+        size_t rounds;
+        std::string board;
+        bool operator<(const ResultKey &other) const {
+            return std::tie(winner, reason, rounds, board) <
+                   std::tie(other.winner, other.reason, other.rounds, other.board);
+        }
+    };
+} // namespace
+
 void Simulator::writeComparativeResults(const std::string &output_folder,
                                         const std::vector<SimulatorGameResult> &results) {
+       if (results.empty()) return;
+
+    // Build groups of game managers by identical final result
+    std::map<ResultKey, std::vector<const SimulatorGameResult*>> groups;
+    for (const auto &res : results) {
+        std::string board;
+        auto lines = gameStateToLines(res.game_result, res.map_width, res.map_height);
+        for (size_t i = 0; i < lines.size(); ++i) {
+            board += lines[i];
+            if (i + 1 < lines.size()) board += '\n';
+        }
+        ResultKey key{res.game_result.winner, res.game_result.reason,
+                       res.game_result.rounds, board};
+        groups[key].push_back(&res);
+    }
+
+    // Convert to vector and sort by group size (largest first)
+    struct GroupData {
+        std::vector<const SimulatorGameResult*> entries;
+        ResultKey key;
+    };
+    std::vector<GroupData> ordered;
+    for (auto &kv : groups) {
+        ordered.push_back({kv.second, kv.first});
+    }
+    std::sort(ordered.begin(), ordered.end(),
+              [](const GroupData &a, const GroupData &b) {
+                  return a.entries.size() > b.entries.size();
+              });
+
+    // Prepare header information
+    std::ostringstream output;
+    auto map_filename = std::filesystem::path(results.front().map_name).filename().string();
+    auto alg1_filename = std::filesystem::path(results.front().algorithm1_file).filename().string();
+    auto alg2_filename = std::filesystem::path(results.front().algorithm2_file).filename().string();
+    output << "game_map=" << map_filename << '\n';
+    output << "algorithm1=" << alg1_filename << '\n';
+    output << "algorithm2=" << alg2_filename << '\n';
+    output << '\n';
+
+    // Write each group
+    for (size_t g = 0; g < ordered.size(); ++g) {
+        auto &grp = ordered[g];
+        // line e: comma separated list of game manager names
+        for (size_t i = 0; i < grp.entries.size(); ++i) {
+            auto name = std::filesystem::path(grp.entries[i]->game_manager_file).filename().string();
+            if (i) output << ',';
+            output << name;
+        }
+        output << '\n';
+
+        // line f: game result message
+        output << resultMessage(grp.entries.front()->game_result) << '\n';
+
+        // line g: round number
+        output << grp.entries.front()->game_result.rounds << '\n';
+
+        // line h: final map
+        auto board_lines = gameStateToLines(grp.entries.front()->game_result,
+                                            grp.entries.front()->map_width,
+                                            grp.entries.front()->map_height);
+        for (const auto &line : board_lines) {
+            output << line << '\n';
+        }
+
+        if (g + 1 < ordered.size()) {
+            output << '\n';
+        }
+    }
+
+    // Determine output path
     std::filesystem::create_directories(output_folder);
     std::string out_path = output_folder;
-    out_path += "/comparative_results.csv";
+    out_path += "/comparative_results_";
+    out_path += generateTimestamp();
+    out_path += ".txt";
+
     std::ofstream out(out_path);
-    if (!out.is_open()) return;
-    out << "Algorithm1,Algorithm2,Winner\n";
-    for (const auto &res : results) {
-        out << getLibraryName(res.algorithm1_file) << ','
-            << getLibraryName(res.algorithm2_file) << ','
-            << res.game_result.winner << "\n";
+    if (!out.is_open()) {
+        std::cerr << "Error: Could not create output file: " << out_path << std::endl;
+        std::cout << output.str();
+        return;
     }
+    out << output.str();
 }
 
 void Simulator::writeCompetitionResults(const std::string &output_folder,
