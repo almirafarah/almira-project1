@@ -7,7 +7,11 @@
 #include "../common/GameManagerRegistration.h"
 #include "AlgorithmRegistrar.h"
 #include "DynamicLibraryLoader.h"
-
+#include <string>
+#include <map>
+#include <unordered_map>
+#include <set>
+#include <tuple>
 #include <algorithm>
 #include <chrono>
 #include <filesystem>
@@ -405,9 +409,12 @@ namespace {
     };
 } // namespace
 
+
 void Simulator::writeComparativeResults(const std::string &output_folder,
                                         const std::vector<SimulatorGameResult> &results) {
        if (results.empty()) return;
+
+    if (results.empty()) return;
 
     // Build groups of game managers by identical final result
     std::map<ResultKey, std::vector<const SimulatorGameResult*>> groups;
@@ -477,6 +484,7 @@ void Simulator::writeComparativeResults(const std::string &output_folder,
         }
     }
 
+
     // Determine output path
     std::filesystem::create_directories(output_folder);
     std::string out_path = output_folder;
@@ -494,20 +502,49 @@ void Simulator::writeComparativeResults(const std::string &output_folder,
 }
 
 void Simulator::writeCompetitionResults(const std::string &output_folder,
+                                        const std::string &game_maps_folder,
+                                        const std::string &game_manager_file,
                                         const std::vector<SimulatorGameResult> &results) {
-    std::filesystem::create_directories(output_folder);
-    std::string filename = output_folder;
-    filename += "/competition_";
-    filename += generateTimestamp();
-    filename += ".txt";
-    std::ofstream out(filename);
-    if (!out.is_open()) return;
-    out << "Algorithm1,Algorithm2,Winner\n";
+    if (results.empty()) return;
+
+    // Accumulate scores per algorithm
+    std::unordered_map<std::string, int> scores;
     for (const auto &res : results) {
-        out << getLibraryName(res.algorithm1_file) << ','
-            << getLibraryName(res.algorithm2_file) << ','
-            << res.game_result.winner << "\n";
+        std::string alg1 = getLibraryName(res.algorithm1_file);
+        std::string alg2 = getLibraryName(res.algorithm2_file);
+        scores.try_emplace(alg1, 0);
+        scores.try_emplace(alg2, 0);
+        switch (res.game_result.winner) {
+            case 1: scores[alg1] += 3; break;
+            case 2: scores[alg2] += 3; break;
+            default:
+                scores[alg1] += 1;
+                scores[alg2] += 1;
+                break;
+        }
     }
+
+    // Sort by score descending
+    std::vector<std::pair<std::string, int>> ordered(scores.begin(), scores.end());
+    std::sort(ordered.begin(), ordered.end(),
+              [](const auto &a, const auto &b) { return a.second > b.second; });
+    std::ostringstream output;
+    output << "game_maps_folder=" << game_maps_folder << '\n';
+    output << "game_manager=" << std::filesystem::path(game_manager_file).filename().string() << '\n';
+    output << '\n';
+    for (const auto &p : ordered) {
+        output << p.first << ' ' << p.second << '\n';
+    }
+    std::filesystem::create_directories(output_folder);
+
+    std::string filename = output_folder + "/competition_" + generateTimestamp() + ".txt";
+    std::ofstream out(filename);
+    if (!out.is_open()) {
+        std::cerr << "Error: Could not create output file: " << filename << std::endl;
+        std::cout << output.str();
+        return;
+    }
+    out << output.str();
 }
 
 // ------------------------------------------------------------
@@ -630,14 +667,27 @@ bool Simulator::runCompetition(const std::string &game_maps_folder, const std::s
         return false;
     }
 
-    const size_t total_tasks = map_files.size() * (N * (N - 1) / 2);
+    // Precompute total number of games
+    size_t total_tasks = 0;
+    for (size_t k = 0; k < map_files.size(); ++k) {
+        size_t off1 = 1 + k % (N - 1);
+        size_t off2 = 1 + (k + 1) % (N - 1);
+        std::set<std::pair<size_t, size_t>> pairs;
+        for (size_t i = 0; i < N; ++i) {
+            size_t j1 = (i + off1) % N;
+            size_t j2 = (i + off2) % N;
+            if (i != j1) pairs.insert({std::min(i, j1), std::max(i, j1)});
+            if (i != j2) pairs.insert({std::min(i, j2), std::max(i, j2)});
+        }
+        total_tasks += pairs.size();
+    }
     if (verbose_) {
+
         std::cout << "Total tasks to be created: " << total_tasks << std::endl;
     }
 
     initializeThreadPool(std::max(1, num_threads), total_tasks);
-
-    // Round-robin tournament-style pairing that varies by map index k
+    // Schedule games for each map
     for (size_t k = 0; k < map_files.size(); ++k) {
         const auto &map_file = map_files[k];
         std::string map_path = game_maps_folder;
@@ -663,28 +713,29 @@ bool Simulator::runCompetition(const std::string &game_maps_folder, const std::s
                 width      = parsePositiveNumber(lines[4]);
             }
         }
-
+        size_t off1 = 1 + k % (N - 1);
+        size_t off2 = 1 + (k + 1) % (N - 1);
+        std::set<std::pair<size_t, size_t>> pairs;
         for (size_t i = 0; i < N; ++i) {
-            // Tournament formula: j = (i + 1 + k % (N - 1)) % N
-            size_t j = (i + 1 + (N > 1 ? (k % (N - 1)) : 0)) % N;
-
-            // Skip duplicates / self-play
-            if (i >= j) continue;
+            size_t j1 = (i + off1) % N;
+            size_t j2 = (i + off2) % N;
+            if (i != j1) pairs.insert({std::min(i, j1), std::max(i, j1)});
+            if (i != j2) pairs.insert({std::min(i, j2), std::max(i, j2)});
+        }
+        for (const auto &p : pairs) {
+            size_t i = p.first;
+            size_t j = p.second;
 
             if (verbose_) {
                 std::cout << "  Algorithm " << i << " (" << algo_files[i] << ")"
                           << " vs "
-                          << "Algorithm " << j << " (" << algo_files[j] << ")"
-                          << std::endl;
+                << "Algorithm " << j << " (" << algo_files[j] << ")" << std::endl;
             }
 
             // Create task for this pairing
-            std::string alg1_path = algorithms_folder;
-            alg1_path += "/";
-            alg1_path += algo_files[i];
-            std::string alg2_path = algorithms_folder;
-            alg2_path += "/";
-            alg2_path += algo_files[j];
+            std::string alg1_path = algorithms_folder + "/" + algo_files[i];
+            std::string alg2_path = algorithms_folder + "/" + algo_files[j];
+
 
             GameTask task(game_manager, alg1_path, alg2_path, map_path,
                           map_name, width, height, max_steps, num_shells, verbose);
@@ -693,6 +744,6 @@ bool Simulator::runCompetition(const std::string &game_maps_folder, const std::s
     }
 
     waitForAllTasks();
-    writeCompetitionResults(algorithms_folder, game_results_);
+    writeCompetitionResults(algorithms_folder, game_maps_folder, game_manager, game_results_);
     return true;
 }
