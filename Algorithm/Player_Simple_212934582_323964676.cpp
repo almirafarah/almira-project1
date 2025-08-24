@@ -1,6 +1,5 @@
 #include "Player_Simple_212934582_323964676.h"
 #include "../common/BattleInfo.h"
-#include <iostream>
 
 namespace Algorithm_212934582_323964676 {
 
@@ -17,9 +16,6 @@ void Player_Simple_212934582_323964676::updateTankWithBattleInfo(TankAlgorithm& 
     tank_algo.updateBattleInfo(info);
     
     // Simple player - focused on defensive/evasive tactics
-    if (player_index_ <= 2) {  // Only log for valid players
-        std::cout << "Simple Player " << player_index_ << " updated with battle info at (" << x_ << ", " << y_ << ")" << std::endl;
-    }
 }
 
 } // namespace Algorithm_212934582_323964676

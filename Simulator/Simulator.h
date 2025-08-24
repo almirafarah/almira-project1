@@ -126,6 +126,8 @@ private:
     static void writeComparativeResults(const std::string& output_folder,
                                         const std::vector<SimulatorGameResult>& results);
     static void writeCompetitionResults(const std::string& output_folder,
+                                        const std::string& game_maps_folder,
+                                        const std::string& game_manager_file,
                                         const std::vector<SimulatorGameResult>& results);
 
     // Utility functions
