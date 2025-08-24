@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../lib/libsimulator_lib.a CMakeFiles/simulator_lib.dir/Simulator.cpp.o CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.o
+/usr/bin/ranlib ../lib/libsimulator_lib.a

@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/simulator_212934582_323964676.dir/main.cpp.o -o ../bin/simulator_212934582_323964676  -Wl,-rpath,"/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/lib" ../lib/libsimulator_lib.a ../lib/libregistration.so -ldl -lpthread 

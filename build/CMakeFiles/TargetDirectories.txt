@@ -1,0 +1,15 @@
+/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles/registration.dir
+/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles/all_targets.dir
+/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/GameManager/CMakeFiles/GameManager_212934582_323964676.dir
+/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/GameManager/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/GameManager/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir
+/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir
+/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Algorithm/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Algorithm/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Simulator/CMakeFiles/simulator_lib.dir
+/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Simulator/CMakeFiles/simulator_212934582_323964676.dir
+/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Simulator/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Simulator/CMakeFiles/rebuild_cache.dir
