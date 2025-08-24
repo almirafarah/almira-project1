@@ -23,8 +23,7 @@
 #include <charconv>
 
 namespace {
-// Parses a positive integer from an arbitrary string.
-// Collects digit characters and parses via std::from_chars (no exceptions).
+// Parses a positive integer from an arbitrary string using std::from_chars.
 // Returns 0 on failure.
 size_t parsePositiveNumber(const std::string &s) {
     std::string num;
@@ -42,6 +41,7 @@ size_t parsePositiveNumber(const std::string &s) {
 } // namespace
 
 // ---- platform lib extension (Windows: .dll, Unix: .so) ----
+static std::mutex algorithm_load_mutex;
 #ifdef _WIN32
 static const std::string LIB_EXTENSION = ".dll";
 #else
@@ -83,7 +83,9 @@ void Simulator::workerThread() {
             condition_.wait(lock, [this] {
                 return stop_workers_ || !task_queue_.empty();
             });
-            if (stop_workers_ && task_queue_.empty()) return;
+            if (stop_workers_ && task_queue_.empty()) {
+                return;
+            }
             task = task_queue_.front();
             task_queue_.pop();
         }
@@ -145,6 +147,18 @@ bool Simulator::loadAlgorithmLibrary(const std::string &library_path) {
                   << "Error: " << loader->getLastError() << std::endl;
         return false;
     }
+
+    // Optional registration hooks exported by some DLLs/SOs
+    using ForceInitFunc = int (*)();
+    if (auto func = reinterpret_cast<ForceInitFunc>(loader->getFunction("force_registration_initialization"))) {
+        func();
+    } else {
+        using InitFunc = void (*)();
+        if (auto init = reinterpret_cast<InitFunc>(loader->getFunction("initialize_algorithm"))) {
+            init();
+        }
+    }
+
     loaded_algorithm_libraries_.push_back(std::move(loader));
     return true;
 }
@@ -164,6 +178,13 @@ bool Simulator::loadGameManagerLibrary(const std::string &library_path) {
 // Game execution
 // ------------------------------------------------------------
 SimulatorGameResult Simulator::executeGame(const GameTask &task) {
+    // Create map view (do this first; on failure return empty result)
+    auto map_view = createMapFromFile(task.map_path, task.map_width, task.map_height);
+    if (!map_view) {
+        std::cerr << "Failed to create map from file: " << task.map_path << std::endl;
+        return {};
+    }
+
     SimulatorGameResult result;
 
     // Store metadata
@@ -174,13 +195,6 @@ SimulatorGameResult Simulator::executeGame(const GameTask &task) {
     result.map_path          = task.map_path;
     result.map_width         = task.map_width;
     result.map_height        = task.map_height;
-
-    // Create map view
-    auto map_view = createMapFromFile(task.map_path, task.map_width, task.map_height);
-    if (!map_view) {
-        std::cerr << "Failed to create map from file: " << task.map_path << std::endl;
-        return result;
-    }
 
     // Find first tanks for players '1' and '2'
     size_t p1_x = 0, p1_y = 0, p2_x = 0, p2_y = 0;
@@ -193,59 +207,53 @@ SimulatorGameResult Simulator::executeGame(const GameTask &task) {
         }
     }
 
-    // Load and register algorithms
-    auto &registrar = AlgorithmRegistrar::getAlgorithmRegistrar();
-    registrar.clear();
-    loaded_algorithm_libraries_.clear();
+    // Load and register algorithms (thread-safe)
+    std::unique_ptr<Player> player1;
+    std::unique_ptr<Player> player2;
+    TankAlgorithmFactory tank_algo_factory1;
+    TankAlgorithmFactory tank_algo_factory2;
+    {
+        std::lock_guard<std::mutex> lock(algorithm_load_mutex);
+        auto &registrar = AlgorithmRegistrar::getAlgorithmRegistrar();
+        registrar.clear();
 
-    if (!loadAlgorithmLibrary(task.algorithm1_path) ||
-        !loadAlgorithmLibrary(task.algorithm2_path)) {
-        std::cerr << "Failed to load algorithm libraries" << std::endl;
-        return result;
-    }
-
-    if (registrar.count() < 2) {
-        std::cerr << "Algorithm registration incomplete. Expected 2, got " << registrar.count() << std::endl;
-        std::cerr << "Algorithm 1 path: " << task.algorithm1_path << std::endl;
-        std::cerr << "Algorithm 2 path: " << task.algorithm2_path << std::endl;
-        
-        // Debug: Show what algorithms are actually registered
-        if (registrar.count() > 0) {
-            std::cerr << "Currently registered algorithms:" << std::endl;
-            for (auto it = registrar.begin(); it != registrar.end(); ++it) {
-                std::cerr << "  - " << it->name() << std::endl;
-            }
-        } else {
-            std::cerr << "No algorithms registered at all!" << std::endl;
+        // Unload any previously loaded algos to force re-registration on next load
+        for (auto &loader : loaded_algorithm_libraries_) {
+            if (loader) loader->unload();
         }
-        
-        // Debug: Show what was loaded
-        std::cerr << "Loaded algorithm libraries:" << std::endl;
-        for (const auto& lib : loaded_algorithm_libraries_) {
-            std::cerr << "  - Library loaded successfully" << std::endl;
+        loaded_algorithm_libraries_.clear();
+
+        if (!loadAlgorithmLibrary(task.algorithm1_path) ||
+            !loadAlgorithmLibrary(task.algorithm2_path)) {
+            std::cerr << "Failed to load algorithm libraries" << std::endl;
+            return result;
         }
-        
-        return result;
+
+        if (registrar.count() < 2) {
+            std::cerr << "Algorithm registration incomplete. Expected 2, got "
+                      << registrar.count() << std::endl;
+            std::cerr << "Algorithm 1 path: " << task.algorithm1_path << std::endl;
+            std::cerr << "Algorithm 2 path: " << task.algorithm2_path << std::endl;
+            return result;
+        }
+
+        auto it = registrar.begin();
+        auto algo1 = *it; ++it;
+        auto algo2 = *it;
+
+        result.algorithm1_name = algo1.name();
+        result.algorithm2_name = algo2.name();
+
+        player1 = algo1.createPlayer(1, p1_x, p1_y, task.max_steps, task.num_shells);
+        player2 = algo2.createPlayer(2, p2_x, p2_y, task.max_steps, task.num_shells);
+
+        tank_algo_factory1 = [algo1](int player_index, int tank_index) {
+            return algo1.createTankAlgorithm(player_index, tank_index);
+        };
+        tank_algo_factory2 = [algo2](int player_index, int tank_index) {
+            return algo2.createTankAlgorithm(player_index, tank_index);
+        };
     }
-
-    auto it = registrar.begin();
-    const auto &algo1 = *it; ++it;
-    const auto &algo2 = *it;
-
-    result.algorithm1_name = algo1.name();
-    result.algorithm2_name = algo2.name();
-
-    // Create players
-    auto player1 = algo1.createPlayer(1, p1_x, p1_y, task.max_steps, task.num_shells);
-    auto player2 = algo2.createPlayer(2, p2_x, p2_y, task.max_steps, task.num_shells);
-
-    // Tank algorithm factories for GameManager
-    TankAlgorithmFactory tank_algo_factory1 = [&algo1](int player_index, int tank_index) {
-        return algo1.createTankAlgorithm(player_index, tank_index);
-    };
-    TankAlgorithmFactory tank_algo_factory2 = [&algo2](int player_index, int tank_index) {
-        return algo2.createTankAlgorithm(player_index, tank_index);
-    };
 
     // Load GameManager
     if (!loadGameManagerLibrary(task.game_manager_path)) {
@@ -325,11 +333,11 @@ std::unique_ptr<SatelliteView> Simulator::createMapFromFile(const std::string &m
     class FileSatelliteView : public SatelliteView {
     public:
         explicit FileSatelliteView(std::vector<std::string> b) : board_(std::move(b)) {}
-        char getObjectAt(size_t x, size_t y) const override {
-            if (y >= board_.size() || x >= board_[y].size()) return '&';
-            return board_[y][x];
+        [[nodiscard]] char getObjectAt(size_t xCoord, size_t yCoord) const override {
+            if (yCoord >= board_.size() || xCoord >= board_[yCoord].size()) return '&';
+            return board_[yCoord][xCoord];
         }
-        std::unique_ptr<SatelliteView> clone() const override {
+        [[nodiscard]] std::unique_ptr<SatelliteView> clone() const override {
             return std::make_unique<FileSatelliteView>(*this);
         }
     private:
@@ -345,7 +353,9 @@ std::unique_ptr<SatelliteView> Simulator::createMapFromFile(const std::string &m
 void Simulator::writeComparativeResults(const std::string &output_folder,
                                         const std::vector<SimulatorGameResult> &results) {
     std::filesystem::create_directories(output_folder);
-    std::ofstream out(output_folder + "/comparative_results.csv");
+    std::string out_path = output_folder;
+    out_path += "/comparative_results.csv";
+    std::ofstream out(out_path);
     if (!out.is_open()) return;
     out << "Algorithm1,Algorithm2,Winner\n";
     for (const auto &res : results) {
@@ -358,7 +368,10 @@ void Simulator::writeComparativeResults(const std::string &output_folder,
 void Simulator::writeCompetitionResults(const std::string &output_folder,
                                         const std::vector<SimulatorGameResult> &results) {
     std::filesystem::create_directories(output_folder);
-    std::string filename = output_folder + "/competition_" + generateTimestamp() + ".txt";
+    std::string filename = output_folder;
+    filename += "/competition_";
+    filename += generateTimestamp();
+    filename += ".txt";
     std::ofstream out(filename);
     if (!out.is_open()) return;
     out << "Algorithm1,Algorithm2,Winner\n";
@@ -418,7 +431,6 @@ bool Simulator::runComparative(const std::string &game_map, const std::string &g
 
     // collect game manager libraries (*.dll/.so)
     auto gm_files = getFilesInFolder(game_managers_folder, LIB_EXTENSION);
-    // keep only files that look like GameManager libs (optional heuristic)
     gm_files.erase(std::remove_if(gm_files.begin(), gm_files.end(),
                                   [](const std::string &f) {
                                       return f.find("GameManager") == std::string::npos;
@@ -451,7 +463,9 @@ bool Simulator::runComparative(const std::string &game_map, const std::string &g
 
     initializeThreadPool(std::max(1, num_threads), gm_files.size());
     for (const auto &gm_file : gm_files) {
-        std::string gm_path = game_managers_folder + "/" + gm_file;
+        std::string gm_path = game_managers_folder;
+        gm_path += "/";
+        gm_path += gm_file;
         GameTask task(gm_path, algorithm1, algorithm2, game_map,
                       map_name, width, height, max_steps, num_shells, verbose);
         submitTask(task);
@@ -476,7 +490,6 @@ bool Simulator::runCompetition(const std::string &game_maps_folder, const std::s
 
     // algorithms (*.dll/.so)
     auto algo_files = getFilesInFolder(algorithms_folder, LIB_EXTENSION);
-    // keep only files that look like Algorithm libs (optional heuristic)
     algo_files.erase(std::remove_if(algo_files.begin(), algo_files.end(),
                                     [](const std::string &f) {
                                         return f.find("Algorithm") == std::string::npos;
@@ -489,19 +502,19 @@ bool Simulator::runCompetition(const std::string &game_maps_folder, const std::s
         return false;
     }
 
-    // Optional: verbose summary
     const size_t total_tasks = map_files.size() * (N * (N - 1) / 2);
     if (verbose_) {
         std::cout << "Total tasks to be created: " << total_tasks << std::endl;
     }
 
-    // Initialize pool with total tasks
     initializeThreadPool(std::max(1, num_threads), total_tasks);
 
     // Round-robin tournament-style pairing that varies by map index k
     for (size_t k = 0; k < map_files.size(); ++k) {
         const auto &map_file = map_files[k];
-        std::string map_path = game_maps_folder + "/" + map_file;
+        std::string map_path = game_maps_folder;
+        map_path += "/";
+        map_path += map_file;
         std::string map_name = map_file;
 
         if (verbose_) {
@@ -538,8 +551,12 @@ bool Simulator::runCompetition(const std::string &game_maps_folder, const std::s
             }
 
             // Create task for this pairing
-            std::string alg1_path = algorithms_folder + "/" + algo_files[i];
-            std::string alg2_path = algorithms_folder + "/" + algo_files[j];
+            std::string alg1_path = algorithms_folder;
+            alg1_path += "/";
+            alg1_path += algo_files[i];
+            std::string alg2_path = algorithms_folder;
+            alg2_path += "/";
+            alg2_path += algo_files[j];
 
             GameTask task(game_manager, alg1_path, alg2_path, map_path,
                           map_name, width, height, max_steps, num_shells, verbose);
