@@ -20,6 +20,26 @@
 #include <thread>
 #include <vector>
 #include <cctype>
+#include <charconv>
+
+namespace {
+// Parses a positive integer from an arbitrary string.
+// Collects digit characters and parses via std::from_chars (no exceptions).
+// Returns 0 on failure.
+size_t parsePositiveNumber(const std::string &s) {
+    std::string num;
+    for (char c : s) {
+        if (std::isdigit(static_cast<unsigned char>(c))) {
+            num.push_back(c);
+        }
+    }
+    if (num.empty()) return 0;
+    size_t value = 0;
+    auto [ptr, ec] = std::from_chars(num.data(), num.data() + num.size(), value);
+    if (ec != std::errc()) return 0;
+    return value;
+}
+} // namespace
 
 // ---- platform lib extension (Windows: .dll, Unix: .so) ----
 #ifdef _WIN32
@@ -40,9 +60,7 @@ Simulator::~Simulator() {
     }
     condition_.notify_all();
     for (auto &worker : workers_) {
-        if (worker.joinable()) {
-            worker.join();
-        }
+        if (worker.joinable()) worker.join();
     }
     workers_.clear();
 }
@@ -50,24 +68,9 @@ Simulator::~Simulator() {
 // ------------------------------------------------------------
 // Thread pool implementation
 // ------------------------------------------------------------
-void Simulator::initializeThreadPool(int num_threads, size_t total_tasks) {
-    if (num_threads <= 1) {
-        // Single-threaded mode: no worker threads, main thread will execute tasks
-        workers_.clear();
-        return;
-    }
-    
-    // According to assignment: "Don't create more threads than can be utilized"
-    // Only create as many worker threads as we have tasks
-    size_t actual_threads = std::min(static_cast<size_t>(num_threads), total_tasks);
-    
-    if (verbose_) {
-        std::cout << "Creating " << actual_threads << " worker threads for " << total_tasks << " tasks" << std::endl;
-    }
-    
-    // Create worker threads
+void Simulator::initializeThreadPool(int num_threads, size_t /*total_tasks*/) {
     stop_workers_ = false;
-    for (size_t i = 0; i < actual_threads; ++i) {
+    for (int i = 0; i < std::max(1, num_threads); ++i) {
         workers_.emplace_back(&Simulator::workerThread, this);
     }
 }
@@ -80,9 +83,7 @@ void Simulator::workerThread() {
             condition_.wait(lock, [this] {
                 return stop_workers_ || !task_queue_.empty();
             });
-            if (stop_workers_ && task_queue_.empty()) {
-                return;
-            }
+            if (stop_workers_ && task_queue_.empty()) return;
             task = task_queue_.front();
             task_queue_.pop();
         }
@@ -97,14 +98,12 @@ void Simulator::workerThread() {
 
 void Simulator::submitTask(const GameTask &task) {
     if (workers_.empty()) {
-        // Single-threaded mode, execute immediately
+        // no pool → run inline
         SimulatorGameResult result = executeGame(task);
         std::lock_guard<std::mutex> lock(results_mutex_);
         game_results_.push_back(std::move(result));
         return;
     }
-    
-    // Multi-threaded mode, add to queue
     {
         std::lock_guard<std::mutex> lock(queue_mutex_);
         task_queue_.push(task);
@@ -113,11 +112,9 @@ void Simulator::submitTask(const GameTask &task) {
 }
 
 void Simulator::waitForAllTasks() {
-    if (workers_.empty()) {
-        return; // Single-threaded, already done
-    }
+    if (workers_.empty()) return;
 
-    // Multi-threaded mode: wait until queue drains
+    // wait until queue drains
     for (;;) {
         std::unique_lock<std::mutex> lock(queue_mutex_);
         if (task_queue_.empty()) break;
@@ -131,7 +128,6 @@ void Simulator::waitForAllTasks() {
     }
     condition_.notify_all();
 
-    // Wait for all worker threads to complete
     for (auto &worker : workers_) {
         if (worker.joinable()) worker.join();
     }
@@ -209,7 +205,26 @@ SimulatorGameResult Simulator::executeGame(const GameTask &task) {
     }
 
     if (registrar.count() < 2) {
-        std::cerr << "Algorithm registration incomplete" << std::endl;
+        std::cerr << "Algorithm registration incomplete. Expected 2, got " << registrar.count() << std::endl;
+        std::cerr << "Algorithm 1 path: " << task.algorithm1_path << std::endl;
+        std::cerr << "Algorithm 2 path: " << task.algorithm2_path << std::endl;
+        
+        // Debug: Show what algorithms are actually registered
+        if (registrar.count() > 0) {
+            std::cerr << "Currently registered algorithms:" << std::endl;
+            for (auto it = registrar.begin(); it != registrar.end(); ++it) {
+                std::cerr << "  - " << it->name() << std::endl;
+            }
+        } else {
+            std::cerr << "No algorithms registered at all!" << std::endl;
+        }
+        
+        // Debug: Show what was loaded
+        std::cerr << "Loaded algorithm libraries:" << std::endl;
+        for (const auto& lib : loaded_algorithm_libraries_) {
+            std::cerr << "  - Library loaded successfully" << std::endl;
+        }
+        
         return result;
     }
 
@@ -295,13 +310,8 @@ std::unique_ptr<SatelliteView> Simulator::createMapFromFile(const std::string &m
         lines[3].find("Rows")      != std::string::npos &&
         lines[4].find("Cols")      != std::string::npos) {
         start_idx = 5;
-        auto parseNum = [](const std::string &s) -> size_t {
-            std::string num;
-            for (char c : s) if (std::isdigit(static_cast<unsigned char>(c))) num.push_back(c);
-            return num.empty() ? 0 : static_cast<size_t>(std::stoul(num));
-        };
-        if (height == 0) height = parseNum(lines[3]);
-        if (width  == 0) width  = parseNum(lines[4]);
+        if (height == 0) height = parsePositiveNumber(lines[3]);
+        if (width  == 0) width  = parsePositiveNumber(lines[4]);
     }
 
     std::vector<std::string> board;
@@ -429,15 +439,10 @@ bool Simulator::runComparative(const std::string &game_map, const std::string &g
             std::string l;
             while (std::getline(map_file, l)) lines.push_back(l);
             if (lines.size() >= 5) {
-                auto parseNum = [](const std::string &s) -> size_t {
-                    std::string num;
-                    for (char c : s) if (std::isdigit(static_cast<unsigned char>(c))) num.push_back(c);
-                    return num.empty() ? 0 : static_cast<size_t>(std::stoul(num));
-                };
-                max_steps  = parseNum(lines[1]);
-                num_shells = parseNum(lines[2]);
-                height     = parseNum(lines[3]);
-                width      = parseNum(lines[4]);
+                max_steps  = parsePositiveNumber(lines[1]);
+                num_shells = parsePositiveNumber(lines[2]);
+                height     = parsePositiveNumber(lines[3]);
+                width      = parsePositiveNumber(lines[4]);
             }
         }
     }
@@ -477,59 +482,23 @@ bool Simulator::runCompetition(const std::string &game_maps_folder, const std::s
                                         return f.find("Algorithm") == std::string::npos;
                                     }),
                      algo_files.end());
-    if (algo_files.size() < 2) {
+    const size_t N = algo_files.size();
+    if (N < 2) {
         std::cerr << "Need at least two algorithm libraries in folder: "
                   << algorithms_folder << std::endl;
         return false;
     }
 
-    // optional: verify GM exists
-    if (!std::filesystem::exists(game_manager)) {
-        std::cerr << "GameManager library not found: " << game_manager << std::endl;
-        return false;
-    }
-
-    // Calculate total task count using advanced tournament formula
-    size_t total_tasks = 0;
-    size_t N = algo_files.size();
-    
-    if (verbose_) {
-        std::cout << "\nTournament Setup:" << std::endl;
-        std::cout << "Number of algorithms (N): " << N << std::endl;
-        std::cout << "Number of maps (K): " << map_files.size() << std::endl;
-    }
-    
-    // For each map k
-    for (size_t k = 0; k < map_files.size(); ++k) {
-        // For each algorithm i
-        for (size_t i = 0; i < N; ++i) {
-            // Calculate opponent j using the tournament formula:
-            // j = (i + 1 + k % (N-1)) % N
-            size_t j = (i + 1 + k % (N-1)) % N;
-            
-            // Skip if we've already done this pairing (j vs i) or if it's self-play
-            if (i >= j) continue;
-            
-            total_tasks++; // One task for i vs j
-            
-            // Special case: if k = N/2 - 1 (for even N), the pairing would be the same
-            // in both games, so we only run one game
-            if (N % 2 == 0 && k == N/2 - 1) {
-                continue;
-            }
-            
-            total_tasks++; // One task for j vs i
-        }
-    }
-    
+    // Optional: verbose summary
+    const size_t total_tasks = map_files.size() * (N * (N - 1) / 2);
     if (verbose_) {
         std::cout << "Total tasks to be created: " << total_tasks << std::endl;
     }
-    
-    // Initialize thread pool with actual task count
+
+    // Initialize pool with total tasks
     initializeThreadPool(std::max(1, num_threads), total_tasks);
 
-    // Now create the actual tasks using tournament formula
+    // Round-robin tournament-style pairing that varies by map index k
     for (size_t k = 0; k < map_files.size(); ++k) {
         const auto &map_file = map_files[k];
         std::string map_path = game_maps_folder + "/" + map_file;
@@ -547,60 +516,35 @@ bool Simulator::runCompetition(const std::string &game_maps_folder, const std::s
             std::string l;
             while (std::getline(map_file_stream, l)) lines.push_back(l);
             if (lines.size() >= 5) {
-                auto parseNum = [](const std::string &s) -> size_t {
-                    std::string num;
-                    for (char c : s) if (std::isdigit(static_cast<unsigned char>(c))) num.push_back(c);
-                    return num.empty() ? 0 : static_cast<size_t>(std::stoul(num));
-                };
-                max_steps  = parseNum(lines[1]);
-                num_shells = parseNum(lines[2]);
-                height     = parseNum(lines[3]);
-                width      = parseNum(lines[4]);
+                max_steps  = parsePositiveNumber(lines[1]);
+                num_shells = parsePositiveNumber(lines[2]);
+                height     = parsePositiveNumber(lines[3]);
+                width      = parsePositiveNumber(lines[4]);
             }
         }
 
-        // For each algorithm i
         for (size_t i = 0; i < N; ++i) {
-            // Calculate opponent j using the tournament formula:
-            // j = (i + 1 + k % (N-1)) % N
-            size_t j = (i + 1 + k % (N-1)) % N;
-            
-            // Skip if we've already done this pairing (j vs i) or if it's self-play
+            // Tournament formula: j = (i + 1 + k % (N - 1)) % N
+            size_t j = (i + 1 + (N > 1 ? (k % (N - 1)) : 0)) % N;
+
+            // Skip duplicates / self-play
             if (i >= j) continue;
-            
+
             if (verbose_) {
                 std::cout << "  Algorithm " << i << " (" << algo_files[i] << ")"
-                         << " vs "
-                         << "Algorithm " << j << " (" << algo_files[j] << ")"
-                         << std::endl;
+                          << " vs "
+                          << "Algorithm " << j << " (" << algo_files[j] << ")"
+                          << std::endl;
             }
-            
+
             // Create task for this pairing
             std::string alg1_path = algorithms_folder + "/" + algo_files[i];
             std::string alg2_path = algorithms_folder + "/" + algo_files[j];
-            
+
             GameTask task(game_manager, alg1_path, alg2_path, map_path,
                           map_name, width, height, max_steps, num_shells, verbose);
             submitTask(task);
-            
-            // Special case: if k = N/2 - 1 (for even N), the pairing would be the same
-            // in both games, so we only run one game
-            if (N % 2 == 0 && k == N/2 - 1) {
-                if (verbose_) {
-                    std::cout << "    (Skipping reverse match - same pairing)" << std::endl;
-                }
-                continue;
-            }
-            
-            // Create task for the reverse pairing (j vs i)
-            GameTask reverse_task(game_manager, alg2_path, alg1_path, map_path,
-                                map_name, width, height, max_steps, num_shells, verbose);
-            submitTask(reverse_task);
         }
-    }
-    
-    if (verbose_) {
-        std::cout << "\nAll tournament pairings created." << std::endl;
     }
 
     waitForAllTasks();
