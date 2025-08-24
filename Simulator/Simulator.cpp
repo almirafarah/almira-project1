@@ -21,6 +21,13 @@
 #include <vector>
 #include <cctype>
 
+// ---- platform lib extension (Windows: .dll, Unix: .so) ----
+#ifdef _WIN32
+static const std::string LIB_EXTENSION = ".dll";
+#else
+static const std::string LIB_EXTENSION = ".so";
+#endif
+
 // ------------------------------------------------------------
 // Construction / Destruction
 // ------------------------------------------------------------
@@ -37,14 +44,30 @@ Simulator::~Simulator() {
             worker.join();
         }
     }
+    workers_.clear();
 }
 
 // ------------------------------------------------------------
 // Thread pool implementation
 // ------------------------------------------------------------
-void Simulator::initializeThreadPool(int num_threads, size_t /*total_tasks*/) {
+void Simulator::initializeThreadPool(int num_threads, size_t total_tasks) {
+    if (num_threads <= 1) {
+        // Single-threaded mode: no worker threads, main thread will execute tasks
+        workers_.clear();
+        return;
+    }
+    
+    // According to assignment: "Don't create more threads than can be utilized"
+    // Only create as many worker threads as we have tasks
+    size_t actual_threads = std::min(static_cast<size_t>(num_threads), total_tasks);
+    
+    if (verbose_) {
+        std::cout << "Creating " << actual_threads << " worker threads for " << total_tasks << " tasks" << std::endl;
+    }
+    
+    // Create worker threads
     stop_workers_ = false;
-    for (int i = 0; i < num_threads; ++i) {
+    for (size_t i = 0; i < actual_threads; ++i) {
         workers_.emplace_back(&Simulator::workerThread, this);
     }
 }
@@ -73,6 +96,15 @@ void Simulator::workerThread() {
 }
 
 void Simulator::submitTask(const GameTask &task) {
+    if (workers_.empty()) {
+        // Single-threaded mode, execute immediately
+        SimulatorGameResult result = executeGame(task);
+        std::lock_guard<std::mutex> lock(results_mutex_);
+        game_results_.push_back(std::move(result));
+        return;
+    }
+    
+    // Multi-threaded mode, add to queue
     {
         std::lock_guard<std::mutex> lock(queue_mutex_);
         task_queue_.push(task);
@@ -81,19 +113,30 @@ void Simulator::submitTask(const GameTask &task) {
 }
 
 void Simulator::waitForAllTasks() {
-    std::unique_lock<std::mutex> lock(queue_mutex_);
-    condition_.wait(lock, [this] {
-        return task_queue_.empty();
-    });
-    stop_workers_ = true;
-    lock.unlock();
+    if (workers_.empty()) {
+        return; // Single-threaded, already done
+    }
+
+    // Multi-threaded mode: wait until queue drains
+    for (;;) {
+        std::unique_lock<std::mutex> lock(queue_mutex_);
+        if (task_queue_.empty()) break;
+        lock.unlock();
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+
+    {
+        std::lock_guard<std::mutex> lock(queue_mutex_);
+        stop_workers_ = true;
+    }
     condition_.notify_all();
+
+    // Wait for all worker threads to complete
     for (auto &worker : workers_) {
-        if (worker.joinable()) {
-            worker.join();
-        }
+        if (worker.joinable()) worker.join();
     }
     workers_.clear();
+    stop_workers_ = false;
 }
 
 // ------------------------------------------------------------
@@ -102,6 +145,8 @@ void Simulator::waitForAllTasks() {
 bool Simulator::loadAlgorithmLibrary(const std::string &library_path) {
     auto loader = std::make_unique<DynamicLibraryLoader>();
     if (!loader->loadLibrary(library_path)) {
+        std::cerr << "Failed to load algorithm library: " << library_path << "\n"
+                  << "Error: " << loader->getLastError() << std::endl;
         return false;
     }
     loaded_algorithm_libraries_.push_back(std::move(loader));
@@ -111,6 +156,8 @@ bool Simulator::loadAlgorithmLibrary(const std::string &library_path) {
 bool Simulator::loadGameManagerLibrary(const std::string &library_path) {
     auto loader = std::make_unique<DynamicLibraryLoader>();
     if (!loader->loadLibrary(library_path)) {
+        std::cerr << "Failed to load GameManager library: " << library_path << "\n"
+                  << "Error: " << loader->getLastError() << std::endl;
         return false;
     }
     loaded_gamemanager_libraries_.push_back(std::move(loader));
@@ -125,12 +172,12 @@ SimulatorGameResult Simulator::executeGame(const GameTask &task) {
 
     // Store metadata
     result.game_manager_file = task.game_manager_path;
-    result.algorithm1_file = task.algorithm1_path;
-    result.algorithm2_file = task.algorithm2_path;
-    result.map_name = task.map_name;
-    result.map_path = task.map_path;
-    result.map_width = task.map_width;
-    result.map_height = task.map_height;
+    result.algorithm1_file   = task.algorithm1_path;
+    result.algorithm2_file   = task.algorithm2_path;
+    result.map_name          = task.map_name;
+    result.map_path          = task.map_path;
+    result.map_width         = task.map_width;
+    result.map_height        = task.map_height;
 
     // Create map view
     auto map_view = createMapFromFile(task.map_path, task.map_width, task.map_height);
@@ -150,7 +197,7 @@ SimulatorGameResult Simulator::executeGame(const GameTask &task) {
         }
     }
 
-    // Load algorithms
+    // Load and register algorithms
     auto &registrar = AlgorithmRegistrar::getAlgorithmRegistrar();
     registrar.clear();
     loaded_algorithm_libraries_.clear();
@@ -234,7 +281,7 @@ std::unique_ptr<SatelliteView> Simulator::createMapFromFile(const std::string &m
     std::vector<std::string> lines;
     std::string line;
     while (std::getline(file, line)) {
-        if (!line.empty() && line.back() == '\\r') {
+        if (!line.empty() && line.back() == '\r') {
             line.pop_back();
         }
         lines.push_back(line);
@@ -243,10 +290,10 @@ std::unique_ptr<SatelliteView> Simulator::createMapFromFile(const std::string &m
     size_t start_idx = 0;
     // Detect header (name + MaxSteps, NumShells, Rows, Cols)
     if (lines.size() >= 5 &&
-        lines[1].find("MaxSteps") != std::string::npos &&
+        lines[1].find("MaxSteps")  != std::string::npos &&
         lines[2].find("NumShells") != std::string::npos &&
-        lines[3].find("Rows") != std::string::npos &&
-        lines[4].find("Cols") != std::string::npos) {
+        lines[3].find("Rows")      != std::string::npos &&
+        lines[4].find("Cols")      != std::string::npos) {
         start_idx = 5;
         auto parseNum = [](const std::string &s) -> size_t {
             std::string num;
@@ -268,11 +315,11 @@ std::unique_ptr<SatelliteView> Simulator::createMapFromFile(const std::string &m
     class FileSatelliteView : public SatelliteView {
     public:
         explicit FileSatelliteView(std::vector<std::string> b) : board_(std::move(b)) {}
-        virtual char getObjectAt(size_t x, size_t y) const override {
+        char getObjectAt(size_t x, size_t y) const override {
             if (y >= board_.size() || x >= board_[y].size()) return '&';
             return board_[y][x];
         }
-        virtual std::unique_ptr<SatelliteView> clone() const override {
+        std::unique_ptr<SatelliteView> clone() const override {
             return std::make_unique<FileSatelliteView>(*this);
         }
     private:
@@ -290,11 +337,11 @@ void Simulator::writeComparativeResults(const std::string &output_folder,
     std::filesystem::create_directories(output_folder);
     std::ofstream out(output_folder + "/comparative_results.csv");
     if (!out.is_open()) return;
-    out << "Algorithm1,Algorithm2,Winner\\n";
+    out << "Algorithm1,Algorithm2,Winner\n";
     for (const auto &res : results) {
         out << getLibraryName(res.algorithm1_file) << ','
             << getLibraryName(res.algorithm2_file) << ','
-            << res.game_result.winner << "\\n";
+            << res.game_result.winner << "\n";
     }
 }
 
@@ -304,11 +351,11 @@ void Simulator::writeCompetitionResults(const std::string &output_folder,
     std::string filename = output_folder + "/competition_" + generateTimestamp() + ".txt";
     std::ofstream out(filename);
     if (!out.is_open()) return;
-    out << "Algorithm1,Algorithm2,Winner\\n";
+    out << "Algorithm1,Algorithm2,Winner\n";
     for (const auto &res : results) {
         out << getLibraryName(res.algorithm1_file) << ','
             << getLibraryName(res.algorithm2_file) << ','
-            << res.game_result.winner << "\\n";
+            << res.game_result.winner << "\n";
     }
 }
 
@@ -322,10 +369,14 @@ std::string Simulator::getLibraryName(const std::string &path) {
 std::vector<std::string> Simulator::getFilesInFolder(const std::string &folder,
                                                      const std::string &extension) {
     std::vector<std::string> files;
-    for (const auto &entry : std::filesystem::directory_iterator(folder)) {
-        if (entry.is_regular_file() && entry.path().extension() == extension) {
-            files.push_back(entry.path().filename().string());
+    try {
+        for (const auto &entry : std::filesystem::directory_iterator(folder)) {
+            if (entry.is_regular_file() && entry.path().extension() == extension) {
+                files.push_back(entry.path().filename().string());
+            }
         }
+    } catch (const std::exception &ex) {
+        std::cerr << "Error reading folder " << folder << ": " << ex.what() << std::endl;
     }
     std::sort(files.begin(), files.end());
     return files;
@@ -355,10 +406,9 @@ bool Simulator::runComparative(const std::string &game_map, const std::string &g
     verbose_ = verbose;
     game_results_.clear();
 
-    initializeThreadPool(std::max<int>(1, num_threads), 1);
-
-    // collect game manager libraries (*.so per diff)
-    auto gm_files = getFilesInFolder(game_managers_folder, ".so");
+    // collect game manager libraries (*.dll/.so)
+    auto gm_files = getFilesInFolder(game_managers_folder, LIB_EXTENSION);
+    // keep only files that look like GameManager libs (optional heuristic)
     gm_files.erase(std::remove_if(gm_files.begin(), gm_files.end(),
                                   [](const std::string &f) {
                                       return f.find("GameManager") == std::string::npos;
@@ -370,9 +420,7 @@ bool Simulator::runComparative(const std::string &game_map, const std::string &g
         return false;
     }
 
-    std::string map_name = std::filesystem::path(game_map).filename().string();
-
-    // parse map metadata
+    // parse map metadata (optional header)
     size_t width = 0, height = 0, max_steps = 50, num_shells = 10;
     {
         std::ifstream map_file(game_map);
@@ -394,6 +442,9 @@ bool Simulator::runComparative(const std::string &game_map, const std::string &g
         }
     }
 
+    std::string map_name = std::filesystem::path(game_map).filename().string();
+
+    initializeThreadPool(std::max(1, num_threads), gm_files.size());
     for (const auto &gm_file : gm_files) {
         std::string gm_path = game_managers_folder + "/" + gm_file;
         GameTask task(gm_path, algorithm1, algorithm2, game_map,
@@ -418,8 +469,9 @@ bool Simulator::runCompetition(const std::string &game_maps_folder, const std::s
         return false;
     }
 
-    // algorithms (*.so per diff)
-    auto algo_files = getFilesInFolder(algorithms_folder, ".so");
+    // algorithms (*.dll/.so)
+    auto algo_files = getFilesInFolder(algorithms_folder, LIB_EXTENSION);
+    // keep only files that look like Algorithm libs (optional heuristic)
     algo_files.erase(std::remove_if(algo_files.begin(), algo_files.end(),
                                     [](const std::string &f) {
                                         return f.find("Algorithm") == std::string::npos;
@@ -431,16 +483,63 @@ bool Simulator::runCompetition(const std::string &game_maps_folder, const std::s
         return false;
     }
 
-    size_t total_tasks = map_files.size() * (algo_files.size() * (algo_files.size() - 1) / 2);
-    initializeThreadPool(std::max<int>(1, num_threads), total_tasks);
+    // optional: verify GM exists
+    if (!std::filesystem::exists(game_manager)) {
+        std::cerr << "GameManager library not found: " << game_manager << std::endl;
+        return false;
+    }
 
-    std::string gm_path = game_manager;
+    // Calculate total task count using advanced tournament formula
+    size_t total_tasks = 0;
+    size_t N = algo_files.size();
+    
+    if (verbose_) {
+        std::cout << "\nTournament Setup:" << std::endl;
+        std::cout << "Number of algorithms (N): " << N << std::endl;
+        std::cout << "Number of maps (K): " << map_files.size() << std::endl;
+    }
+    
+    // For each map k
+    for (size_t k = 0; k < map_files.size(); ++k) {
+        // For each algorithm i
+        for (size_t i = 0; i < N; ++i) {
+            // Calculate opponent j using the tournament formula:
+            // j = (i + 1 + k % (N-1)) % N
+            size_t j = (i + 1 + k % (N-1)) % N;
+            
+            // Skip if we've already done this pairing (j vs i) or if it's self-play
+            if (i >= j) continue;
+            
+            total_tasks++; // One task for i vs j
+            
+            // Special case: if k = N/2 - 1 (for even N), the pairing would be the same
+            // in both games, so we only run one game
+            if (N % 2 == 0 && k == N/2 - 1) {
+                continue;
+            }
+            
+            total_tasks++; // One task for j vs i
+        }
+    }
+    
+    if (verbose_) {
+        std::cout << "Total tasks to be created: " << total_tasks << std::endl;
+    }
+    
+    // Initialize thread pool with actual task count
+    initializeThreadPool(std::max(1, num_threads), total_tasks);
 
-    for (const auto &map_file : map_files) {
+    // Now create the actual tasks using tournament formula
+    for (size_t k = 0; k < map_files.size(); ++k) {
+        const auto &map_file = map_files[k];
         std::string map_path = game_maps_folder + "/" + map_file;
         std::string map_name = map_file;
 
-        // parse map metadata
+        if (verbose_) {
+            std::cout << "\nMap " << k << " (" << map_file << ") pairings:" << std::endl;
+        }
+
+        // parse map metadata (optional header)
         size_t width = 0, height = 0, max_steps = 50, num_shells = 10;
         std::ifstream map_file_stream(map_path);
         if (map_file_stream.is_open()) {
@@ -460,15 +559,48 @@ bool Simulator::runCompetition(const std::string &game_maps_folder, const std::s
             }
         }
 
-        for (size_t i = 0; i < algo_files.size(); ++i) {
-            for (size_t j = i + 1; j < algo_files.size(); ++j) {
-                std::string alg1_path = algorithms_folder + "/" + algo_files[i];
-                std::string alg2_path = algorithms_folder + "/" + algo_files[j];
-                GameTask task(gm_path, alg1_path, alg2_path, map_path,
-                              map_name, width, height, max_steps, num_shells, verbose);
-                submitTask(task);
+        // For each algorithm i
+        for (size_t i = 0; i < N; ++i) {
+            // Calculate opponent j using the tournament formula:
+            // j = (i + 1 + k % (N-1)) % N
+            size_t j = (i + 1 + k % (N-1)) % N;
+            
+            // Skip if we've already done this pairing (j vs i) or if it's self-play
+            if (i >= j) continue;
+            
+            if (verbose_) {
+                std::cout << "  Algorithm " << i << " (" << algo_files[i] << ")"
+                         << " vs "
+                         << "Algorithm " << j << " (" << algo_files[j] << ")"
+                         << std::endl;
             }
+            
+            // Create task for this pairing
+            std::string alg1_path = algorithms_folder + "/" + algo_files[i];
+            std::string alg2_path = algorithms_folder + "/" + algo_files[j];
+            
+            GameTask task(game_manager, alg1_path, alg2_path, map_path,
+                          map_name, width, height, max_steps, num_shells, verbose);
+            submitTask(task);
+            
+            // Special case: if k = N/2 - 1 (for even N), the pairing would be the same
+            // in both games, so we only run one game
+            if (N % 2 == 0 && k == N/2 - 1) {
+                if (verbose_) {
+                    std::cout << "    (Skipping reverse match - same pairing)" << std::endl;
+                }
+                continue;
+            }
+            
+            // Create task for the reverse pairing (j vs i)
+            GameTask reverse_task(game_manager, alg2_path, alg1_path, map_path,
+                                map_name, width, height, max_steps, num_shells, verbose);
+            submitTask(reverse_task);
         }
+    }
+    
+    if (verbose_) {
+        std::cout << "\nAll tournament pairings created." << std::endl;
     }
 
     waitForAllTasks();

@@ -6,5 +6,5 @@
 using PlayerSimple = Algorithm_212934582_323964676::Player_Simple_212934582_323964676;
 REGISTER_PLAYER(PlayerSimple)
 using AlgorithmSimple = Algorithm_212934582_323964676::TankAlgorithm_Simple_212934582_323964676;
-REGISTER_TANK_ALGORITHM(AlgorithmSimple)
+REGISTER_TANK_ALGORITHM(TankAlgorithm_Simple_212934582_323964676)
 
