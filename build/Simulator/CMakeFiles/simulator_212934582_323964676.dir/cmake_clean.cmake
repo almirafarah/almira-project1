@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../bin/simulator_212934582_323964676"
-  "../bin/simulator_212934582_323964676.pdb"
+  "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/simulator_212934582_323964676"
+  "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/simulator_212934582_323964676.pdb"
   "CMakeFiles/simulator_212934582_323964676.dir/main.cpp.o"
   "CMakeFiles/simulator_212934582_323964676.dir/main.cpp.o.d"
 )

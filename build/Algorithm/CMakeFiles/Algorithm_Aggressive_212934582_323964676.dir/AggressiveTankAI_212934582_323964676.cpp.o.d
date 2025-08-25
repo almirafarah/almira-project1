@@ -188,6 +188,8 @@ Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/AggressiveTank
  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
  /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/../UserCommon/MyBattleInfo_212934582_323964676.h \
  /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/../UserCommon/../common/BattleInfo.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/../common/TankAlgorithmRegistration.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/../common/TankAlgorithm.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/ostream \
  /usr/include/c++/13/ios /usr/include/c++/13/bits/ios_base.h \
  /usr/include/c++/13/bits/locale_classes.h \
@@ -205,6 +207,4 @@ Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/AggressiveTank
  /usr/include/c++/13/bits/locale_facets.tcc \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
- /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/optional \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/../common/TankAlgorithmRegistration.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/../common/TankAlgorithm.h
+ /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/optional

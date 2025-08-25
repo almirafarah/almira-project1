@@ -151,6 +151,8 @@ Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simp
  /usr/include/c++/13/pstl/execution_defs.h \
  /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/../common/BattleInfo.h \
  /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/../common/ActionRequest.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/../common/TankAlgorithmRegistration.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/../common/TankAlgorithm.h \
  /usr/include/c++/13/random /usr/include/c++/13/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -218,6 +220,4 @@ Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simp
  /usr/include/c++/13/bits/locale_facets.tcc \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
- /usr/include/c++/13/bits/istream.tcc \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/../common/TankAlgorithmRegistration.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/../common/TankAlgorithm.h
+ /usr/include/c++/13/bits/istream.tcc

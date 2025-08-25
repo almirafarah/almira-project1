@@ -41,6 +41,7 @@ endif()
 # Run from repo root so relative "lib/..." paths work
 set_target_properties(simulator_212934582_323964676 PROPERTIES
         VS_DEBUGGER_WORKING_DIRECTORY "${ROOT_DIR}"
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Simulator"
 )
 
 # Build order: simulator waits for DLLs (we do NOT link them; they're loaded at runtime)

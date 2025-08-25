@@ -97,24 +97,40 @@ Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simp
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simple_212934582_323964676.cpp.s"
 	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Algorithm" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Algorithm/TankAlgorithm_Simple_212934582_323964676.cpp" -o CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simple_212934582_323964676.cpp.s
 
+Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/library_init_simple_212934582_323964676.cpp.o: Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/flags.make
+Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/library_init_simple_212934582_323964676.cpp.o: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/library_init_simple_212934582_323964676.cpp
+Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/library_init_simple_212934582_323964676.cpp.o: Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/library_init_simple_212934582_323964676.cpp.o"
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Algorithm" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/library_init_simple_212934582_323964676.cpp.o -MF CMakeFiles/Algorithm_Simple_212934582_323964676.dir/library_init_simple_212934582_323964676.cpp.o.d -o CMakeFiles/Algorithm_Simple_212934582_323964676.dir/library_init_simple_212934582_323964676.cpp.o -c "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Algorithm/library_init_simple_212934582_323964676.cpp"
+
+Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/library_init_simple_212934582_323964676.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Algorithm_Simple_212934582_323964676.dir/library_init_simple_212934582_323964676.cpp.i"
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Algorithm" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Algorithm/library_init_simple_212934582_323964676.cpp" > CMakeFiles/Algorithm_Simple_212934582_323964676.dir/library_init_simple_212934582_323964676.cpp.i
+
+Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/library_init_simple_212934582_323964676.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Algorithm_Simple_212934582_323964676.dir/library_init_simple_212934582_323964676.cpp.s"
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Algorithm" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Algorithm/library_init_simple_212934582_323964676.cpp" -o CMakeFiles/Algorithm_Simple_212934582_323964676.dir/library_init_simple_212934582_323964676.cpp.s
+
 # Object files for target Algorithm_Simple_212934582_323964676
 Algorithm_Simple_212934582_323964676_OBJECTS = \
 "CMakeFiles/Algorithm_Simple_212934582_323964676.dir/Player_Simple_212934582_323964676.cpp.o" \
-"CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simple_212934582_323964676.cpp.o"
+"CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simple_212934582_323964676.cpp.o" \
+"CMakeFiles/Algorithm_Simple_212934582_323964676.dir/library_init_simple_212934582_323964676.cpp.o"
 
 # External object files for target Algorithm_Simple_212934582_323964676
 Algorithm_Simple_212934582_323964676_EXTERNAL_OBJECTS =
 
-lib/libAlgorithm_Simple_212934582_323964676.so: Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/Player_Simple_212934582_323964676.cpp.o
-lib/libAlgorithm_Simple_212934582_323964676.so: Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simple_212934582_323964676.cpp.o
-lib/libAlgorithm_Simple_212934582_323964676.so: Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make
-lib/libAlgorithm_Simple_212934582_323964676.so: lib/libregistration.so
-lib/libAlgorithm_Simple_212934582_323964676.so: Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX shared library ../lib/libAlgorithm_Simple_212934582_323964676.so"
+/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/Algorithm_Simple_212934582_323964676.so: Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/Player_Simple_212934582_323964676.cpp.o
+/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/Algorithm_Simple_212934582_323964676.so: Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simple_212934582_323964676.cpp.o
+/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/Algorithm_Simple_212934582_323964676.so: Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/library_init_simple_212934582_323964676.cpp.o
+/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/Algorithm_Simple_212934582_323964676.so: Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make
+/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/Algorithm_Simple_212934582_323964676.so: libregistration.so
+/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/Algorithm_Simple_212934582_323964676.so: Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX shared library \"/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Algorithm/Algorithm_Simple_212934582_323964676.so\""
 	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Algorithm" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Algorithm_Simple_212934582_323964676.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build: lib/libAlgorithm_Simple_212934582_323964676.so
+Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/Algorithm_Simple_212934582_323964676.so
 .PHONY : Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build
 
 Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/clean:

@@ -139,7 +139,7 @@ Simulator/clean: Simulator/CMakeFiles/simulator_212934582_323964676.dir/clean
 CMakeFiles/registration.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/registration.dir/build.make CMakeFiles/registration.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/registration.dir/build.make CMakeFiles/registration.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=10,11,12,13,14 "Built target registration"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=12,13,14,15,16 "Built target registration"
 .PHONY : CMakeFiles/registration.dir/all
 
 # Build rule for subdir invocation for target.
@@ -168,12 +168,12 @@ CMakeFiles/all_targets.dir/all: Algorithm/CMakeFiles/Algorithm_Simple_212934582_
 CMakeFiles/all_targets.dir/all: Simulator/CMakeFiles/simulator_212934582_323964676.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/all_targets.dir/build.make CMakeFiles/all_targets.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/all_targets.dir/build.make CMakeFiles/all_targets.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=9 "Built target all_targets"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=11 "Built target all_targets"
 .PHONY : CMakeFiles/all_targets.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/all_targets.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" 19
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" 21
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/all_targets.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" 0
 .PHONY : CMakeFiles/all_targets.dir/rule
@@ -194,7 +194,7 @@ CMakeFiles/all_targets.dir/clean:
 GameManager/CMakeFiles/GameManager_212934582_323964676.dir/all: CMakeFiles/registration.dir/all
 	$(MAKE) $(MAKESILENT) -f GameManager/CMakeFiles/GameManager_212934582_323964676.dir/build.make GameManager/CMakeFiles/GameManager_212934582_323964676.dir/depend
 	$(MAKE) $(MAKESILENT) -f GameManager/CMakeFiles/GameManager_212934582_323964676.dir/build.make GameManager/CMakeFiles/GameManager_212934582_323964676.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=7,8 "Built target GameManager_212934582_323964676"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=9,10 "Built target GameManager_212934582_323964676"
 .PHONY : GameManager/CMakeFiles/GameManager_212934582_323964676.dir/all
 
 # Build rule for subdir invocation for target.
@@ -220,12 +220,12 @@ GameManager/CMakeFiles/GameManager_212934582_323964676.dir/clean:
 Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/all: CMakeFiles/registration.dir/all
 	$(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/depend
 	$(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=1,2,3 "Built target Algorithm_Aggressive_212934582_323964676"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=1,2,3,4 "Built target Algorithm_Aggressive_212934582_323964676"
 .PHONY : Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/all
 
 # Build rule for subdir invocation for target.
 Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" 8
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" 0
 .PHONY : Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/rule
@@ -246,12 +246,12 @@ Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/clean:
 Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/all: CMakeFiles/registration.dir/all
 	$(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/depend
 	$(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=4,5,6 "Built target Algorithm_Simple_212934582_323964676"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=5,6,7,8 "Built target Algorithm_Simple_212934582_323964676"
 .PHONY : Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/all
 
 # Build rule for subdir invocation for target.
 Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" 8
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" 0
 .PHONY : Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/rule
@@ -272,7 +272,7 @@ Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/clean:
 Simulator/CMakeFiles/simulator_lib.dir/all: CMakeFiles/registration.dir/all
 	$(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_lib.dir/build.make Simulator/CMakeFiles/simulator_lib.dir/depend
 	$(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_lib.dir/build.make Simulator/CMakeFiles/simulator_lib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=17,18,19 "Built target simulator_lib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=19,20,21 "Built target simulator_lib"
 .PHONY : Simulator/CMakeFiles/simulator_lib.dir/all
 
 # Build rule for subdir invocation for target.
@@ -301,12 +301,12 @@ Simulator/CMakeFiles/simulator_212934582_323964676.dir/all: Algorithm/CMakeFiles
 Simulator/CMakeFiles/simulator_212934582_323964676.dir/all: Simulator/CMakeFiles/simulator_lib.dir/all
 	$(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_212934582_323964676.dir/build.make Simulator/CMakeFiles/simulator_212934582_323964676.dir/depend
 	$(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_212934582_323964676.dir/build.make Simulator/CMakeFiles/simulator_212934582_323964676.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=15,16 "Built target simulator_212934582_323964676"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=17,18 "Built target simulator_212934582_323964676"
 .PHONY : Simulator/CMakeFiles/simulator_212934582_323964676.dir/all
 
 # Build rule for subdir invocation for target.
 Simulator/CMakeFiles/simulator_212934582_323964676.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" 16
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" 18
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Simulator/CMakeFiles/simulator_212934582_323964676.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" 0
 .PHONY : Simulator/CMakeFiles/simulator_212934582_323964676.dir/rule

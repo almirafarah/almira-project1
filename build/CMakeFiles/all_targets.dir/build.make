@@ -66,10 +66,10 @@ include CMakeFiles/all_targets.dir/compiler_depend.make
 # Include the progress variables for this target.
 include CMakeFiles/all_targets.dir/progress.make
 
-CMakeFiles/all_targets: lib/libGameManager_212934582_323964676.so
-CMakeFiles/all_targets: lib/libAlgorithm_Aggressive_212934582_323964676.so
-CMakeFiles/all_targets: lib/libAlgorithm_Simple_212934582_323964676.so
-CMakeFiles/all_targets: bin/simulator_212934582_323964676
+CMakeFiles/all_targets: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/GameManager_212934582_323964676.so
+CMakeFiles/all_targets: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/Algorithm_Aggressive_212934582_323964676.so
+CMakeFiles/all_targets: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/Algorithm_Simple_212934582_323964676.so
+CMakeFiles/all_targets: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/simulator_212934582_323964676
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building all targets (.so libraries and simulator)"
 
 all_targets: CMakeFiles/all_targets
