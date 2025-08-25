@@ -5,7 +5,7 @@
 #include "../UserCommon/Utils_212934582_323964676.h"  // For Direction and DirectionUtils
 #include <iostream>
 #include <algorithm>
-
+#include "../UserCommon/MyBattleInfo_212934582_323964676.h"
 namespace GameManager_212934582_323964676 {
 
 // Import utilities from UserCommon
@@ -29,9 +29,9 @@ GameResult GameManager_212934582_323964676::run(
     TankAlgorithmFactory player1_tank_algo_factory,
     TankAlgorithmFactory player2_tank_algo_factory) {
     (void)map_name;
-    (void)player1;
+    //(void)player1;
     (void)name1;
-    (void)player2;
+    //(void)player2;
     (void)name2;
     if (verbose_) {
         std::cout << "GameManager::run() called with " << map_width << "x" << map_height << std::endl;
@@ -151,12 +151,10 @@ GameResult GameManager_212934582_323964676::run(
             // Create tank algorithm instance
             auto tank_ai = player1_tank_algo_factory(tank.player_id, tank.tank_id);
 
-            // Create battle info for this tank (HW2 integration!)
-            MyBattleInfo battle_info = createBattleInfoForTank(tank, map_width, map_height);
-
-            // Provide the tank AI with battle information (HW3 pattern: only BattleInfo)
-            tank_ai->updateBattleInfo(battle_info);
-
+            // Build a satellite view for this tank and let the player
+            // update the tank algorithm with the appropriate BattleInfo
+            MySatelliteView tank_view(board_, tank.x, tank.y, live_shells_);
+            player1.updateTankWithBattleInfo(*tank_ai, tank_view);
             // Get action from AI
             ActionRequest action = tank_ai->getAction();
 
@@ -218,19 +216,10 @@ GameResult GameManager_212934582_323964676::run(
                     std::cout << "    Tank AI created successfully" << std::endl;
                 }
 
-                // Create battle info for this tank (HW2 integration!)
-                MyBattleInfo battle_info = createBattleInfoForTank(tank, map_width, map_height);
-
-                if (verbose_) {
-                    std::cout << "    Battle info created successfully" << std::endl;
-                }
-
-                // Provide the tank AI with battle information (HW3 pattern: only BattleInfo)
-                tank_ai->updateBattleInfo(battle_info);
-
-                if (verbose_) {
-                    std::cout << "    Battle info updated successfully" << std::endl;
-                }
+                // Build a satellite view for this tank and let the player
+                // update the tank algorithm with the appropriate BattleInfo
+                MySatelliteView tank_view(board_, tank.x, tank.y, live_shells_);
+                player2.updateTankWithBattleInfo(*tank_ai, tank_view);
 
                 // Get action from AI
                 ActionRequest action = tank_ai->getAction();
