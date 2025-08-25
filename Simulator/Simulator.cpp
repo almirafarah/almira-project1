@@ -221,7 +221,7 @@ SimulatorGameResult Simulator::executeGame(const GameTask &task) {
     {
         std::lock_guard<std::mutex> lock(algorithm_load_mutex);
         auto &registrar = AlgorithmRegistrar::getAlgorithmRegistrar();
-
+        registrar.clear();
 
         // Unload any previously loaded algos to force re-registration on next load
         for (auto &loader : loaded_algorithm_libraries_) {
