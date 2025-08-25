@@ -1,6 +1,7 @@
 #include "TankAlgorithm_Simple_212934582_323964676.h"
 #include "../common/BattleInfo.h"
 #include "../common/ActionRequest.h"
+#include "../common/TankAlgorithmRegistration.h"
 #include <random>
 #include <iostream>
 
@@ -49,9 +50,9 @@ void TankAlgorithm_Simple_212934582_323964676::updateBattleInfo(BattleInfo& info
 
 } // namespace Algorithm_212934582_323964676
 
-#include "../common/TankAlgorithmRegistration.h"
-using Algorithm_212934582_323964676::TankAlgorithm_Simple_212934582_323964676;
-REGISTER_TANK_ALGORITHM(TankAlgorithm_Simple_212934582_323964676)
+// Register the simple tank algorithm implementation
+using SimpleAI = Algorithm_212934582_323964676::TankAlgorithm_Simple_212934582_323964676;
+REGISTER_TANK_ALGORITHM(SimpleAI)
 
 
 

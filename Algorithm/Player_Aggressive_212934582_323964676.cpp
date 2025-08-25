@@ -1,5 +1,6 @@
 #include "Player_Aggressive_212934582_323964676.h"
 #include "../common/BattleInfo.h"
+#include "../common/PlayerRegistration.h"
 
 namespace Algorithm_212934582_323964676 {
 
@@ -20,7 +21,7 @@ void Player_Aggressive_212934582_323964676::updateTankWithBattleInfo(TankAlgorit
 
 } // namespace Algorithm_212934582_323964676
 
-#include "../common/PlayerRegistration.h"
-using Algorithm_212934582_323964676::Player_Aggressive_212934582_323964676;
-REGISTER_PLAYER(Player_Aggressive_212934582_323964676)
+// Register the aggressive player implementation with the simulator
+using PlayerAggressive = Algorithm_212934582_323964676::Player_Aggressive_212934582_323964676;
+REGISTER_PLAYER(PlayerAggressive)
 

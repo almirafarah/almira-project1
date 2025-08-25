@@ -14,6 +14,7 @@ set(SOURCES_AGGR
         Player_Aggressive_212934582_323964676.cpp
         AggressiveTankAI_212934582_323964676.cpp
         AggressiveTankAI_212934582_323964676.h
+        library_init_aggressive_212934582_323964676.cpp
 )
 add_library(Algorithm_Aggressive_212934582_323964676 SHARED ${SOURCES_AGGR})
 target_include_directories(Algorithm_Aggressive_212934582_323964676 PUBLIC
@@ -26,6 +27,7 @@ set(SOURCES_SIMPLE
         Player_Simple_212934582_323964676.cpp
         TankAlgorithm_Simple_212934582_323964676.cpp
         TankAlgorithm_Simple_212934582_323964676.h
+        library_init_simple_212934582_323964676.cpp
 )
 add_library(Algorithm_Simple_212934582_323964676 SHARED ${SOURCES_SIMPLE})
 target_include_directories(Algorithm_Simple_212934582_323964676 PUBLIC
@@ -33,8 +35,12 @@ target_include_directories(Algorithm_Simple_212934582_323964676 PUBLIC
 )
 target_link_libraries(Algorithm_Simple_212934582_323964676 PUBLIC registration)
 
-# Windows-specific library naming (lib prefix)
-if (WIN32)
-    set_target_properties(Algorithm_Aggressive_212934582_323964676 PROPERTIES PREFIX "lib")
-    set_target_properties(Algorithm_Simple_212934582_323964676 PROPERTIES PREFIX "lib")
-endif()
+# Place libraries in the Algorithm directory without the default "lib" prefix
+set_target_properties(Algorithm_Aggressive_212934582_323964676 PROPERTIES
+    PREFIX ""
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Algorithm"
+)
+set_target_properties(Algorithm_Simple_212934582_323964676 PROPERTIES
+    PREFIX ""
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Algorithm"
+)

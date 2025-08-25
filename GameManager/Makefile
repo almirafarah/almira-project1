@@ -14,8 +14,8 @@ OBJ_DIR = $(BUILD_DIR)/obj
 SOURCES = GameManager_212934582_323964676.cpp
 OBJECTS = $(SOURCES:%.cpp=$(OBJ_DIR)/%.o)
 
-# Target library
-TARGET = $(BUILD_DIR)/libGameManager_212934582_323964676.so
+# Target library placed in the project root without 'lib' prefix
+TARGET = GameManager_212934582_323964676.so
 
 # Default target
 all: directories $(TARGET)
@@ -27,7 +27,7 @@ directories:
 # Build the shared library
 $(TARGET): $(OBJECTS)
 	@echo "Linking GameManager library..."
-	$(CXX) -shared -o $@ $^ -L../build/lib -lregistration
+	$(CXX) -shared -o $@ $^ -L../build -lregistration
 	@echo "GameManager library built: $@"
 
 # Compile source files
@@ -38,20 +38,19 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 # Clean build artifacts
 clean:
 	@echo "Cleaning GameManager build artifacts..."
-	@rm -rf $(BUILD_DIR)
+	@rm -rf $(BUILD_DIR) $(TARGET)
 
 # Install library
 install: all
 	@echo "Installing GameManager library..."
-	@mkdir -p ../build/lib
-	@cp $(TARGET) ../build/lib/
+	@cp $(TARGET) ../
 
 # Show help
 help:
 	@echo "GameManager Makefile targets:"
 	@echo "  all      - Build the GameManager library"
 	@echo "  clean    - Clean build artifacts"
-	@echo "  install  - Install library to build/lib directory"
+	@echo "  install  - Copy library to project root"
 	@echo "  help     - Show this help message"
 
 .PHONY: all directories clean install help

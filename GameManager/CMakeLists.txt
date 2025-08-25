@@ -20,8 +20,6 @@ target_link_libraries(GameManager_212934582_323964676 PRIVATE registration)
 
 # Set output directory and library name
 set_target_properties(GameManager_212934582_323964676 PROPERTIES
-    ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib
-    LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib
-    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
-    OUTPUT_NAME "GameManager_212934582_323964676"
+    PREFIX ""
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/GameManager"
 )

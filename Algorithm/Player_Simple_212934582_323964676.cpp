@@ -1,5 +1,6 @@
 #include "Player_Simple_212934582_323964676.h"
 #include "../common/BattleInfo.h"
+#include "../common/PlayerRegistration.h"
 
 namespace Algorithm_212934582_323964676 {
 
@@ -20,7 +21,7 @@ void Player_Simple_212934582_323964676::updateTankWithBattleInfo(TankAlgorithm& 
 
 } // namespace Algorithm_212934582_323964676
 
-#include "../common/PlayerRegistration.h"
-using Algorithm_212934582_323964676::Player_Simple_212934582_323964676;
-REGISTER_PLAYER(Player_Simple_212934582_323964676)
+// Register the simple player implementation with the simulator
+using PlayerSimple = Algorithm_212934582_323964676::Player_Simple_212934582_323964676;
+REGISTER_PLAYER(PlayerSimple)
 
