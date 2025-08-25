@@ -5,6 +5,7 @@ Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/Player_Simple_2129
   /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/ActionRequest.h \
   /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/BattleInfo.h \
   /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/Player.h \
+  /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/PlayerRegistration.h \
   /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/SatelliteView.h \
   /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/TankAlgorithm.h \
   /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/Player_Simple_212934582_323964676.h \
@@ -182,6 +183,7 @@ Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simp
   /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/ActionRequest.h \
   /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/BattleInfo.h \
   /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/TankAlgorithm.h \
+  /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/TankAlgorithmRegistration.h \
   /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/TankAlgorithm_Simple_212934582_323964676.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -455,11 +457,11 @@ Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simp
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
 
+/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
+
 /usr/include/c++/13/bits/cpp_type_traits.h:
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
 
@@ -484,12 +486,6 @@ Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simp
 /usr/include/c++/13/bits/memoryfwd.h:
 
 /usr/include/stdlib.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
-
-/usr/include/c++/13/bits/exception.h:
-
-/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
 /usr/include/stdc-predef.h:
 
@@ -535,10 +531,6 @@ Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simp
 
 /usr/include/c++/13/debug/assertions.h:
 
-/usr/include/x86_64-linux-gnu/sys/select.h:
-
-/usr/include/c++/13/cwchar:
-
 /usr/include/c++/13/cstdlib:
 
 /usr/include/c++/13/cstdint:
@@ -574,6 +566,10 @@ Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simp
 /usr/include/c++/13/bits/stl_raw_storage_iter.h:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
+
+/usr/include/x86_64-linux-gnu/bits/sched.h:
+
+/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/PlayerRegistration.h:
 
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
 
@@ -649,21 +645,33 @@ Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simp
 
 /usr/include/c++/13/cstdio:
 
-/usr/include/c++/13/bits/alloc_traits.h:
+/usr/include/c++/13/bits/exception.h:
 
-/usr/include/c++/13/bits/concept_check.h:
+/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
+
+/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
 /usr/include/x86_64-linux-gnu/bits/long-double.h:
 
 /usr/include/c++/13/bits/algorithmfwd.h:
 
+/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/TankAlgorithmRegistration.h:
+
 /usr/include/x86_64-linux-gnu/bits/fp-logb.h:
+
+/usr/include/c++/13/bits/alloc_traits.h:
+
+/usr/include/c++/13/bits/concept_check.h:
 
 /usr/include/c++/13/bits/stl_vector.h:
 
 /usr/include/c++/13/bits/stl_tempbuf.h:
 
 /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/BattleInfo.h:
+
+/usr/include/c++/13/cwchar:
+
+/usr/include/x86_64-linux-gnu/sys/select.h:
 
 /usr/include/c++/13/bits/vector.tcc:
 
@@ -691,8 +699,6 @@ Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simp
 
 /usr/include/c++/13/cerrno:
 
-/usr/include/x86_64-linux-gnu/bits/sched.h:
-
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
@@ -715,10 +721,6 @@ Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simp
 
 /usr/include/c++/13/backward/auto_ptr.h:
 
-/usr/include/c++/13/bits/functional_hash.h:
-
-/usr/include/errno.h:
-
 /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/Player_Simple_212934582_323964676.cpp:
 
 /usr/include/c++/13/bits/refwrap.h:
@@ -726,6 +728,10 @@ Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simp
 /usr/include/alloca.h:
 
 /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/TankAlgorithm_Simple_212934582_323964676.cpp:
+
+/usr/include/c++/13/bits/functional_hash.h:
+
+/usr/include/errno.h:
 
 /usr/include/c++/13/array:
 
@@ -801,13 +807,13 @@ Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simp
 
 /usr/include/x86_64-linux-gnu/bits/time.h:
 
-/usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
+/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
 
 /usr/include/x86_64-linux-gnu/bits/timex.h:
 
-/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
+/usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
 /usr/include/math.h:
 
@@ -855,9 +861,9 @@ Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simp
 
 /usr/include/c++/13/bits/ios_base.h:
 
-/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h:
 

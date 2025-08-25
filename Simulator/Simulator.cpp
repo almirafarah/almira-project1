@@ -221,14 +221,15 @@ SimulatorGameResult Simulator::executeGame(const GameTask &task) {
     {
         std::lock_guard<std::mutex> lock(algorithm_load_mutex);
         auto &registrar = AlgorithmRegistrar::getAlgorithmRegistrar();
-        registrar.clear();
+
 
         // Unload any previously loaded algos to force re-registration on next load
         for (auto &loader : loaded_algorithm_libraries_) {
             if (loader) loader->unload();
         }
         loaded_algorithm_libraries_.clear();
-
+        // Clear registrar only after unloading old libraries
+        registrar.clear();
         if (!loadAlgorithmLibrary(task.algorithm1_path) ||
             !loadAlgorithmLibrary(task.algorithm2_path)) {
             std::cerr << "Failed to load algorithm libraries" << std::endl;

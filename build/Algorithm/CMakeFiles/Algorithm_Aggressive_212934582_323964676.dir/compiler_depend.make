@@ -8,6 +8,7 @@ Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/AggressiveTank
   /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/ActionRequest.h \
   /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/BattleInfo.h \
   /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/TankAlgorithm.h \
+  /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/TankAlgorithmRegistration.h \
   /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/AggressiveTankAI_212934582_323964676.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -257,6 +258,7 @@ Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/Player_Aggress
   /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/ActionRequest.h \
   /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/BattleInfo.h \
   /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/Player.h \
+  /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/PlayerRegistration.h \
   /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/SatelliteView.h \
   /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/TankAlgorithm.h \
   /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/Player_Aggressive_212934582_323964676.h \
@@ -611,10 +613,6 @@ Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/Player_Aggress
 
 /usr/include/c++/13/array:
 
-/usr/include/errno.h:
-
-/usr/include/c++/13/bits/functional_hash.h:
-
 /usr/include/c++/13/bits/nested_exception.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h:
@@ -622,6 +620,12 @@ Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/Player_Aggress
 /usr/include/c++/13/pstl/execution_defs.h:
 
 /usr/include/c++/13/bits/basic_ios.tcc:
+
+/usr/include/c++/13/optional:
+
+/usr/include/c++/13/bits/istream.tcc:
+
+/usr/include/c++/13/bits/exception_ptr.h:
 
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
@@ -643,7 +647,27 @@ Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/Player_Aggress
 
 /usr/include/c++/13/bits/cxxabi_forced.h:
 
+/usr/include/c++/13/bits/move.h:
+
+/usr/include/x86_64-linux-gnu/bits/types.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
+
+/usr/include/c++/13/bits/cpp_type_traits.h:
+
+/usr/include/c++/13/ostream:
+
+/usr/include/c++/13/bits/streambuf_iterator.h:
+
 /usr/include/c++/13/backward/auto_ptr.h:
+
+/usr/include/errno.h:
+
+/usr/include/c++/13/bits/functional_hash.h:
+
+/usr/include/c++/13/bits/erase_if.h:
+
+/usr/include/c++/13/bits/shared_ptr_atomic.h:
 
 /usr/include/alloca.h:
 
@@ -679,6 +703,8 @@ Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/Player_Aggress
 
 /usr/include/c++/13/bits/alloc_traits.h:
 
+/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/TankAlgorithmRegistration.h:
+
 /usr/include/c++/13/bits/algorithmfwd.h:
 
 /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/Player.h:
@@ -701,8 +727,6 @@ Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/Player_Aggress
 
 /usr/include/c++/13/ext/aligned_buffer.h:
 
-/usr/include/c++/13/backward/binders.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
 /usr/include/c++/13/bits/char_traits.h:
@@ -710,6 +734,8 @@ Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/Player_Aggress
 /usr/include/c++/13/bits/hashtable_policy.h:
 
 /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/ActionRequest.h:
+
+/usr/include/c++/13/backward/binders.h:
 
 /usr/include/c++/13/bits/locale_facets.h:
 
@@ -742,18 +768,6 @@ Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/Player_Aggress
 /usr/include/c++/13/ext/type_traits.h:
 
 /usr/include/c++/13/iostream:
-
-/usr/include/c++/13/bits/move.h:
-
-/usr/include/x86_64-linux-gnu/bits/types.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
-
-/usr/include/c++/13/bits/cpp_type_traits.h:
-
-/usr/include/c++/13/ostream:
-
-/usr/include/c++/13/bits/streambuf_iterator.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h:
 
@@ -788,10 +802,6 @@ Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/Player_Aggress
 /usr/include/c++/13/bits/stringfwd.h:
 
 /usr/include/c++/13/bits/uniform_int_dist.h:
-
-/usr/include/c++/13/bits/erase_if.h:
-
-/usr/include/c++/13/bits/shared_ptr_atomic.h:
 
 /usr/include/c++/13/bits/postypes.h:
 
@@ -843,6 +853,8 @@ Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/Player_Aggress
 
 /usr/include/c++/13/compare:
 
+/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/common/PlayerRegistration.h:
+
 /usr/include/c++/13/bits/stl_iterator_base_types.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
@@ -868,12 +880,6 @@ Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/Player_Aggress
 /usr/include/endian.h:
 
 /usr/include/c++/13/bits/streambuf.tcc:
-
-/usr/include/c++/13/bits/istream.tcc:
-
-/usr/include/c++/13/bits/exception_ptr.h:
-
-/usr/include/c++/13/optional:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 

@@ -1,0 +1,5 @@
+game_maps_folder=../../UserCommon
+game_manager=libGameManager_212934582_323964676.so
+
+libAlgorithm_Simple_212934582_323964676 4
+libAlgorithm_Aggressive_212934582_323964676 1

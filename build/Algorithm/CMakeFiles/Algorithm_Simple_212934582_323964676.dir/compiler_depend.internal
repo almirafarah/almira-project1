@@ -6,6 +6,7 @@ Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/Player_Simple_2129
  /mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/common/ActionRequest.h
  /mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/common/BattleInfo.h
  /mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/common/Player.h
+ /mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/common/PlayerRegistration.h
  /mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/common/SatelliteView.h
  /mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/common/TankAlgorithm.h
  /mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Algorithm/Player_Simple_212934582_323964676.h
@@ -184,6 +185,7 @@ Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simp
  /mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/common/ActionRequest.h
  /mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/common/BattleInfo.h
  /mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/common/TankAlgorithm.h
+ /mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/common/TankAlgorithmRegistration.h
  /mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Algorithm/TankAlgorithm_Simple_212934582_323964676.h
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
