@@ -28,6 +28,7 @@
 #include <string>
 #include <map>
 #include <tuple>
+#include <iterator>
 namespace {
 // Parses a positive integer from an arbitrary string using std::from_chars.
 // Returns 0 on failure.
