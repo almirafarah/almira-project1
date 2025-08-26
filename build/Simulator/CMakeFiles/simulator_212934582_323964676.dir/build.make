@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1"
+CMAKE_SOURCE_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build"
+CMAKE_BINARY_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build"
 
 # Include any dependencies generated for this target.
 include Simulator/CMakeFiles/simulator_212934582_323964676.dir/depend.make
@@ -70,18 +70,18 @@ include Simulator/CMakeFiles/simulator_212934582_323964676.dir/progress.make
 include Simulator/CMakeFiles/simulator_212934582_323964676.dir/flags.make
 
 Simulator/CMakeFiles/simulator_212934582_323964676.dir/main.cpp.o: Simulator/CMakeFiles/simulator_212934582_323964676.dir/flags.make
-Simulator/CMakeFiles/simulator_212934582_323964676.dir/main.cpp.o: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/main.cpp
+Simulator/CMakeFiles/simulator_212934582_323964676.dir/main.cpp.o: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/main.cpp
 Simulator/CMakeFiles/simulator_212934582_323964676.dir/main.cpp.o: Simulator/CMakeFiles/simulator_212934582_323964676.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Simulator/CMakeFiles/simulator_212934582_323964676.dir/main.cpp.o"
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Simulator" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Simulator/CMakeFiles/simulator_212934582_323964676.dir/main.cpp.o -MF CMakeFiles/simulator_212934582_323964676.dir/main.cpp.o.d -o CMakeFiles/simulator_212934582_323964676.dir/main.cpp.o -c "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Simulator/CMakeFiles/simulator_212934582_323964676.dir/main.cpp.o"
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/Simulator" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Simulator/CMakeFiles/simulator_212934582_323964676.dir/main.cpp.o -MF CMakeFiles/simulator_212934582_323964676.dir/main.cpp.o.d -o CMakeFiles/simulator_212934582_323964676.dir/main.cpp.o -c "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/main.cpp"
 
 Simulator/CMakeFiles/simulator_212934582_323964676.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/simulator_212934582_323964676.dir/main.cpp.i"
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Simulator" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/main.cpp" > CMakeFiles/simulator_212934582_323964676.dir/main.cpp.i
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/Simulator" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/main.cpp" > CMakeFiles/simulator_212934582_323964676.dir/main.cpp.i
 
 Simulator/CMakeFiles/simulator_212934582_323964676.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/simulator_212934582_323964676.dir/main.cpp.s"
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Simulator" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/main.cpp" -o CMakeFiles/simulator_212934582_323964676.dir/main.cpp.s
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/Simulator" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/main.cpp" -o CMakeFiles/simulator_212934582_323964676.dir/main.cpp.s
 
 # Object files for target simulator_212934582_323964676
 simulator_212934582_323964676_OBJECTS = \
@@ -90,23 +90,23 @@ simulator_212934582_323964676_OBJECTS = \
 # External object files for target simulator_212934582_323964676
 simulator_212934582_323964676_EXTERNAL_OBJECTS =
 
-/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/simulator_212934582_323964676: Simulator/CMakeFiles/simulator_212934582_323964676.dir/main.cpp.o
-/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/simulator_212934582_323964676: Simulator/CMakeFiles/simulator_212934582_323964676.dir/build.make
-/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/simulator_212934582_323964676: Simulator/libsimulator_lib.a
-/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/simulator_212934582_323964676: libregistration.so
-/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/simulator_212934582_323964676: Simulator/CMakeFiles/simulator_212934582_323964676.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable \"/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/simulator_212934582_323964676\""
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Simulator" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/simulator_212934582_323964676.dir/link.txt --verbose=$(VERBOSE)
+/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/simulator_212934582_323964676: Simulator/CMakeFiles/simulator_212934582_323964676.dir/main.cpp.o
+/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/simulator_212934582_323964676: Simulator/CMakeFiles/simulator_212934582_323964676.dir/build.make
+/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/simulator_212934582_323964676: Simulator/libsimulator_lib.a
+/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/simulator_212934582_323964676: libregistration.so
+/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/simulator_212934582_323964676: Simulator/CMakeFiles/simulator_212934582_323964676.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable \"/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/simulator_212934582_323964676\""
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/Simulator" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/simulator_212934582_323964676.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-Simulator/CMakeFiles/simulator_212934582_323964676.dir/build: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/simulator_212934582_323964676
+Simulator/CMakeFiles/simulator_212934582_323964676.dir/build: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/simulator_212934582_323964676
 .PHONY : Simulator/CMakeFiles/simulator_212934582_323964676.dir/build
 
 Simulator/CMakeFiles/simulator_212934582_323964676.dir/clean:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Simulator" && $(CMAKE_COMMAND) -P CMakeFiles/simulator_212934582_323964676.dir/cmake_clean.cmake
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/Simulator" && $(CMAKE_COMMAND) -P CMakeFiles/simulator_212934582_323964676.dir/cmake_clean.cmake
 .PHONY : Simulator/CMakeFiles/simulator_212934582_323964676.dir/clean
 
 Simulator/CMakeFiles/simulator_212934582_323964676.dir/depend:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Simulator" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Simulator/CMakeFiles/simulator_212934582_323964676.dir/DependInfo.cmake" "--color=$(COLOR)"
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/Simulator" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/Simulator/CMakeFiles/simulator_212934582_323964676.dir/DependInfo.cmake" "--color=$(COLOR)"
 .PHONY : Simulator/CMakeFiles/simulator_212934582_323964676.dir/depend
 

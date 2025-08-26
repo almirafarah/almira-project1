@@ -1,7 +1,7 @@
 Simulator/CMakeFiles/simulator_lib.dir/Simulator.cpp.o: \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/Simulator.cpp \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/Simulator.cpp \
  /usr/include/stdc-predef.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/Simulator.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/Simulator.h \
  /usr/include/c++/13/string /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -170,12 +170,12 @@ Simulator/CMakeFiles/simulator_lib.dir/Simulator.cpp.o: \
  /usr/include/c++/13/backward/auto_ptr.h \
  /usr/include/c++/13/pstl/glue_memory_defs.h \
  /usr/include/c++/13/pstl/execution_defs.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/../common/SatelliteView.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/../common/GameResult.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/../common/SatelliteView.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/../common/AbstractGameManager.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/../common/GameResult.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/../common/Player.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/../common/SatelliteView.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/../common/GameResult.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/../common/SatelliteView.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/../common/AbstractGameManager.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/../common/GameResult.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/../common/Player.h \
  /usr/include/c++/13/functional /usr/include/c++/13/bits/std_function.h \
  /usr/include/c++/13/unordered_map \
  /usr/include/c++/13/bits/unordered_map.h \
@@ -187,16 +187,16 @@ Simulator/CMakeFiles/simulator_lib.dir/Simulator.cpp.o: \
  /usr/include/c++/13/compare /usr/include/c++/13/bits/stl_algo.h \
  /usr/include/c++/13/bits/algorithmfwd.h \
  /usr/include/c++/13/bits/uniform_int_dist.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/../common/TankAlgorithm.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/../common/ActionRequest.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/../common/BattleInfo.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/../common/Player.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/../common/TankAlgorithm.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/../common/GameManagerRegistration.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/../common/AbstractGameManager.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/AlgorithmRegistrar.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/../common/TankAlgorithm.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/../common/ActionRequest.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/../common/BattleInfo.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/../common/Player.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/../common/TankAlgorithm.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/../common/GameManagerRegistration.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/../common/AbstractGameManager.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/AlgorithmRegistrar.h \
  /usr/include/c++/13/cassert /usr/include/assert.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/DynamicLibraryLoader.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/DynamicLibraryLoader.h \
  /usr/include/dlfcn.h /usr/include/x86_64-linux-gnu/bits/dlfcn.h \
  /usr/include/x86_64-linux-gnu/bits/dl_find_object.h \
  /usr/include/c++/13/map /usr/include/c++/13/bits/stl_tree.h \

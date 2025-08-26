@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1"
+CMAKE_SOURCE_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build"
+CMAKE_BINARY_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build"
 
 # Utility rule file for all_targets.
 
@@ -66,11 +66,11 @@ include CMakeFiles/all_targets.dir/compiler_depend.make
 # Include the progress variables for this target.
 include CMakeFiles/all_targets.dir/progress.make
 
-CMakeFiles/all_targets: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/GameManager_212934582_323964676.so
-CMakeFiles/all_targets: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/Algorithm_Aggressive_212934582_323964676.so
-CMakeFiles/all_targets: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Algorithm/Algorithm_Simple_212934582_323964676.so
-CMakeFiles/all_targets: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/simulator_212934582_323964676
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building all targets (.so libraries and simulator)"
+CMakeFiles/all_targets: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/GameManager_212934582_323964676.so
+CMakeFiles/all_targets: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Algorithm/Algorithm_Aggressive_212934582_323964676.so
+CMakeFiles/all_targets: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Algorithm/Algorithm_Simple_212934582_323964676.so
+CMakeFiles/all_targets: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/simulator_212934582_323964676
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building all targets (.so libraries and simulator)"
 
 all_targets: CMakeFiles/all_targets
 all_targets: CMakeFiles/all_targets.dir/build.make
@@ -85,6 +85,6 @@ CMakeFiles/all_targets.dir/clean:
 .PHONY : CMakeFiles/all_targets.dir/clean
 
 CMakeFiles/all_targets.dir/depend:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles/all_targets.dir/DependInfo.cmake" "--color=$(COLOR)"
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/CMakeFiles/all_targets.dir/DependInfo.cmake" "--color=$(COLOR)"
 .PHONY : CMakeFiles/all_targets.dir/depend
 

@@ -1,8 +1,8 @@
 GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.o: \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/GameManager_212934582_323964676.cpp \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/GameManager_212934582_323964676.cpp \
  /usr/include/stdc-predef.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/GameManager_212934582_323964676.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/../common/AbstractGameManager.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/GameManager_212934582_323964676.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/../common/AbstractGameManager.h \
  /usr/include/c++/13/cstddef \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -118,7 +118,7 @@ GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582
  /usr/include/c++/13/bits/memory_resource.h \
  /usr/include/c++/13/bits/uses_allocator.h \
  /usr/include/c++/13/bits/uses_allocator_args.h /usr/include/c++/13/tuple \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/../common/GameResult.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/../common/GameResult.h \
  /usr/include/c++/13/vector /usr/include/c++/13/bits/stl_uninitialized.h \
  /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
@@ -160,8 +160,8 @@ GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582
  /usr/include/c++/13/backward/auto_ptr.h \
  /usr/include/c++/13/pstl/glue_memory_defs.h \
  /usr/include/c++/13/pstl/execution_defs.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/../common/SatelliteView.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/../common/Player.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/../common/SatelliteView.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/../common/Player.h \
  /usr/include/c++/13/functional /usr/include/c++/13/bits/std_function.h \
  /usr/include/c++/13/unordered_map \
  /usr/include/c++/13/bits/unordered_map.h \
@@ -174,22 +174,22 @@ GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582
  /usr/include/c++/13/bits/algorithmfwd.h \
  /usr/include/c++/13/bits/stl_heap.h \
  /usr/include/c++/13/bits/uniform_int_dist.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/../common/TankAlgorithm.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/../common/ActionRequest.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/../common/BattleInfo.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/../common/GameResult.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/../common/Player.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/../common/TankAlgorithm.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/../common/SatelliteView.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/../UserCommon/MyBattleInfo_212934582_323964676.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/../UserCommon/../common/BattleInfo.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/MySatelliteView.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/../common/TankAlgorithm.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/../common/ActionRequest.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/../common/BattleInfo.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/../common/GameResult.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/../common/Player.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/../common/TankAlgorithm.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/../common/SatelliteView.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/../UserCommon/MyBattleInfo_212934582_323964676.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/../UserCommon/../common/BattleInfo.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/MySatelliteView.h \
  /usr/include/c++/13/set /usr/include/c++/13/bits/stl_tree.h \
  /usr/include/c++/13/bits/stl_set.h \
  /usr/include/c++/13/bits/stl_multiset.h /usr/include/c++/13/utility \
  /usr/include/c++/13/bits/stl_relops.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/../common/ActionRequest.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/../UserCommon/Utils_212934582_323964676.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/../common/ActionRequest.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/../UserCommon/Utils_212934582_323964676.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/ostream \
  /usr/include/c++/13/ios /usr/include/c++/13/bits/ios_base.h \
  /usr/include/c++/13/bits/locale_classes.h \
@@ -209,5 +209,5 @@ GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/algorithm \
  /usr/include/c++/13/pstl/glue_algorithm_defs.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/../common/GameManagerRegistration.h \
- /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/../common/AbstractGameManager.h
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/../common/GameManagerRegistration.h \
+ /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/../common/AbstractGameManager.h

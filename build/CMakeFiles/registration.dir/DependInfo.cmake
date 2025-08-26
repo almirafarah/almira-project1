@@ -8,10 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/AlgorithmRegistrar.cpp" "CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.o" "gcc" "CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.o.d"
-  "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/GameManagerRegistration.cpp" "CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.o" "gcc" "CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.o.d"
-  "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/PlayerRegistration.cpp" "CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.o" "gcc" "CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.o.d"
-  "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/TankAlgorithmRegistration.cpp" "CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.o" "gcc" "CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.o.d"
+  "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/AlgorithmRegistrar.cpp" "CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.o" "gcc" "CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.o.d"
+  "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/GameManagerRegistration.cpp" "CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.o" "gcc" "CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.o.d"
+  "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/PlayerRegistration.cpp" "CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.o" "gcc" "CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.o.d"
+  "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/TankAlgorithmRegistration.cpp" "CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.o" "gcc" "CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

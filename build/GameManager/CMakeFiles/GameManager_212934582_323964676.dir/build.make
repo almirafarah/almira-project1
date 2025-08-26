@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1"
+CMAKE_SOURCE_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build"
+CMAKE_BINARY_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build"
 
 # Include any dependencies generated for this target.
 include GameManager/CMakeFiles/GameManager_212934582_323964676.dir/depend.make
@@ -70,18 +70,18 @@ include GameManager/CMakeFiles/GameManager_212934582_323964676.dir/progress.make
 include GameManager/CMakeFiles/GameManager_212934582_323964676.dir/flags.make
 
 GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.o: GameManager/CMakeFiles/GameManager_212934582_323964676.dir/flags.make
-GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.o: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/GameManager_212934582_323964676.cpp
+GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.o: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/GameManager_212934582_323964676.cpp
 GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.o: GameManager/CMakeFiles/GameManager_212934582_323964676.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.o"
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/GameManager" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.o -MF CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.o.d -o CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.o -c "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/GameManager/GameManager_212934582_323964676.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.o"
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/GameManager" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.o -MF CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.o.d -o CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.o -c "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/GameManager/GameManager_212934582_323964676.cpp"
 
 GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.i"
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/GameManager" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/GameManager/GameManager_212934582_323964676.cpp" > CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.i
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/GameManager" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/GameManager/GameManager_212934582_323964676.cpp" > CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.i
 
 GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.s"
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/GameManager" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/GameManager/GameManager_212934582_323964676.cpp" -o CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.s
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/GameManager" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/GameManager/GameManager_212934582_323964676.cpp" -o CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.s
 
 # Object files for target GameManager_212934582_323964676
 GameManager_212934582_323964676_OBJECTS = \
@@ -90,22 +90,22 @@ GameManager_212934582_323964676_OBJECTS = \
 # External object files for target GameManager_212934582_323964676
 GameManager_212934582_323964676_EXTERNAL_OBJECTS =
 
-/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/GameManager_212934582_323964676.so: GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.o
-/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/GameManager_212934582_323964676.so: GameManager/CMakeFiles/GameManager_212934582_323964676.dir/build.make
-/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/GameManager_212934582_323964676.so: libregistration.so
-/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/GameManager_212934582_323964676.so: GameManager/CMakeFiles/GameManager_212934582_323964676.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library \"/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/GameManager/GameManager_212934582_323964676.so\""
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/GameManager" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GameManager_212934582_323964676.dir/link.txt --verbose=$(VERBOSE)
+/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/GameManager_212934582_323964676.so: GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.o
+/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/GameManager_212934582_323964676.so: GameManager/CMakeFiles/GameManager_212934582_323964676.dir/build.make
+/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/GameManager_212934582_323964676.so: libregistration.so
+/mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/GameManager_212934582_323964676.so: GameManager/CMakeFiles/GameManager_212934582_323964676.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library \"/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/GameManager/GameManager_212934582_323964676.so\""
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/GameManager" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GameManager_212934582_323964676.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-GameManager/CMakeFiles/GameManager_212934582_323964676.dir/build: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/GameManager/GameManager_212934582_323964676.so
+GameManager/CMakeFiles/GameManager_212934582_323964676.dir/build: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/GameManager/GameManager_212934582_323964676.so
 .PHONY : GameManager/CMakeFiles/GameManager_212934582_323964676.dir/build
 
 GameManager/CMakeFiles/GameManager_212934582_323964676.dir/clean:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/GameManager" && $(CMAKE_COMMAND) -P CMakeFiles/GameManager_212934582_323964676.dir/cmake_clean.cmake
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/GameManager" && $(CMAKE_COMMAND) -P CMakeFiles/GameManager_212934582_323964676.dir/cmake_clean.cmake
 .PHONY : GameManager/CMakeFiles/GameManager_212934582_323964676.dir/clean
 
 GameManager/CMakeFiles/GameManager_212934582_323964676.dir/depend:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/GameManager" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/GameManager" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/GameManager/CMakeFiles/GameManager_212934582_323964676.dir/DependInfo.cmake" "--color=$(COLOR)"
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/GameManager" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/GameManager" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/GameManager/CMakeFiles/GameManager_212934582_323964676.dir/DependInfo.cmake" "--color=$(COLOR)"
 .PHONY : GameManager/CMakeFiles/GameManager_212934582_323964676.dir/depend
 

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DGameManager_212934582_323964676_EXPORTS
 
-CXX_INCLUDES = -I"/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/GameManager/../common" -I"/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/common" -I"/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator"
+CXX_INCLUDES = -I"/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/GameManager/../common" -I"/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/common" -I"/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator"
 
 CXX_FLAGS = -std=gnu++17 -fPIC
 

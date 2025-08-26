@@ -1,0 +1,15 @@
+game_map=input1.txt
+algorithm1=Algorithm_Aggressive_212934582_323964676.so
+algorithm2=Algorithm_207174533_321321945.so
+
+GameManager_212934582_323964676.so
+Tie: maximum rounds reached
+0
+
+GameManager_207174533_321321945.so
+Tie: maximum rounds reached
+0
+          
+          
+          
+          

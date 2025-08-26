@@ -263,18 +263,38 @@ SimulatorGameResult Simulator::executeGame(const GameTask &task) {
     }
 
     // Load GameManager
+
+    // Ensure no stale registrations from previous games
+    for (auto &loader : loaded_gamemanager_libraries_) {
+        if (loader) loader->unload();
+    }
+    loaded_gamemanager_libraries_.clear();
+    auto prev_gm_names = getRegisteredGameManagers();
+
     if (!loadGameManagerLibrary(task.game_manager_path)) {
         std::cerr << "Failed to load game manager library" << std::endl;
         return result;
     }
 
-    auto gm_names = getRegisteredGameManagers();
-    if (gm_names.empty()) {
+    auto gm_names_all = getRegisteredGameManagers();
+    std::string gm_name;
+    if (gm_names_all.size() > prev_gm_names.size()) {
+        for (const auto &name : gm_names_all) {
+            if (std::find(prev_gm_names.begin(), prev_gm_names.end(), name) == prev_gm_names.end()) {
+                gm_name = name;
+                break;
+            }
+        }
+    } else if (!gm_names_all.empty()) {
+        gm_name = gm_names_all.front();
+    }
+
+    if (gm_name.empty()) {
         std::cerr << "No GameManager registered" << std::endl;
         return result;
     }
 
-    result.game_manager_name = gm_names.front();
+    result.game_manager_name = gm_name;
     auto gm_factory = getGameManagerFactory(result.game_manager_name);
     if (!gm_factory) {
         std::cerr << "Failed to obtain GameManager factory" << std::endl;

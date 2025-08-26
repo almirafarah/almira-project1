@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1"
+CMAKE_SOURCE_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build"
+CMAKE_BINARY_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/registration.dir/depend.make
@@ -70,60 +70,60 @@ include CMakeFiles/registration.dir/progress.make
 include CMakeFiles/registration.dir/flags.make
 
 CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.o: CMakeFiles/registration.dir/flags.make
-CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.o: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/AlgorithmRegistrar.cpp
+CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.o: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/AlgorithmRegistrar.cpp
 CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.o: CMakeFiles/registration.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.o -MF CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.o.d -o CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.o -c "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/AlgorithmRegistrar.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.o -MF CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.o.d -o CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.o -c "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/AlgorithmRegistrar.cpp"
 
 CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/AlgorithmRegistrar.cpp" > CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/AlgorithmRegistrar.cpp" > CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.i
 
 CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/AlgorithmRegistrar.cpp" -o CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/AlgorithmRegistrar.cpp" -o CMakeFiles/registration.dir/Simulator/AlgorithmRegistrar.cpp.s
 
 CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.o: CMakeFiles/registration.dir/flags.make
-CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.o: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/PlayerRegistration.cpp
+CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.o: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/PlayerRegistration.cpp
 CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.o: CMakeFiles/registration.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.o -MF CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.o.d -o CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.o -c "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/PlayerRegistration.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.o -MF CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.o.d -o CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.o -c "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/PlayerRegistration.cpp"
 
 CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/PlayerRegistration.cpp" > CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/PlayerRegistration.cpp" > CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.i
 
 CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/PlayerRegistration.cpp" -o CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/PlayerRegistration.cpp" -o CMakeFiles/registration.dir/Simulator/PlayerRegistration.cpp.s
 
 CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.o: CMakeFiles/registration.dir/flags.make
-CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.o: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/TankAlgorithmRegistration.cpp
+CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.o: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/TankAlgorithmRegistration.cpp
 CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.o: CMakeFiles/registration.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.o -MF CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.o.d -o CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.o -c "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/TankAlgorithmRegistration.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.o -MF CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.o.d -o CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.o -c "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/TankAlgorithmRegistration.cpp"
 
 CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/TankAlgorithmRegistration.cpp" > CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/TankAlgorithmRegistration.cpp" > CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.i
 
 CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/TankAlgorithmRegistration.cpp" -o CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/TankAlgorithmRegistration.cpp" -o CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistration.cpp.s
 
 CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.o: CMakeFiles/registration.dir/flags.make
-CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.o: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/GameManagerRegistration.cpp
+CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.o: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/GameManagerRegistration.cpp
 CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.o: CMakeFiles/registration.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.o -MF CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.o.d -o CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.o -c "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/GameManagerRegistration.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.o -MF CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.o.d -o CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.o -c "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/GameManagerRegistration.cpp"
 
 CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/GameManagerRegistration.cpp" > CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/GameManagerRegistration.cpp" > CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.i
 
 CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/GameManagerRegistration.cpp" -o CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/GameManagerRegistration.cpp" -o CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.s
 
 # Object files for target registration
 registration_OBJECTS = \
@@ -141,7 +141,7 @@ libregistration.so: CMakeFiles/registration.dir/Simulator/TankAlgorithmRegistrat
 libregistration.so: CMakeFiles/registration.dir/Simulator/GameManagerRegistration.cpp.o
 libregistration.so: CMakeFiles/registration.dir/build.make
 libregistration.so: CMakeFiles/registration.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX shared library libregistration.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX shared library libregistration.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/registration.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -153,6 +153,6 @@ CMakeFiles/registration.dir/clean:
 .PHONY : CMakeFiles/registration.dir/clean
 
 CMakeFiles/registration.dir/depend:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles/registration.dir/DependInfo.cmake" "--color=$(COLOR)"
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/CMakeFiles/registration.dir/DependInfo.cmake" "--color=$(COLOR)"
 .PHONY : CMakeFiles/registration.dir/depend
 

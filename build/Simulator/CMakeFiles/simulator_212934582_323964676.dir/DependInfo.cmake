@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/main.cpp" "Simulator/CMakeFiles/simulator_212934582_323964676.dir/main.cpp.o" "gcc" "Simulator/CMakeFiles/simulator_212934582_323964676.dir/main.cpp.o.d"
+  "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/main.cpp" "Simulator/CMakeFiles/simulator_212934582_323964676.dir/main.cpp.o" "gcc" "Simulator/CMakeFiles/simulator_212934582_323964676.dir/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1"
+CMAKE_SOURCE_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build"
+CMAKE_BINARY_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Simulator//CMakeFiles/progress.marks"
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Simulator/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" 0
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/CMakeFiles" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/Simulator//CMakeFiles/progress.marks"
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Simulator/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Simulator/clean
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Simulator/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Simulator/preinstall
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Simulator/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Simulator/preinstall
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Simulator/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Simulator/CMakeFiles/simulator_lib.dir/rule:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Simulator/CMakeFiles/simulator_lib.dir/rule
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Simulator/CMakeFiles/simulator_lib.dir/rule
 .PHONY : Simulator/CMakeFiles/simulator_lib.dir/rule
 
 # Convenience name for target.
@@ -127,12 +127,12 @@ simulator_lib: Simulator/CMakeFiles/simulator_lib.dir/rule
 
 # fast build rule for target.
 simulator_lib/fast:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_lib.dir/build.make Simulator/CMakeFiles/simulator_lib.dir/build
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_lib.dir/build.make Simulator/CMakeFiles/simulator_lib.dir/build
 .PHONY : simulator_lib/fast
 
 # Convenience name for target.
 Simulator/CMakeFiles/simulator_212934582_323964676.dir/rule:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Simulator/CMakeFiles/simulator_212934582_323964676.dir/rule
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Simulator/CMakeFiles/simulator_212934582_323964676.dir/rule
 .PHONY : Simulator/CMakeFiles/simulator_212934582_323964676.dir/rule
 
 # Convenience name for target.
@@ -141,7 +141,7 @@ simulator_212934582_323964676: Simulator/CMakeFiles/simulator_212934582_32396467
 
 # fast build rule for target.
 simulator_212934582_323964676/fast:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_212934582_323964676.dir/build.make Simulator/CMakeFiles/simulator_212934582_323964676.dir/build
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_212934582_323964676.dir/build.make Simulator/CMakeFiles/simulator_212934582_323964676.dir/build
 .PHONY : simulator_212934582_323964676/fast
 
 DynamicLibraryLoader.o: DynamicLibraryLoader.cpp.o
@@ -149,7 +149,7 @@ DynamicLibraryLoader.o: DynamicLibraryLoader.cpp.o
 
 # target to build an object file
 DynamicLibraryLoader.cpp.o:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_lib.dir/build.make Simulator/CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.o
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_lib.dir/build.make Simulator/CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.o
 .PHONY : DynamicLibraryLoader.cpp.o
 
 DynamicLibraryLoader.i: DynamicLibraryLoader.cpp.i
@@ -157,7 +157,7 @@ DynamicLibraryLoader.i: DynamicLibraryLoader.cpp.i
 
 # target to preprocess a source file
 DynamicLibraryLoader.cpp.i:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_lib.dir/build.make Simulator/CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.i
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_lib.dir/build.make Simulator/CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.i
 .PHONY : DynamicLibraryLoader.cpp.i
 
 DynamicLibraryLoader.s: DynamicLibraryLoader.cpp.s
@@ -165,7 +165,7 @@ DynamicLibraryLoader.s: DynamicLibraryLoader.cpp.s
 
 # target to generate assembly for a file
 DynamicLibraryLoader.cpp.s:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_lib.dir/build.make Simulator/CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.s
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_lib.dir/build.make Simulator/CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.s
 .PHONY : DynamicLibraryLoader.cpp.s
 
 Simulator.o: Simulator.cpp.o
@@ -173,7 +173,7 @@ Simulator.o: Simulator.cpp.o
 
 # target to build an object file
 Simulator.cpp.o:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_lib.dir/build.make Simulator/CMakeFiles/simulator_lib.dir/Simulator.cpp.o
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_lib.dir/build.make Simulator/CMakeFiles/simulator_lib.dir/Simulator.cpp.o
 .PHONY : Simulator.cpp.o
 
 Simulator.i: Simulator.cpp.i
@@ -181,7 +181,7 @@ Simulator.i: Simulator.cpp.i
 
 # target to preprocess a source file
 Simulator.cpp.i:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_lib.dir/build.make Simulator/CMakeFiles/simulator_lib.dir/Simulator.cpp.i
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_lib.dir/build.make Simulator/CMakeFiles/simulator_lib.dir/Simulator.cpp.i
 .PHONY : Simulator.cpp.i
 
 Simulator.s: Simulator.cpp.s
@@ -189,7 +189,7 @@ Simulator.s: Simulator.cpp.s
 
 # target to generate assembly for a file
 Simulator.cpp.s:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_lib.dir/build.make Simulator/CMakeFiles/simulator_lib.dir/Simulator.cpp.s
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_lib.dir/build.make Simulator/CMakeFiles/simulator_lib.dir/Simulator.cpp.s
 .PHONY : Simulator.cpp.s
 
 main.o: main.cpp.o
@@ -197,7 +197,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_212934582_323964676.dir/build.make Simulator/CMakeFiles/simulator_212934582_323964676.dir/main.cpp.o
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_212934582_323964676.dir/build.make Simulator/CMakeFiles/simulator_212934582_323964676.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -205,7 +205,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_212934582_323964676.dir/build.make Simulator/CMakeFiles/simulator_212934582_323964676.dir/main.cpp.i
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_212934582_323964676.dir/build.make Simulator/CMakeFiles/simulator_212934582_323964676.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -213,7 +213,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_212934582_323964676.dir/build.make Simulator/CMakeFiles/simulator_212934582_323964676.dir/main.cpp.s
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Simulator/CMakeFiles/simulator_212934582_323964676.dir/build.make Simulator/CMakeFiles/simulator_212934582_323964676.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -246,6 +246,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1"
+CMAKE_SOURCE_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build"
+CMAKE_BINARY_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/GameManager//CMakeFiles/progress.marks"
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GameManager/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" 0
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/CMakeFiles" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/GameManager//CMakeFiles/progress.marks"
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GameManager/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GameManager/clean
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GameManager/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GameManager/preinstall
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GameManager/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GameManager/preinstall
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GameManager/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 GameManager/CMakeFiles/GameManager_212934582_323964676.dir/rule:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GameManager/CMakeFiles/GameManager_212934582_323964676.dir/rule
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GameManager/CMakeFiles/GameManager_212934582_323964676.dir/rule
 .PHONY : GameManager/CMakeFiles/GameManager_212934582_323964676.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ GameManager_212934582_323964676: GameManager/CMakeFiles/GameManager_212934582_32
 
 # fast build rule for target.
 GameManager_212934582_323964676/fast:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f GameManager/CMakeFiles/GameManager_212934582_323964676.dir/build.make GameManager/CMakeFiles/GameManager_212934582_323964676.dir/build
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f GameManager/CMakeFiles/GameManager_212934582_323964676.dir/build.make GameManager/CMakeFiles/GameManager_212934582_323964676.dir/build
 .PHONY : GameManager_212934582_323964676/fast
 
 GameManager_212934582_323964676.o: GameManager_212934582_323964676.cpp.o
@@ -135,7 +135,7 @@ GameManager_212934582_323964676.o: GameManager_212934582_323964676.cpp.o
 
 # target to build an object file
 GameManager_212934582_323964676.cpp.o:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f GameManager/CMakeFiles/GameManager_212934582_323964676.dir/build.make GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.o
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f GameManager/CMakeFiles/GameManager_212934582_323964676.dir/build.make GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.o
 .PHONY : GameManager_212934582_323964676.cpp.o
 
 GameManager_212934582_323964676.i: GameManager_212934582_323964676.cpp.i
@@ -143,7 +143,7 @@ GameManager_212934582_323964676.i: GameManager_212934582_323964676.cpp.i
 
 # target to preprocess a source file
 GameManager_212934582_323964676.cpp.i:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f GameManager/CMakeFiles/GameManager_212934582_323964676.dir/build.make GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.i
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f GameManager/CMakeFiles/GameManager_212934582_323964676.dir/build.make GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.i
 .PHONY : GameManager_212934582_323964676.cpp.i
 
 GameManager_212934582_323964676.s: GameManager_212934582_323964676.cpp.s
@@ -151,7 +151,7 @@ GameManager_212934582_323964676.s: GameManager_212934582_323964676.cpp.s
 
 # target to generate assembly for a file
 GameManager_212934582_323964676.cpp.s:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f GameManager/CMakeFiles/GameManager_212934582_323964676.dir/build.make GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.s
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f GameManager/CMakeFiles/GameManager_212934582_323964676.dir/build.make GameManager/CMakeFiles/GameManager_212934582_323964676.dir/GameManager_212934582_323964676.cpp.s
 .PHONY : GameManager_212934582_323964676.cpp.s
 
 # Help Target
@@ -177,6 +177,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

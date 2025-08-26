@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1"
+CMAKE_SOURCE_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build"
+CMAKE_BINARY_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Algorithm//CMakeFiles/progress.marks"
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Algorithm/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" 0
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/CMakeFiles" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/Algorithm//CMakeFiles/progress.marks"
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Algorithm/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Algorithm/clean
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Algorithm/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Algorithm/preinstall
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Algorithm/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Algorithm/preinstall
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Algorithm/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/rule:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/rule
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/rule
 .PHONY : Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/rule
 
 # Convenience name for target.
@@ -127,12 +127,12 @@ Algorithm_Aggressive_212934582_323964676: Algorithm/CMakeFiles/Algorithm_Aggress
 
 # fast build rule for target.
 Algorithm_Aggressive_212934582_323964676/fast:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build
 .PHONY : Algorithm_Aggressive_212934582_323964676/fast
 
 # Convenience name for target.
 Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/rule:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/rule
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/rule
 .PHONY : Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/rule
 
 # Convenience name for target.
@@ -141,7 +141,7 @@ Algorithm_Simple_212934582_323964676: Algorithm/CMakeFiles/Algorithm_Simple_2129
 
 # fast build rule for target.
 Algorithm_Simple_212934582_323964676/fast:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build
 .PHONY : Algorithm_Simple_212934582_323964676/fast
 
 AggressiveTankAI_212934582_323964676.o: AggressiveTankAI_212934582_323964676.cpp.o
@@ -149,7 +149,7 @@ AggressiveTankAI_212934582_323964676.o: AggressiveTankAI_212934582_323964676.cpp
 
 # target to build an object file
 AggressiveTankAI_212934582_323964676.cpp.o:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/AggressiveTankAI_212934582_323964676.cpp.o
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/AggressiveTankAI_212934582_323964676.cpp.o
 .PHONY : AggressiveTankAI_212934582_323964676.cpp.o
 
 AggressiveTankAI_212934582_323964676.i: AggressiveTankAI_212934582_323964676.cpp.i
@@ -157,7 +157,7 @@ AggressiveTankAI_212934582_323964676.i: AggressiveTankAI_212934582_323964676.cpp
 
 # target to preprocess a source file
 AggressiveTankAI_212934582_323964676.cpp.i:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/AggressiveTankAI_212934582_323964676.cpp.i
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/AggressiveTankAI_212934582_323964676.cpp.i
 .PHONY : AggressiveTankAI_212934582_323964676.cpp.i
 
 AggressiveTankAI_212934582_323964676.s: AggressiveTankAI_212934582_323964676.cpp.s
@@ -165,7 +165,7 @@ AggressiveTankAI_212934582_323964676.s: AggressiveTankAI_212934582_323964676.cpp
 
 # target to generate assembly for a file
 AggressiveTankAI_212934582_323964676.cpp.s:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/AggressiveTankAI_212934582_323964676.cpp.s
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/AggressiveTankAI_212934582_323964676.cpp.s
 .PHONY : AggressiveTankAI_212934582_323964676.cpp.s
 
 Player_Aggressive_212934582_323964676.o: Player_Aggressive_212934582_323964676.cpp.o
@@ -173,7 +173,7 @@ Player_Aggressive_212934582_323964676.o: Player_Aggressive_212934582_323964676.c
 
 # target to build an object file
 Player_Aggressive_212934582_323964676.cpp.o:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/Player_Aggressive_212934582_323964676.cpp.o
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/Player_Aggressive_212934582_323964676.cpp.o
 .PHONY : Player_Aggressive_212934582_323964676.cpp.o
 
 Player_Aggressive_212934582_323964676.i: Player_Aggressive_212934582_323964676.cpp.i
@@ -181,7 +181,7 @@ Player_Aggressive_212934582_323964676.i: Player_Aggressive_212934582_323964676.c
 
 # target to preprocess a source file
 Player_Aggressive_212934582_323964676.cpp.i:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/Player_Aggressive_212934582_323964676.cpp.i
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/Player_Aggressive_212934582_323964676.cpp.i
 .PHONY : Player_Aggressive_212934582_323964676.cpp.i
 
 Player_Aggressive_212934582_323964676.s: Player_Aggressive_212934582_323964676.cpp.s
@@ -189,7 +189,7 @@ Player_Aggressive_212934582_323964676.s: Player_Aggressive_212934582_323964676.c
 
 # target to generate assembly for a file
 Player_Aggressive_212934582_323964676.cpp.s:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/Player_Aggressive_212934582_323964676.cpp.s
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/Player_Aggressive_212934582_323964676.cpp.s
 .PHONY : Player_Aggressive_212934582_323964676.cpp.s
 
 Player_Simple_212934582_323964676.o: Player_Simple_212934582_323964676.cpp.o
@@ -197,7 +197,7 @@ Player_Simple_212934582_323964676.o: Player_Simple_212934582_323964676.cpp.o
 
 # target to build an object file
 Player_Simple_212934582_323964676.cpp.o:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/Player_Simple_212934582_323964676.cpp.o
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/Player_Simple_212934582_323964676.cpp.o
 .PHONY : Player_Simple_212934582_323964676.cpp.o
 
 Player_Simple_212934582_323964676.i: Player_Simple_212934582_323964676.cpp.i
@@ -205,7 +205,7 @@ Player_Simple_212934582_323964676.i: Player_Simple_212934582_323964676.cpp.i
 
 # target to preprocess a source file
 Player_Simple_212934582_323964676.cpp.i:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/Player_Simple_212934582_323964676.cpp.i
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/Player_Simple_212934582_323964676.cpp.i
 .PHONY : Player_Simple_212934582_323964676.cpp.i
 
 Player_Simple_212934582_323964676.s: Player_Simple_212934582_323964676.cpp.s
@@ -213,7 +213,7 @@ Player_Simple_212934582_323964676.s: Player_Simple_212934582_323964676.cpp.s
 
 # target to generate assembly for a file
 Player_Simple_212934582_323964676.cpp.s:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/Player_Simple_212934582_323964676.cpp.s
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/Player_Simple_212934582_323964676.cpp.s
 .PHONY : Player_Simple_212934582_323964676.cpp.s
 
 TankAlgorithm_Simple_212934582_323964676.o: TankAlgorithm_Simple_212934582_323964676.cpp.o
@@ -221,7 +221,7 @@ TankAlgorithm_Simple_212934582_323964676.o: TankAlgorithm_Simple_212934582_32396
 
 # target to build an object file
 TankAlgorithm_Simple_212934582_323964676.cpp.o:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simple_212934582_323964676.cpp.o
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simple_212934582_323964676.cpp.o
 .PHONY : TankAlgorithm_Simple_212934582_323964676.cpp.o
 
 TankAlgorithm_Simple_212934582_323964676.i: TankAlgorithm_Simple_212934582_323964676.cpp.i
@@ -229,7 +229,7 @@ TankAlgorithm_Simple_212934582_323964676.i: TankAlgorithm_Simple_212934582_32396
 
 # target to preprocess a source file
 TankAlgorithm_Simple_212934582_323964676.cpp.i:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simple_212934582_323964676.cpp.i
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simple_212934582_323964676.cpp.i
 .PHONY : TankAlgorithm_Simple_212934582_323964676.cpp.i
 
 TankAlgorithm_Simple_212934582_323964676.s: TankAlgorithm_Simple_212934582_323964676.cpp.s
@@ -237,7 +237,7 @@ TankAlgorithm_Simple_212934582_323964676.s: TankAlgorithm_Simple_212934582_32396
 
 # target to generate assembly for a file
 TankAlgorithm_Simple_212934582_323964676.cpp.s:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simple_212934582_323964676.cpp.s
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/TankAlgorithm_Simple_212934582_323964676.cpp.s
 .PHONY : TankAlgorithm_Simple_212934582_323964676.cpp.s
 
 library_init_aggressive_212934582_323964676.o: library_init_aggressive_212934582_323964676.cpp.o
@@ -245,7 +245,7 @@ library_init_aggressive_212934582_323964676.o: library_init_aggressive_212934582
 
 # target to build an object file
 library_init_aggressive_212934582_323964676.cpp.o:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/library_init_aggressive_212934582_323964676.cpp.o
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/library_init_aggressive_212934582_323964676.cpp.o
 .PHONY : library_init_aggressive_212934582_323964676.cpp.o
 
 library_init_aggressive_212934582_323964676.i: library_init_aggressive_212934582_323964676.cpp.i
@@ -253,7 +253,7 @@ library_init_aggressive_212934582_323964676.i: library_init_aggressive_212934582
 
 # target to preprocess a source file
 library_init_aggressive_212934582_323964676.cpp.i:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/library_init_aggressive_212934582_323964676.cpp.i
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/library_init_aggressive_212934582_323964676.cpp.i
 .PHONY : library_init_aggressive_212934582_323964676.cpp.i
 
 library_init_aggressive_212934582_323964676.s: library_init_aggressive_212934582_323964676.cpp.s
@@ -261,7 +261,7 @@ library_init_aggressive_212934582_323964676.s: library_init_aggressive_212934582
 
 # target to generate assembly for a file
 library_init_aggressive_212934582_323964676.cpp.s:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/library_init_aggressive_212934582_323964676.cpp.s
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir/library_init_aggressive_212934582_323964676.cpp.s
 .PHONY : library_init_aggressive_212934582_323964676.cpp.s
 
 library_init_simple_212934582_323964676.o: library_init_simple_212934582_323964676.cpp.o
@@ -269,7 +269,7 @@ library_init_simple_212934582_323964676.o: library_init_simple_212934582_3239646
 
 # target to build an object file
 library_init_simple_212934582_323964676.cpp.o:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/library_init_simple_212934582_323964676.cpp.o
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/library_init_simple_212934582_323964676.cpp.o
 .PHONY : library_init_simple_212934582_323964676.cpp.o
 
 library_init_simple_212934582_323964676.i: library_init_simple_212934582_323964676.cpp.i
@@ -277,7 +277,7 @@ library_init_simple_212934582_323964676.i: library_init_simple_212934582_3239646
 
 # target to preprocess a source file
 library_init_simple_212934582_323964676.cpp.i:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/library_init_simple_212934582_323964676.cpp.i
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/library_init_simple_212934582_323964676.cpp.i
 .PHONY : library_init_simple_212934582_323964676.cpp.i
 
 library_init_simple_212934582_323964676.s: library_init_simple_212934582_323964676.cpp.s
@@ -285,7 +285,7 @@ library_init_simple_212934582_323964676.s: library_init_simple_212934582_3239646
 
 # target to generate assembly for a file
 library_init_simple_212934582_323964676.cpp.s:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/library_init_simple_212934582_323964676.cpp.s
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(MAKE) $(MAKESILENT) -f Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/build.make Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir/library_init_simple_212934582_323964676.cpp.s
 .PHONY : library_init_simple_212934582_323964676.cpp.s
 
 # Help Target
@@ -327,6 +327,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

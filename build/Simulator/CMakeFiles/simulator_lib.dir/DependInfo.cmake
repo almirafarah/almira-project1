@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/DynamicLibraryLoader.cpp" "Simulator/CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.o" "gcc" "Simulator/CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.o.d"
-  "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/Simulator.cpp" "Simulator/CMakeFiles/simulator_lib.dir/Simulator.cpp.o" "gcc" "Simulator/CMakeFiles/simulator_lib.dir/Simulator.cpp.o.d"
+  "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/DynamicLibraryLoader.cpp" "Simulator/CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.o" "gcc" "Simulator/CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.o.d"
+  "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/Simulator.cpp" "Simulator/CMakeFiles/simulator_lib.dir/Simulator.cpp.o" "gcc" "Simulator/CMakeFiles/simulator_lib.dir/Simulator.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

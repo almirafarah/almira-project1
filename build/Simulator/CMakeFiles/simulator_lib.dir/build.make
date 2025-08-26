@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1"
+CMAKE_SOURCE_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build"
+CMAKE_BINARY_DIR = "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build"
 
 # Include any dependencies generated for this target.
 include Simulator/CMakeFiles/simulator_lib.dir/depend.make
@@ -70,32 +70,32 @@ include Simulator/CMakeFiles/simulator_lib.dir/progress.make
 include Simulator/CMakeFiles/simulator_lib.dir/flags.make
 
 Simulator/CMakeFiles/simulator_lib.dir/Simulator.cpp.o: Simulator/CMakeFiles/simulator_lib.dir/flags.make
-Simulator/CMakeFiles/simulator_lib.dir/Simulator.cpp.o: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/Simulator.cpp
+Simulator/CMakeFiles/simulator_lib.dir/Simulator.cpp.o: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/Simulator.cpp
 Simulator/CMakeFiles/simulator_lib.dir/Simulator.cpp.o: Simulator/CMakeFiles/simulator_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Simulator/CMakeFiles/simulator_lib.dir/Simulator.cpp.o"
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Simulator" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Simulator/CMakeFiles/simulator_lib.dir/Simulator.cpp.o -MF CMakeFiles/simulator_lib.dir/Simulator.cpp.o.d -o CMakeFiles/simulator_lib.dir/Simulator.cpp.o -c "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/Simulator.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Simulator/CMakeFiles/simulator_lib.dir/Simulator.cpp.o"
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/Simulator" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Simulator/CMakeFiles/simulator_lib.dir/Simulator.cpp.o -MF CMakeFiles/simulator_lib.dir/Simulator.cpp.o.d -o CMakeFiles/simulator_lib.dir/Simulator.cpp.o -c "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/Simulator.cpp"
 
 Simulator/CMakeFiles/simulator_lib.dir/Simulator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/simulator_lib.dir/Simulator.cpp.i"
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Simulator" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/Simulator.cpp" > CMakeFiles/simulator_lib.dir/Simulator.cpp.i
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/Simulator" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/Simulator.cpp" > CMakeFiles/simulator_lib.dir/Simulator.cpp.i
 
 Simulator/CMakeFiles/simulator_lib.dir/Simulator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/simulator_lib.dir/Simulator.cpp.s"
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Simulator" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/Simulator.cpp" -o CMakeFiles/simulator_lib.dir/Simulator.cpp.s
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/Simulator" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/Simulator.cpp" -o CMakeFiles/simulator_lib.dir/Simulator.cpp.s
 
 Simulator/CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.o: Simulator/CMakeFiles/simulator_lib.dir/flags.make
-Simulator/CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.o: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project1/Simulator/DynamicLibraryLoader.cpp
+Simulator/CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.o: /mnt/c/Users/Almira\ Farah/Documents/computer\ science/hw2\ try2\ algorithem/almira-project2/almira-project1/Simulator/DynamicLibraryLoader.cpp
 Simulator/CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.o: Simulator/CMakeFiles/simulator_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object Simulator/CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.o"
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Simulator" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Simulator/CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.o -MF CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.o.d -o CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.o -c "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/DynamicLibraryLoader.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object Simulator/CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.o"
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/Simulator" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Simulator/CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.o -MF CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.o.d -o CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.o -c "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/DynamicLibraryLoader.cpp"
 
 Simulator/CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.i"
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Simulator" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/DynamicLibraryLoader.cpp" > CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.i
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/Simulator" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/DynamicLibraryLoader.cpp" > CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.i
 
 Simulator/CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.s"
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Simulator" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator/DynamicLibraryLoader.cpp" -o CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.s
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/Simulator" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator/DynamicLibraryLoader.cpp" -o CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.s
 
 # Object files for target simulator_lib
 simulator_lib_OBJECTS = \
@@ -109,19 +109,19 @@ Simulator/libsimulator_lib.a: Simulator/CMakeFiles/simulator_lib.dir/Simulator.c
 Simulator/libsimulator_lib.a: Simulator/CMakeFiles/simulator_lib.dir/DynamicLibraryLoader.cpp.o
 Simulator/libsimulator_lib.a: Simulator/CMakeFiles/simulator_lib.dir/build.make
 Simulator/libsimulator_lib.a: Simulator/CMakeFiles/simulator_lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libsimulator_lib.a"
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Simulator" && $(CMAKE_COMMAND) -P CMakeFiles/simulator_lib.dir/cmake_clean_target.cmake
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Simulator" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/simulator_lib.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libsimulator_lib.a"
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/Simulator" && $(CMAKE_COMMAND) -P CMakeFiles/simulator_lib.dir/cmake_clean_target.cmake
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/Simulator" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/simulator_lib.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 Simulator/CMakeFiles/simulator_lib.dir/build: Simulator/libsimulator_lib.a
 .PHONY : Simulator/CMakeFiles/simulator_lib.dir/build
 
 Simulator/CMakeFiles/simulator_lib.dir/clean:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Simulator" && $(CMAKE_COMMAND) -P CMakeFiles/simulator_lib.dir/cmake_clean.cmake
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/Simulator" && $(CMAKE_COMMAND) -P CMakeFiles/simulator_lib.dir/cmake_clean.cmake
 .PHONY : Simulator/CMakeFiles/simulator_lib.dir/clean
 
 Simulator/CMakeFiles/simulator_lib.dir/depend:
-	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/Simulator" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Simulator" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project1/build/Simulator/CMakeFiles/simulator_lib.dir/DependInfo.cmake" "--color=$(COLOR)"
+	cd "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/Simulator" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/Simulator" "/mnt/c/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/almira-project2/almira-project1/build/Simulator/CMakeFiles/simulator_lib.dir/DependInfo.cmake" "--color=$(COLOR)"
 .PHONY : Simulator/CMakeFiles/simulator_lib.dir/depend
 
