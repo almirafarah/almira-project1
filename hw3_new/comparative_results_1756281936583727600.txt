@@ -1,0 +1,27 @@
+game_map=map.txt
+algorithm1=Algorithm_315635441_314615261.so
+algorithm2=Algorithm_322837089_212141253.so
+
+GameManager_322837089_212141253.so
+Tie, reached max steps = 5000, player 1 has 3 tanks, player 2 has 2 tanks
+5000
+###############
+#1  @2  ### 1 #
+# ### ### ##  #
+#   #   #     #
+### ### # ### #
+#     #  #    #
+# ### #### ## #
+# #   #      ##
+# ### ### ### #
+#   #      #  #
+#### # #### # #
+#    #  @   # #
+# ## #### ##  #
+#1  ##    ## 2#
+###############
+               
+               
+               
+               
+               
