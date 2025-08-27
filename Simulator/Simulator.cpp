@@ -429,9 +429,7 @@ std::unique_ptr<SatelliteView> Simulator::createMapFromFile(const std::string &m
             if (yCoord >= board_.size() || xCoord >= board_[yCoord].size()) return '&';
             return board_[yCoord][xCoord];
         }
-        [[nodiscard]] std::unique_ptr<SatelliteView> clone() const override {
-            return std::make_unique<FileSatelliteView>(*this);
-        }
+
     private:
         std::vector<std::string> board_;
     };
