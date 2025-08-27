@@ -10,7 +10,13 @@
 #include <memory>
 #include "../common/SatelliteView.h"
 #include "../common/GameResult.h"
-
+#include "../common/AbstractGameManager.h"
+#include "../common/Player.h"
+#include "../common/TankAlgorithm.h"
+#include <functional>
+#include "../common/AbstractGameManager.h"
+#include "../common/Player.h"
+#include "../common/TankAlgorithm.h"
 // Platform-specific dynamic library loading
 // No dynamic library loading needed
 
@@ -96,7 +102,14 @@ class Simulator {
 public:
     Simulator();
     ~Simulator();
-    
+
+    // Singleton instance accessor
+    static Simulator& getInstance();
+
+    // Registration functions used by static registration objects
+    static void registerGameManagerFactory(std::function<std::unique_ptr<AbstractGameManager>(bool)> factory);
+    static void registerPlayerFactory(PlayerFactory factory);
+    static void registerTankAlgorithmFactory(TankAlgorithmFactory factory);
     // Main entry points for the two modes
     bool runComparative(const std::string& game_map, const std::string& game_managers_folder,
                        const std::string& algorithm1, const std::string& algorithm2,
@@ -152,6 +165,11 @@ private:
     // Keep dynamic libraries alive for the duration of the run
     std::vector<std::unique_ptr<class DynamicLibraryLoader>> loaded_algorithm_libraries_;
     std::vector<std::unique_ptr<class DynamicLibraryLoader>> loaded_gamemanager_libraries_;
+    // Registered factories (populated via static registration when libraries are loaded)
+    std::vector<std::function<std::unique_ptr<AbstractGameManager>(bool)>> gmFactories_;
+    std::vector<PlayerFactory> playerFactories_;
+    std::vector<TankAlgorithmFactory> tankFactories_;
 };
+
 
 #endif // SIMULATOR_H

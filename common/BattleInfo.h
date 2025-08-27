@@ -1,11 +1,6 @@
-#ifndef COMMON_BATTLEINFO_H
-#define COMMON_BATTLEINFO_H
-
-#include <cstddef>
+#pragma once
 
 class BattleInfo {
 public:
-	virtual ~BattleInfo() {}
+    virtual ~BattleInfo() {}
 };
-
-#endif // COMMON_BATTLEINFO_H

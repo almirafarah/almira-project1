@@ -10,6 +10,7 @@
 #include <memory>
 #include <vector>
 #include <array>
+#include <string>
 
 namespace GameManager_212934582_323964676 {
 
@@ -55,12 +56,11 @@ public:
     virtual GameResult run(
         size_t map_width,
         size_t map_height,
-        const SatelliteView& map,  // Map provided by Simulator
-        string map_name,
+        SatelliteView& map,
         size_t max_steps,
         size_t num_shells,
-        Player& player1, string name1,  // Reference - ownership with Simulator
-        Player& player2, string name2,  // Reference - ownership with Simulator
+        Player& player1,
+        Player& player2,
         TankAlgorithmFactory player1_tank_algo_factory,
         TankAlgorithmFactory player2_tank_algo_factory) override;
 

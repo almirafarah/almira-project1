@@ -19,6 +19,10 @@ include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../common")
 set(SIM_SRCS
         Simulator.cpp
         DynamicLibraryLoader.cpp
+        Makefile.cpp
+        Makefile.h
+        GameManagerRegistrar.h
+        GameManagerRegistrar.cpp
 )
 
 add_library(simulator_lib STATIC ${SIM_SRCS})

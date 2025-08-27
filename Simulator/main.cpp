@@ -238,7 +238,7 @@ int main(int argc, char* argv[]) {
     }
 
     try {
-        Simulator simulator;
+        auto& simulator = Simulator::getInstance();
 
         bool ok = false;
         if (args["mode"] == "-comparative") {

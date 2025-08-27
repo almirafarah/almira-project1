@@ -1,10 +1,9 @@
 #include "../common/TankAlgorithmRegistration.h"
+#include "Simulator.h"
 #include "AlgorithmRegistrar.h"
 
 TankAlgorithmRegistration::TankAlgorithmRegistration(TankAlgorithmFactory factory) {
-    // Add the TankAlgorithm factory to the last entry (created by PlayerRegistration)
-    addTankAlgorithmFactoryToLastEntry(std::move(factory));
-
-    // Validate that both Player and TankAlgorithm factories are present
-    validateLastRegistration();
+    auto f = factory;
+    Simulator::getInstance().registerTankAlgorithmFactory(std::move(f));
+    AlgorithmRegistrar::get().addTankAlgorithmFactoryToLastEntry(std::move(factory));
 }

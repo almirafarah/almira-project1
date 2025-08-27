@@ -1,34 +1,34 @@
 #include "Simulator.h"
+
 #include "../common/AbstractGameManager.h"
 #include "../common/Player.h"
 #include "../common/TankAlgorithm.h"
 #include "../common/SatelliteView.h"
 #include "../common/GameResult.h"
-#include "../common/GameManagerRegistration.h"
+
 #include "AlgorithmRegistrar.h"
+#include "GameManagerRegistrar.h"
 #include "DynamicLibraryLoader.h"
-#include <string>
-#include <map>
-#include <unordered_map>
-#include <set>
-#include <tuple>
+
 #include <algorithm>
 #include <chrono>
 #include <filesystem>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
-#include <sstream>
+#include <map>
 #include <mutex>
 #include <queue>
+#include <set>
+#include <sstream>
+#include <string>
 #include <thread>
+#include <tuple>
+#include <unordered_map>
 #include <vector>
 #include <cctype>
 #include <charconv>
-#include <string>
-#include <map>
-#include <tuple>
-#include <iterator>
+
 namespace {
 // Parses a positive integer from an arbitrary string using std::from_chars.
 // Returns 0 on failure.
@@ -45,6 +45,16 @@ size_t parsePositiveNumber(const std::string &s) {
     if (ec != std::errc()) return 0;
     return value;
 }
+
+// Print a brief usage line (for invalid inputs like no maps/algorithms)
+void printUsage() {
+    std::cerr
+        << "Usage:\n"
+        << "  simulator -comparative game_map=<path> game_managers_folder=<folder> "
+           "algorithm1=<path_to_so> algorithm2=<path_to_so> [-threads=N] [-verbose]\n"
+        << "  simulator -competition game_maps_folder=<folder> game_manager=<path_to_so> "
+           "algorithms_folder=<folder> [-threads=N] [-verbose]\n";
+}
 } // namespace
 
 // ---- platform lib extension (Windows: .dll, Unix: .so) ----
@@ -54,6 +64,26 @@ static const std::string LIB_EXTENSION = ".dll";
 #else
 static const std::string LIB_EXTENSION = ".so";
 #endif
+
+// ------------------------------------------------------------
+// Singleton access and registration helpers (as per patch)
+// ------------------------------------------------------------
+Simulator& Simulator::getInstance() {
+    static Simulator instance;
+    return instance;
+}
+
+void Simulator::registerGameManagerFactory(std::function<std::unique_ptr<AbstractGameManager>(bool)> factory) {
+    Simulator::getInstance().gmFactories_.push_back(std::move(factory));
+}
+
+void Simulator::registerPlayerFactory(PlayerFactory factory) {
+    Simulator::getInstance().playerFactories_.push_back(std::move(factory));
+}
+
+void Simulator::registerTankAlgorithmFactory(TankAlgorithmFactory factory) {
+    Simulator::getInstance().tankFactories_.push_back(std::move(factory));
+}
 
 // ------------------------------------------------------------
 // Construction / Destruction
@@ -145,25 +175,28 @@ void Simulator::waitForAllTasks() {
 }
 
 // ------------------------------------------------------------
-// Library loading helpers
+// Library loading helpers (registrar pattern)
 // ------------------------------------------------------------
 bool Simulator::loadAlgorithmLibrary(const std::string &library_path) {
     auto loader = std::make_unique<DynamicLibraryLoader>();
+    std::string base = std::filesystem::path(library_path).filename().string();
+
+    // Mark a new expected algorithm entry (so static initializers can fill it)
+    AlgorithmRegistrar::get().createAlgorithmFactoryEntry(base);
+
     if (!loader->loadLibrary(library_path)) {
         std::cerr << "Failed to load algorithm library: " << library_path << "\n"
                   << "Error: " << loader->getLastError() << std::endl;
+        AlgorithmRegistrar::get().removeLast();
         return false;
     }
-
-    // Optional registration hooks exported by some DLLs/SOs
-    using ForceInitFunc = int (*)();
-    if (auto func = reinterpret_cast<ForceInitFunc>(loader->getFunction("force_registration_initialization"))) {
-        func();
-    } else {
-        using InitFunc = void (*)();
-        if (auto init = reinterpret_cast<InitFunc>(loader->getFunction("initialize_algorithm"))) {
-            init();
-        }
+    try {
+        AlgorithmRegistrar::get().validateLastRegistration();
+    } catch (AlgorithmRegistrar::BadRegistrationException&) {
+        std::cerr << "Error: Algorithm file '" << base
+                  << "' did not register required classes.\n";
+        AlgorithmRegistrar::get().removeLast();
+        return false;
     }
 
     loaded_algorithm_libraries_.push_back(std::move(loader));
@@ -172,11 +205,24 @@ bool Simulator::loadAlgorithmLibrary(const std::string &library_path) {
 
 bool Simulator::loadGameManagerLibrary(const std::string &library_path) {
     auto loader = std::make_unique<DynamicLibraryLoader>();
+    std::string base = std::filesystem::path(library_path).filename().string();
+
+    GameManagerRegistrar::get().createGameManagerEntry(base);
     if (!loader->loadLibrary(library_path)) {
         std::cerr << "Failed to load GameManager library: " << library_path << "\n"
                   << "Error: " << loader->getLastError() << std::endl;
+        GameManagerRegistrar::get().removeLast();
         return false;
     }
+    try {
+        GameManagerRegistrar::get().validateLastRegistration();
+    } catch (GameManagerRegistrar::BadRegistrationException&) {
+        std::cerr << "Error: GameManager file '" << base
+                  << "' did not register a GameManager class.\n";
+        GameManagerRegistrar::get().removeLast();
+        return false;
+    }
+
     loaded_gamemanager_libraries_.push_back(std::move(loader));
     return true;
 }
@@ -221,7 +267,7 @@ SimulatorGameResult Simulator::executeGame(const GameTask &task) {
     TankAlgorithmFactory tank_algo_factory2;
     {
         std::lock_guard<std::mutex> lock(algorithm_load_mutex);
-        auto &registrar = AlgorithmRegistrar::getAlgorithmRegistrar();
+        auto &registrar = AlgorithmRegistrar::get();
         registrar.clear();
 
         // Unload any previously loaded algos to force re-registration on next load
@@ -229,8 +275,11 @@ SimulatorGameResult Simulator::executeGame(const GameTask &task) {
             if (loader) loader->unload();
         }
         loaded_algorithm_libraries_.clear();
-        // Clear registrar only after unloading old libraries
+        // Clear after unloading
         registrar.clear();
+        playerFactories_.clear();
+        tankFactories_.clear();
+
         if (!loadAlgorithmLibrary(task.algorithm1_path) ||
             !loadAlgorithmLibrary(task.algorithm2_path)) {
             std::cerr << "Failed to load algorithm libraries" << std::endl;
@@ -263,58 +312,73 @@ SimulatorGameResult Simulator::executeGame(const GameTask &task) {
         };
     }
 
-    // Load GameManager
-
-    // Ensure no stale registrations from previous games
+    // Load GameManager (fresh each time)
     for (auto &loader : loaded_gamemanager_libraries_) {
         if (loader) loader->unload();
     }
     loaded_gamemanager_libraries_.clear();
-    auto prev_gm_names = getRegisteredGameManagers();
+    gmFactories_.clear();
+    GameManagerRegistrar::get().clear();
 
     if (!loadGameManagerLibrary(task.game_manager_path)) {
         std::cerr << "Failed to load game manager library" << std::endl;
         return result;
     }
 
-    auto gm_names_all = getRegisteredGameManagers();
-    std::string gm_name;
-    if (gm_names_all.size() > prev_gm_names.size()) {
-        for (const auto &name : gm_names_all) {
-            if (std::find(prev_gm_names.begin(), prev_gm_names.end(), name) == prev_gm_names.end()) {
-                gm_name = name;
-                break;
-            }
-        }
-    } else if (!gm_names_all.empty()) {
-        gm_name = gm_names_all.front();
-    }
-
-    if (gm_name.empty()) {
-        std::cerr << "No GameManager registered" << std::endl;
+    auto& gmReg = GameManagerRegistrar::get();
+    if (gmFactories_.empty() || gmReg.count() == 0) {
+        std::cerr << "Error: GameManager file '" << task.game_manager_path
+                  << "' did not register a GameManager class.\n";
         return result;
     }
 
-    result.game_manager_name = gm_name;
-    auto gm_factory = getGameManagerFactory(result.game_manager_name);
-    if (!gm_factory) {
-        std::cerr << "Failed to obtain GameManager factory" << std::endl;
-        return result;
-    }
-
+    auto itGm = gmReg.end();
+    --itGm;
+    result.game_manager_name = itGm->name();
+    auto gm_factory = gmFactories_.back();
     auto game_manager = gm_factory(task.verbose);
 
-    // Run the game
-    auto game_result = game_manager->run(
-        task.map_width, task.map_height,
-        *map_view, task.map_name,
-        task.max_steps, task.num_shells,
-        *player1, result.algorithm1_name,
-        *player2, result.algorithm2_name,
-        tank_algo_factory1, tank_algo_factory2
-    );
+    // RAII cleanup to avoid leaks across games
+    auto cleanup = [&]() {
+        player1.reset();
+        player2.reset();
+        game_manager.reset();
+
+        for (auto &loader : loaded_algorithm_libraries_) {
+            if (loader) loader->unload();
+        }
+        for (auto &loader : loaded_gamemanager_libraries_) {
+            if (loader) loader->unload();
+        }
+        loaded_algorithm_libraries_.clear();
+        loaded_gamemanager_libraries_.clear();
+
+        playerFactories_.clear();
+        tankFactories_.clear();
+        gmFactories_.clear();
+
+        AlgorithmRegistrar::get().clear();
+        GameManagerRegistrar::get().clear();
+    };
+
+    GameResult game_result;
+    try {
+        game_result = game_manager->run(
+            task.map_width, task.map_height,
+            *map_view,
+            task.max_steps, task.num_shells,
+            *player1, *player2,
+            tank_algo_factory1, tank_algo_factory2
+        );
+    } catch (...) {
+        std::cerr << "GameManager::run threw an exception" << std::endl;
+        cleanup();
+        result.game_result = std::move(game_result);
+        return result;
+    }
 
     result.game_result = std::move(game_result);
+    cleanup();
     return result;
 }
 
@@ -376,25 +440,10 @@ std::unique_ptr<SatelliteView> Simulator::createMapFromFile(const std::string &m
 }
 
 // ------------------------------------------------------------
-// Output writers
-
+// Output helpers
 // ------------------------------------------------------------
 namespace {
-    // Convert final game state into vector of lines for output
-    std::vector<std::string> gameStateToLines(const GameResult &gr, size_t width, size_t height) {
-        std::vector<std::string> lines;
-        if (!gr.gameState) return lines;
-        for (size_t y = 0; y < height; ++y) {
-            std::string row;
-            for (size_t x = 0; x < width; ++x) {
-                row.push_back(gr.gameState->getObjectAt(x, y));
-            }
-            lines.push_back(row);
-        }
-        return lines;
-    }
-
-    // Create a human readable message for game result
+    // Human readable message for comparative clustering (optional use)
     std::string resultMessage(const GameResult &gr) {
         switch (gr.reason) {
             case GameResult::ALL_TANKS_DEAD:
@@ -422,37 +471,24 @@ namespace {
     struct ResultKey {
         int winner;
         GameResult::Reason reason;
-        size_t rounds;
-        std::string board;
         bool operator<(const ResultKey &other) const {
-            return std::tie(winner, reason, rounds, board) <
-                   std::tie(other.winner, other.reason, other.rounds, other.board);
+            return std::tie(winner, reason) <
+                   std::tie(other.winner, other.reason);
         }
     };
 } // namespace
 
-
 void Simulator::writeComparativeResults(const std::string &output_folder,
                                         const std::vector<SimulatorGameResult> &results) {
-       if (results.empty()) return;
-
     if (results.empty()) return;
 
-    // Build groups of game managers by identical final result
+    // Group by identical (winner, reason)
     std::map<ResultKey, std::vector<const SimulatorGameResult*>> groups;
     for (const auto &res : results) {
-        std::string board;
-        auto lines = gameStateToLines(res.game_result, res.map_width, res.map_height);
-        for (size_t i = 0; i < lines.size(); ++i) {
-            board += lines[i];
-            if (i + 1 < lines.size()) board += '\n';
-        }
-        ResultKey key{res.game_result.winner, res.game_result.reason,
-                       res.game_result.rounds, board};
+        ResultKey key{res.game_result.winner, res.game_result.reason};
         groups[key].push_back(&res);
     }
 
-    // Convert to vector and sort by group size (largest first)
     struct GroupData {
         std::vector<const SimulatorGameResult*> entries;
         ResultKey key;
@@ -466,7 +502,7 @@ void Simulator::writeComparativeResults(const std::string &output_folder,
                   return a.entries.size() > b.entries.size();
               });
 
-    // Prepare header information
+    // Header
     std::ostringstream output;
     auto map_filename = std::filesystem::path(results.front().map_name).filename().string();
     auto alg1_filename = std::filesystem::path(results.front().algorithm1_file).filename().string();
@@ -476,10 +512,9 @@ void Simulator::writeComparativeResults(const std::string &output_folder,
     output << "algorithm2=" << alg2_filename << '\n';
     output << '\n';
 
-    // Write each group
     for (size_t g = 0; g < ordered.size(); ++g) {
         auto &grp = ordered[g];
-        // line e: comma separated list of game manager names
+        // line e: comma separated list of game manager library names
         for (size_t i = 0; i < grp.entries.size(); ++i) {
             auto name = std::filesystem::path(grp.entries[i]->game_manager_file).filename().string();
             if (i) output << ',';
@@ -487,33 +522,14 @@ void Simulator::writeComparativeResults(const std::string &output_folder,
         }
         output << '\n';
 
-        // line f: game result message
+        // line f: result message
         output << resultMessage(grp.entries.front()->game_result) << '\n';
 
-        // line g: round number
-        output << grp.entries.front()->game_result.rounds << '\n';
-
-        // line h: final map
-        auto board_lines = gameStateToLines(grp.entries.front()->game_result,
-                                            grp.entries.front()->map_width,
-                                            grp.entries.front()->map_height);
-        for (const auto &line : board_lines) {
-            output << line << '\n';
-        }
-
-        if (g + 1 < ordered.size()) {
-            output << '\n';
-        }
+        if (g + 1 < ordered.size()) output << '\n';
     }
 
-
-    // Determine output path
     std::filesystem::create_directories(output_folder);
-    std::string out_path = output_folder;
-    out_path += "/comparative_results_";
-    out_path += generateTimestamp();
-    out_path += ".txt";
-
+    std::string out_path = output_folder + "/comparative_results_" + generateTimestamp() + ".txt";
     std::ofstream out(out_path);
     if (!out.is_open()) {
         std::cerr << "Error: Could not create output file: " << out_path << std::endl;
@@ -523,46 +539,54 @@ void Simulator::writeComparativeResults(const std::string &output_folder,
     out << output.str();
 }
 
-void Simulator::writeCompetitionResults(const std::string &output_folder,
+void Simulator::writeCompetitionResults(const std::string &algorithms_folder,
                                         const std::string &game_maps_folder,
                                         const std::string &game_manager_file,
                                         const std::vector<SimulatorGameResult> &results) {
-    if (results.empty()) return;
-
-    // Accumulate scores per algorithm
+    // Aggregate scores: 3 for win, 1 for tie, 0 for loss
     std::unordered_map<std::string, int> scores;
+
+    // Ensure all seen algos appear (even if all losses)
+    auto ensureAlgo = [&](const std::string &path) {
+        std::string name = getLibraryName(path);
+        if (!scores.count(name)) scores[name] = 0;
+        return name;
+    };
+
     for (const auto &res : results) {
-        std::string alg1 = getLibraryName(res.algorithm1_file);
-        std::string alg2 = getLibraryName(res.algorithm2_file);
-        scores.try_emplace(alg1, 0);
-        scores.try_emplace(alg2, 0);
+        std::string a1 = ensureAlgo(res.algorithm1_file);
+        std::string a2 = ensureAlgo(res.algorithm2_file);
+
         switch (res.game_result.winner) {
-            case 1: scores[alg1] += 3; break;
-            case 2: scores[alg2] += 3; break;
-            default:
-                scores[alg1] += 1;
-                scores[alg2] += 1;
-                break;
+            case 1: scores[a1] += 3; break;
+            case 2: scores[a2] += 3; break;
+            case 0: scores[a1] += 1; scores[a2] += 1; break;
+            default: break;
         }
     }
 
-    // Sort by score descending
-    std::vector<std::pair<std::string, int>> ordered(scores.begin(), scores.end());
-    std::sort(ordered.begin(), ordered.end(),
-              [](const auto &a, const auto &b) { return a.second > b.second; });
-    std::ostringstream output;
-    output << "game_maps_folder=" << game_maps_folder << '\n';
-    output << "game_manager=" << std::filesystem::path(game_manager_file).filename().string() << '\n';
-    output << '\n';
-    for (const auto &p : ordered) {
-        output << p.first << ' ' << p.second << '\n';
-    }
-    std::filesystem::create_directories(output_folder);
+    // Move to vector and sort by score desc
+    std::vector<std::pair<std::string,int>> sorted;
+    sorted.reserve(scores.size());
+    for (auto &kv : scores) sorted.emplace_back(kv.first, kv.second);
+    std::sort(sorted.begin(), sorted.end(),
+              [](auto &a, auto &b){ return a.second > b.second; });
 
-    std::string filename = output_folder + "/competition_" + generateTimestamp() + ".txt";
+    // Build output per spec
+    std::ostringstream output;
+    output << "game_maps_folder=" << game_maps_folder << "\n";
+    output << "game_manager=" << std::filesystem::path(game_manager_file).filename().string() << "\n\n";
+    for (auto &p : sorted) {
+        output << p.first << " " << p.second << "\n";
+    }
+
+    // Write to file under algorithms_folder
+    std::filesystem::create_directories(algorithms_folder);
+    std::string filename = algorithms_folder + "/competition_" + generateTimestamp() + ".txt";
     std::ofstream out(filename);
     if (!out.is_open()) {
-        std::cerr << "Error: Could not create output file: " << filename << std::endl;
+        std::cerr << "Error: Cannot create competition results file \"" << filename
+                  << "\". Writing results to standard output.\n";
         std::cout << output.str();
         return;
     }
@@ -616,7 +640,7 @@ bool Simulator::runComparative(const std::string &game_map, const std::string &g
     verbose_ = verbose;
     game_results_.clear();
 
-    // collect game manager libraries (*.dll/.so)
+    // collect game manager libraries (*.dll/.so) whose name contains "GameManager"
     auto gm_files = getFilesInFolder(game_managers_folder, LIB_EXTENSION);
     gm_files.erase(std::remove_if(gm_files.begin(), gm_files.end(),
                                   [](const std::string &f) {
@@ -626,6 +650,7 @@ bool Simulator::runComparative(const std::string &game_map, const std::string &g
     if (gm_files.empty()) {
         std::cerr << "No GameManager libraries found in folder: "
                   << game_managers_folder << std::endl;
+        printUsage();
         return false;
     }
 
@@ -650,9 +675,7 @@ bool Simulator::runComparative(const std::string &game_map, const std::string &g
 
     initializeThreadPool(std::max(1, num_threads), gm_files.size());
     for (const auto &gm_file : gm_files) {
-        std::string gm_path = game_managers_folder;
-        gm_path += "/";
-        gm_path += gm_file;
+        std::string gm_path = game_managers_folder + "/" + gm_file;
         GameTask task(gm_path, algorithm1, algorithm2, game_map,
                       map_name, width, height, max_steps, num_shells, verbose);
         submitTask(task);
@@ -672,10 +695,11 @@ bool Simulator::runCompetition(const std::string &game_maps_folder, const std::s
     auto map_files = getFilesInFolder(game_maps_folder, ".txt");
     if (map_files.empty()) {
         std::cerr << "No map files found in folder: " << game_maps_folder << std::endl;
+        printUsage();
         return false;
     }
 
-    // algorithms (*.dll/.so)
+    // algorithms (*.dll/.so) whose name contains "Algorithm"
     auto algo_files = getFilesInFolder(algorithms_folder, LIB_EXTENSION);
     algo_files.erase(std::remove_if(algo_files.begin(), algo_files.end(),
                                     [](const std::string &f) {
@@ -686,35 +710,21 @@ bool Simulator::runCompetition(const std::string &game_maps_folder, const std::s
     if (N < 2) {
         std::cerr << "Need at least two algorithm libraries in folder: "
                   << algorithms_folder << std::endl;
+        printUsage();
         return false;
     }
 
-    // Precompute total number of games
-    size_t total_tasks = 0;
-    for (size_t k = 0; k < map_files.size(); ++k) {
-        size_t off1 = 1 + k % (N - 1);
-        size_t off2 = 1 + (k + 1) % (N - 1);
-        std::set<std::pair<size_t, size_t>> pairs;
-        for (size_t i = 0; i < N; ++i) {
-            size_t j1 = (i + off1) % N;
-            size_t j2 = (i + off2) % N;
-            if (i != j1) pairs.insert({std::min(i, j1), std::max(i, j1)});
-            if (i != j2) pairs.insert({std::min(i, j2), std::max(i, j2)});
-        }
-        total_tasks += pairs.size();
-    }
+    const size_t total_tasks = map_files.size() * (N * (N - 1) / 2);
     if (verbose_) {
-
         std::cout << "Total tasks to be created: " << total_tasks << std::endl;
     }
 
     initializeThreadPool(std::max(1, num_threads), total_tasks);
-    // Schedule games for each map
+
+    // Round-robin tournament-style pairing that varies by map index k
     for (size_t k = 0; k < map_files.size(); ++k) {
         const auto &map_file = map_files[k];
-        std::string map_path = game_maps_folder;
-        map_path += "/";
-        map_path += map_file;
+        std::string map_path = game_maps_folder + "/" + map_file;
         std::string map_name = map_file;
 
         if (verbose_) {
@@ -735,29 +745,24 @@ bool Simulator::runCompetition(const std::string &game_maps_folder, const std::s
                 width      = parsePositiveNumber(lines[4]);
             }
         }
-        size_t off1 = 1 + k % (N - 1);
-        size_t off2 = 1 + (k + 1) % (N - 1);
-        std::set<std::pair<size_t, size_t>> pairs;
+
         for (size_t i = 0; i < N; ++i) {
-            size_t j1 = (i + off1) % N;
-            size_t j2 = (i + off2) % N;
-            if (i != j1) pairs.insert({std::min(i, j1), std::max(i, j1)});
-            if (i != j2) pairs.insert({std::min(i, j2), std::max(i, j2)});
-        }
-        for (const auto &p : pairs) {
-            size_t i = p.first;
-            size_t j = p.second;
+            // Tournament formula: j = (i + 1 + k % (N - 1)) % N
+            size_t j = (i + 1 + (N > 1 ? (k % (N - 1)) : 0)) % N;
+
+            // Skip duplicates / self-play
+            if (i >= j) continue;
 
             if (verbose_) {
                 std::cout << "  Algorithm " << i << " (" << algo_files[i] << ")"
                           << " vs "
-                << "Algorithm " << j << " (" << algo_files[j] << ")" << std::endl;
+                          << "Algorithm " << j << " (" << algo_files[j] << ")"
+                          << std::endl;
             }
 
-            // Create task for this pairing
+            // Build absolute paths
             std::string alg1_path = algorithms_folder + "/" + algo_files[i];
             std::string alg2_path = algorithms_folder + "/" + algo_files[j];
-
 
             GameTask task(game_manager, alg1_path, alg2_path, map_path,
                           map_name, width, height, max_steps, num_shells, verbose);

@@ -80,11 +80,6 @@ public:
         return ' ';  // Unknown characters become empty space
     }
 
-    // Clone method for copying
-    [[nodiscard]] std::unique_ptr<SatelliteView> clone() const override {
-        return std::make_unique<MySatelliteView>(*this);
-    }
-
 private:
     std::vector<std::string> board_;                    // The static game board
     std::set<std::pair<size_t, size_t>> shells_;        // Positions of flying shells

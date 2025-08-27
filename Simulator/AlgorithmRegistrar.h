@@ -1,91 +1,89 @@
-#ifndef SIMULATOR_ALGORITHMREGISTRAR_H
-#define SIMULATOR_ALGORITHMREGISTRAR_H
-
-#include "../common/Player.h"
-#include "../common/TankAlgorithm.h"
-#include <string>
+#pragma once
 #include <vector>
+#include <string>
 #include <functional>
 #include <memory>
 #include <cassert>
+#include "../common/TankAlgorithm.h"
+#include "../common/Player.h"
 
+// Holds (PlayerFactory, TankAlgorithmFactory) for ONE algorithm .so
 class AlgorithmRegistrar {
     class AlgorithmAndPlayerFactories {
-        std::string so_name;
-        TankAlgorithmFactory tankAlgorithmFactory;
-        PlayerFactory playerFactory;
+        std::string so_name_;
+        TankAlgorithmFactory tankAlgorithmFactory_;
+        PlayerFactory        playerFactory_;
     public:
-        AlgorithmAndPlayerFactories(const std::string& so_name) : so_name(so_name) {}
-        void setTankAlgorithmFactory(TankAlgorithmFactory&& factory) {
-            assert(tankAlgorithmFactory == nullptr);
-            tankAlgorithmFactory = std::move(factory);
+        explicit AlgorithmAndPlayerFactories(std::string so_name)
+            : so_name_(std::move(so_name)) {}
+
+        void setTankAlgorithmFactory(TankAlgorithmFactory&& f) {
+            assert(!tankAlgorithmFactory_);
+            tankAlgorithmFactory_ = std::move(f);
         }
-        void setPlayerFactory(PlayerFactory&& factory) {
-            assert(playerFactory == nullptr);
-            playerFactory = std::move(factory);
+        void setPlayerFactory(PlayerFactory&& f) {
+            assert(!playerFactory_);
+            playerFactory_ = std::move(f);
         }
-        const std::string& name() const { return so_name; }
-        std::unique_ptr<Player> createPlayer(int player_index, size_t x, size_t y, size_t max_steps, size_t num_shells) const {
-            return playerFactory(player_index, x, y, max_steps, num_shells);
+
+        const std::string& name() const { return so_name_; }
+        bool hasPlayerFactory() const { return (bool)playerFactory_; }
+        bool hasTankAlgorithmFactory() const { return (bool)tankAlgorithmFactory_; }
+
+        std::unique_ptr<Player> createPlayer(int player_index,
+            size_t x,size_t y,size_t max_steps,size_t num_shells) const
+        {
+            return playerFactory_(player_index, x, y, max_steps, num_shells);
         }
         std::unique_ptr<TankAlgorithm> createTankAlgorithm(int player_index, int tank_index) const {
-            return tankAlgorithmFactory(player_index, tank_index);
-        }
-        bool hasPlayerFactory() const {
-            return playerFactory != nullptr;
-        }
-        bool hasTankAlgorithmFactory() const {
-            return tankAlgorithmFactory != nullptr;
+            return tankAlgorithmFactory_(player_index, tank_index);
         }
     };
-    std::vector<AlgorithmAndPlayerFactories> algorithms;
-    static AlgorithmRegistrar registrar;
+
+    std::vector<AlgorithmAndPlayerFactories> algorithms_;
+    static AlgorithmRegistrar singleton_;
+
 public:
-    static AlgorithmRegistrar& getAlgorithmRegistrar();
-    void createAlgorithmFactoryEntry(const std::string& name) {
-        algorithms.emplace_back(name);
-    }
-    void addPlayerFactoryToLastEntry(PlayerFactory&& factory) {
-        algorithms.back().setPlayerFactory(std::move(factory));
-    }
-    void addTankAlgorithmFactoryToLastEntry(TankAlgorithmFactory&& factory) {
-        algorithms.back().setTankAlgorithmFactory(std::move(factory));
-    }
     struct BadRegistrationException {
         std::string name;
-        bool hasName, hasPlayerFactory, hasTankAlgorithmFactory;
+        bool hasName;
+        bool hasPlayerFactory;
+        bool hasTankAlgorithmFactory;
     };
+
+    static AlgorithmRegistrar& get();
+
+    // Called BEFORE dlopen(dylib) for this algorithm .so:
+    void createAlgorithmFactoryEntry(const std::string& so_base_name) {
+        algorithms_.emplace_back(so_base_name);
+    }
+
+    // Called by PlayerRegistration/TankAlgorithmRegistration (from inside the .so)
+    void addPlayerFactoryToLastEntry(PlayerFactory&& factory) {
+        algorithms_.back().setPlayerFactory(std::move(factory));
+    }
+    void addTankAlgorithmFactoryToLastEntry(TankAlgorithmFactory&& factory) {
+        algorithms_.back().setTankAlgorithmFactory(std::move(factory));
+    }
+
+    // Validate AFTER dlopen (and remove on failure)
     void validateLastRegistration() {
-        const auto& last = algorithms.back();
-        bool hasName = (last.name() != "");
-        if(!hasName || !last.hasPlayerFactory() || !last.hasTankAlgorithmFactory() ) {
+        const auto& last = algorithms_.back();
+        bool hasName = !last.name().empty();
+        if (!hasName || !last.hasPlayerFactory() || !last.hasTankAlgorithmFactory()) {
             throw BadRegistrationException{
-                last.name(),
-                hasName,
-                last.hasPlayerFactory(),
-                last.hasTankAlgorithmFactory()
+                .name = last.name(),
+                .hasName = hasName,
+                .hasPlayerFactory = last.hasPlayerFactory(),
+                .hasTankAlgorithmFactory = last.hasTankAlgorithmFactory()
             };
         }
     }
-    void removeLast() {
-        algorithms.pop_back();
-    }
-    auto begin() const {
-        return algorithms.begin();
-    }
-    auto end() const {
-        return algorithms.end();
-    }
-    std::size_t count() const { return algorithms.size(); }
-    void clear() { algorithms.clear(); }
+    void removeLast() { algorithms_.pop_back(); }
+
+    // Iteration
+    auto begin() const { return algorithms_.begin(); }
+    auto end()   const { return algorithms_.end();   }
+    std::size_t count() const { return algorithms_.size(); }
+    void clear() { algorithms_.clear(); }
 };
-
-// C-style wrappers so external algorithm libraries can register themselves
-extern "C" {
-void createAlgorithmFactoryEntry(const char* name);
-void addPlayerFactoryToLastEntry(PlayerFactory factory);
-void addTankAlgorithmFactoryToLastEntry(TankAlgorithmFactory factory);
-void validateLastRegistration();
-}
-
-#endif // SIMULATOR_ALGORITHMREGISTRAR_H

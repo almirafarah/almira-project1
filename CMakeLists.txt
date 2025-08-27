@@ -17,6 +17,7 @@ add_library(registration SHARED
     Simulator/PlayerRegistration.cpp
     Simulator/TankAlgorithmRegistration.cpp
     Simulator/GameManagerRegistration.cpp
+    Simulator/GameManagerRegistrar.cpp
 )
 target_include_directories(registration PUBLIC common Simulator)
 
