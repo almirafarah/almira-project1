@@ -171,5 +171,5 @@ private:
     std::vector<TankAlgorithmFactory> tankFactories_;
 };
 
-
 #endif // SIMULATOR_H
+
