@@ -162,9 +162,8 @@ private:
     // Configuration
     bool verbose_;
 
-    // Keep dynamic libraries alive for the duration of the run
-    std::vector<std::unique_ptr<class DynamicLibraryLoader>> loaded_algorithm_libraries_;
-    std::vector<std::unique_ptr<class DynamicLibraryLoader>> loaded_gamemanager_libraries_;
+    // Keep track of open dynamic library handles for later dlclose()
+    std::vector<void*> loadedHandles;
     // Registered factories (populated via static registration when libraries are loaded)
     std::vector<std::function<std::unique_ptr<AbstractGameManager>(bool)>> gmFactories_;
     std::vector<PlayerFactory> playerFactories_;

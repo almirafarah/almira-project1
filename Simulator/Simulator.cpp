@@ -8,7 +8,14 @@
 
 #include "AlgorithmRegistrar.h"
 #include "GameManagerRegistrar.h"
-#include "DynamicLibraryLoader.h"
+
+// Platform-specific dynamic library loading
+#ifdef _WIN32
+#include <windows.h>
+#else
+#include <dlfcn.h>
+#endif
+
 
 #include <algorithm>
 #include <chrono>
@@ -100,6 +107,16 @@ Simulator::~Simulator() {
         if (worker.joinable()) worker.join();
     }
     workers_.clear();
+    
+    // Close all loaded dynamic libraries
+    for (void* handle : loadedHandles) {
+#ifdef _WIN32
+        FreeLibrary((HMODULE)handle);
+#else
+        dlclose(handle);
+#endif
+    }
+    loadedHandles.clear();
 }
 
 // ------------------------------------------------------------
@@ -178,18 +195,32 @@ void Simulator::waitForAllTasks() {
 // Library loading helpers (registrar pattern)
 // ------------------------------------------------------------
 bool Simulator::loadAlgorithmLibrary(const std::string &library_path) {
-    auto loader = std::make_unique<DynamicLibraryLoader>();
     std::string base = std::filesystem::path(library_path).filename().string();
 
     // Mark a new expected algorithm entry (so static initializers can fill it)
     AlgorithmRegistrar::get().createAlgorithmFactoryEntry(base);
 
-    if (!loader->loadLibrary(library_path)) {
+    // Load the library directly using platform-specific calls
+#ifdef _WIN32
+    HMODULE handle = LoadLibraryA(library_path.c_str());
+    if (!handle) {
         std::cerr << "Failed to load algorithm library: " << library_path << "\n"
-                  << "Error: " << loader->getLastError() << std::endl;
+                  << "Error: " << GetLastError() << std::endl;
         AlgorithmRegistrar::get().removeLast();
         return false;
     }
+    loadedHandles.push_back(handle);
+#else
+    void* handle = dlopen(library_path.c_str(), RTLD_NOW | RTLD_GLOBAL);
+    if (!handle) {
+        std::cerr << "Failed to load algorithm library: " << library_path << "\n"
+                  << "Error: " << dlerror() << std::endl;
+        AlgorithmRegistrar::get().removeLast();
+        return false;
+    }
+    loadedHandles.push_back(handle);
+#endif
+
     try {
         AlgorithmRegistrar::get().validateLastRegistration();
     } catch (AlgorithmRegistrar::BadRegistrationException&) {
@@ -199,21 +230,35 @@ bool Simulator::loadAlgorithmLibrary(const std::string &library_path) {
         return false;
     }
 
-    loaded_algorithm_libraries_.push_back(std::move(loader));
     return true;
 }
 
 bool Simulator::loadGameManagerLibrary(const std::string &library_path) {
-    auto loader = std::make_unique<DynamicLibraryLoader>();
     std::string base = std::filesystem::path(library_path).filename().string();
 
     GameManagerRegistrar::get().createGameManagerEntry(base);
-    if (!loader->loadLibrary(library_path)) {
+    
+    // Load the library directly using platform-specific calls
+#ifdef _WIN32
+    HMODULE handle = LoadLibraryA(library_path.c_str());
+    if (!handle) {
         std::cerr << "Failed to load GameManager library: " << library_path << "\n"
-                  << "Error: " << loader->getLastError() << std::endl;
+                  << "Error: " << GetLastError() << std::endl;
         GameManagerRegistrar::get().removeLast();
         return false;
     }
+    loadedHandles.push_back(handle);
+#else
+    void* handle = dlopen(library_path.c_str(), RTLD_NOW | RTLD_GLOBAL);
+    if (!handle) {
+        std::cerr << "Failed to load GameManager library: " << library_path << "\n"
+                  << "Error: " << dlerror() << std::endl;
+        GameManagerRegistrar::get().removeLast();
+        return false;
+    }
+    loadedHandles.push_back(handle);
+#endif
+
     try {
         GameManagerRegistrar::get().validateLastRegistration();
     } catch (GameManagerRegistrar::BadRegistrationException&) {
@@ -223,7 +268,6 @@ bool Simulator::loadGameManagerLibrary(const std::string &library_path) {
         return false;
     }
 
-    loaded_gamemanager_libraries_.push_back(std::move(loader));
     return true;
 }
 
@@ -271,10 +315,14 @@ SimulatorGameResult Simulator::executeGame(const GameTask &task) {
         registrar.clear();
 
         // Unload any previously loaded algos to force re-registration on next load
-        for (auto &loader : loaded_algorithm_libraries_) {
-            if (loader) loader->unload();
+        for (void* handle : loadedHandles) {
+#ifdef _WIN32
+            FreeLibrary((HMODULE)handle);
+#else
+            dlclose(handle);
+#endif
         }
-        loaded_algorithm_libraries_.clear();
+        loadedHandles.clear();
         // Clear after unloading
         registrar.clear();
         playerFactories_.clear();
@@ -313,10 +361,7 @@ SimulatorGameResult Simulator::executeGame(const GameTask &task) {
     }
 
     // Load GameManager (fresh each time)
-    for (auto &loader : loaded_gamemanager_libraries_) {
-        if (loader) loader->unload();
-    }
-    loaded_gamemanager_libraries_.clear();
+    // Note: GameManager libraries are loaded fresh each time, so no need to unload here
     gmFactories_.clear();
     GameManagerRegistrar::get().clear();
 
@@ -344,14 +389,7 @@ SimulatorGameResult Simulator::executeGame(const GameTask &task) {
         player2.reset();
         game_manager.reset();
 
-        for (auto &loader : loaded_algorithm_libraries_) {
-            if (loader) loader->unload();
-        }
-        for (auto &loader : loaded_gamemanager_libraries_) {
-            if (loader) loader->unload();
-        }
-        loaded_algorithm_libraries_.clear();
-        loaded_gamemanager_libraries_.clear();
+
 
         playerFactories_.clear();
         tankFactories_.clear();
