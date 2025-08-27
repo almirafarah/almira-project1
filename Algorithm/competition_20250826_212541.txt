@@ -1,7 +1,0 @@
-game_maps_folder=UserCommon
-game_manager=GameManager_212934582_323964676.so
-
-Algorithm_Simple_212934582_323964676 10
-Algorithm_209277367_322542887 6
-Algorithm_Aggressive_212934582_323964676 5
-Algorithm_212535058_324022904 5

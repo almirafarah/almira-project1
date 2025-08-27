@@ -1,8 +1,0 @@
-game_maps_folder=test_files/maps
-game_manager=GameManager_212934582_323964676.cpp
-
-AggressiveTankAI 24
-Player_212934582 19
-registration_all_212934582 19
-TankAlgorithm_212934582 17
-TankAlgorithm_Simple_212934582 9
