@@ -11,6 +11,9 @@ endif()
 
 # Do not force global output directories; each target defines its own output
 
+# Add subdirectories first (to build simulator_lib)
+add_subdirectory(Simulator)
+
 # Registration core library (shared so that all DLLs use the same registrar)
 add_library(registration SHARED
     Simulator/AlgorithmRegistrar.cpp
@@ -20,11 +23,11 @@ add_library(registration SHARED
     Simulator/GameManagerRegistrar.cpp
 )
 target_include_directories(registration PUBLIC common Simulator)
+target_link_libraries(registration PUBLIC simulator_lib)
 
-# Add subdirectories
+# Add other subdirectories
 add_subdirectory(GameManager)
 add_subdirectory(Algorithm)
-add_subdirectory(Simulator)
 
 # Print summary
 message(STATUS "Build targets:")

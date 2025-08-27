@@ -20,12 +20,14 @@ GameManager_212934582_323964676::GameManager_212934582_323964676(bool verbose)
 GameResult GameManager_212934582_323964676::run(
     size_t map_width,
     size_t map_height,
-     SatelliteView& map,  // Map provided by Simulator - GameManager does NOT read files // Map provided by Simulator - GameManager does NOT read files
-
+    const SatelliteView& map,
+    std::string map_name,
     size_t max_steps,
     size_t num_shells,
-    Player& player1,  // Player references - ownership stays with Simulator
-   Player& player2,  // Player references - ownership stays with Simulator  // Player references - ownership stays with Simulator
+    Player& player1,
+    std::string name1,
+    Player& player2,
+    std::string name2,
     TankAlgorithmFactory player1_tank_algo_factory,
     TankAlgorithmFactory player2_tank_algo_factory) {
 
@@ -327,7 +329,11 @@ GameResult GameManager_212934582_323964676::run(
 
     result.remaining_tanks = {final_p1_tanks, final_p2_tanks};
 
-    // Add the missing fields required by the assignment
+    // Add the missing fields required by the new API
+    result.rounds = current_step;
+    
+    // Create a snapshot of the final game state
+    result.gameState = std::make_unique<MySatelliteView>(board_, 0, 0, live_shells_);
 
     if (verbose_) {
         std::cout << "\nGame completed after " << current_step << " steps" << std::endl;

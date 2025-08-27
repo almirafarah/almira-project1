@@ -223,9 +223,12 @@ bool Simulator::loadAlgorithmLibrary(const std::string &library_path) {
 
     try {
         AlgorithmRegistrar::get().validateLastRegistration();
-    } catch (AlgorithmRegistrar::BadRegistrationException&) {
+    } catch (AlgorithmRegistrar::BadRegistrationException& e) {
         std::cerr << "Error: Algorithm file '" << base
-                  << "' did not register required classes.\n";
+                  << "' did not register required classes.\n"
+                  << "  name set? " << std::boolalpha << e.hasName << "\n"
+                  << "  player factory? " << e.hasPlayerFactory << "\n"
+                  << "  tank factory? "   << e.hasTankAlgorithmFactory << "\n";
         AlgorithmRegistrar::get().removeLast();
         return false;
     }
@@ -404,8 +407,9 @@ SimulatorGameResult Simulator::executeGame(const GameTask &task) {
         game_result = game_manager->run(
             task.map_width, task.map_height,
             *map_view,
+            task.map_name,
             task.max_steps, task.num_shells,
-            *player1, *player2,
+            *player1, result.algorithm1_name, *player2, result.algorithm2_name,
             tank_algo_factory1, tank_algo_factory2
         );
     } catch (...) {

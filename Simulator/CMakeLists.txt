@@ -26,7 +26,7 @@ set(SIM_SRCS
 )
 
 add_library(simulator_lib STATIC ${SIM_SRCS})
-target_link_libraries(simulator_lib PUBLIC registration)
+set_property(TARGET simulator_lib PROPERTY POSITION_INDEPENDENT_CODE ON)
 
 add_executable(simulator_212934582_323964676 main.cpp)
 target_link_libraries(simulator_212934582_323964676

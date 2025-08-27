@@ -1,9 +1,8 @@
 #pragma once
-
-#include "ActionRequest.h"
-#include "BattleInfo.h"
 #include <functional>
 #include <memory>
+#include "ActionRequest.h"
+#include "BattleInfo.h"
 
 class TankAlgorithm {
 public:
@@ -12,5 +11,6 @@ public:
     virtual void updateBattleInfo(BattleInfo& info) = 0;
 };
 
+// A3: factories are function aliases, not abstract classes
 using TankAlgorithmFactory =
     std::function<std::unique_ptr<TankAlgorithm>(int player_index, int tank_index)>;
