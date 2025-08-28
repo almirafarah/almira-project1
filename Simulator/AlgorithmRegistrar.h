@@ -52,6 +52,7 @@ public:
     };
 
     static AlgorithmRegistrar& get();
+    static AlgorithmRegistrar& getAlgorithmRegistrar() { return get(); }
 
     // Called BEFORE dlopen(dylib) for this algorithm .so:
     void createAlgorithmFactoryEntry(const std::string& so_base_name) {

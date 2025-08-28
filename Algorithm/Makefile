@@ -2,59 +2,59 @@
 
 # Compiler and flags
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra -O2 -fPIC
-INCLUDES = -I../common
+CXXFLAGS = -std=c++20 -Wall -Wextra -O2 -fPIC -I../common -I../UserCommon -I.
 
-# Directories
-BUILD_DIR = build
-SRC_DIR = .
-OBJ_DIR = $(BUILD_DIR)/obj
-
-# Source files
-SOURCES = \
-    Player_Aggressive_212934582_323964676.cpp \
-    AggressiveTankAI_212934582_323964676.cpp \
+# Source files for Simple algorithm (both Player and TankAlgorithm)
+SIMPLE_SOURCES = \
     Player_Simple_212934582_323964676.cpp \
     TankAlgorithm_Simple_212934582_323964676.cpp
-OBJECTS = $(SOURCES:%.cpp=$(OBJ_DIR)/%.o)
+SIMPLE_OBJECTS = $(SIMPLE_SOURCES:.cpp=.o)
 
-# Target library placed in the project root without 'lib' prefix
-TARGET = Algorithm_212934582_323964676.so
+# Source files for Aggressive algorithm (both Player and TankAlgorithm)
+AGGRESSIVE_SOURCES = \
+    Player_Aggressive_212934582_323964676.cpp \
+    AggressiveTankAI_212934582_323964676.cpp
+AGGRESSIVE_OBJECTS = $(AGGRESSIVE_SOURCES:.cpp=.o)
+
+# Target libraries
+SIMPLE_TARGET = Algorithm_Simple_212934582_323964676.so
+AGGRESSIVE_TARGET = Algorithm_Aggressive_212934582_323964676.so
 
 # Default target
-all: directories $(TARGET)
+all: $(SIMPLE_TARGET) $(AGGRESSIVE_TARGET)
 
-# Create necessary directories
-directories:
-	@mkdir -p $(BUILD_DIR) $(OBJ_DIR)
+# Build the Simple algorithm library (contains both Player and TankAlgorithm)
+$(SIMPLE_TARGET): $(SIMPLE_OBJECTS)
+	@echo "Linking Simple Algorithm library..."
+	$(CXX) -shared -o $@ $(SIMPLE_OBJECTS)
+	@echo "Simple Algorithm library built: $@"
 
-# Build the shared library
-$(TARGET): $(OBJECTS)
-	@echo "Linking Algorithm library..."
-	$(CXX) -shared -o $@ $^ -L../build -lregistration
-	@echo "Algorithm library built: $@"
+# Build the Aggressive algorithm library (contains both Player and TankAlgorithm)
+$(AGGRESSIVE_TARGET): $(AGGRESSIVE_OBJECTS)
+	@echo "Linking Aggressive Algorithm library..."
+	$(CXX) -shared -o $@ $(AGGRESSIVE_OBJECTS)
+	@echo "Aggressive Algorithm library built: $@"
 
 # Compile source files
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
-	@echo "Compiling $<..."
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Clean build artifacts
 clean:
-	@echo "Cleaning Algorithm build artifacts..."
-	@rm -rf $(BUILD_DIR) $(TARGET)
+	rm -f $(SIMPLE_OBJECTS) $(AGGRESSIVE_OBJECTS) $(SIMPLE_TARGET) $(AGGRESSIVE_TARGET)
 
 # Install library
 install: all
-	@echo "Installing Algorithm library..."
-	@cp $(TARGET) ../
+	@echo "Installing Algorithm libraries..."
+	@cp $(SIMPLE_TARGET) ../
+	@cp $(AGGRESSIVE_TARGET) ../
 
 # Show help
 help:
 	@echo "Algorithm Makefile targets:"
-	@echo "  all      - Build the Algorithm library"
+	@echo "  all      - Build both Simple and Aggressive Algorithm libraries"
 	@echo "  clean    - Clean build artifacts"
-	@echo "  install  - Copy library to project root"
+	@echo "  install  - Copy libraries to project root"
 	@echo "  help     - Show this help message"
 
-.PHONY: all directories clean install help
+.PHONY: all clean install help

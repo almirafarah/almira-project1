@@ -3,7 +3,7 @@
 
 # Compiler and flags
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra -O2
+CXXFLAGS = -std=c++20 -Wall -Wextra -O2
 INCLUDES = -I./common -I./GameManager -I./Algorithm -I./Simulator
 
 # Directories
@@ -12,7 +12,7 @@ BIN_DIR = $(BUILD_DIR)/bin
 LIB_DIR = $(BUILD_DIR)/lib
 
 # Targets
-all: directories game_manager algorithm simulator test_main
+all: directories game_manager simulator algorithm
 
 # Create necessary directories
 directories:
@@ -32,12 +32,6 @@ algorithm:
 simulator:
 	@echo "Building Simulator..."
 	@cd Simulator && $(MAKE) -f Makefile
-
-# Build test executable
-test_main: game_manager algorithm
-	@echo "Building test executable..."
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $(BIN_DIR)/test_gamemanager test_main.cpp \
-		-L$(LIB_DIR) -lGameManager -lAlgorithm -lregistration
 
 # Clean all build artifacts
 clean:
@@ -60,9 +54,8 @@ help:
 	@echo "  game_manager - Build GameManager library"
 	@echo "  algorithm    - Build Algorithm library"
 	@echo "  simulator    - Build Simulator executable"
-	@echo "  test_main    - Build test executable"
 	@echo "  clean        - Clean all build artifacts"
 	@echo "  install      - Install libraries to lib directory"
 	@echo "  help         - Show this help message"
 
-.PHONY: all directories game_manager algorithm simulator test_main clean install help
+.PHONY: all directories game_manager algorithm simulator clean install help

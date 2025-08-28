@@ -23,7 +23,6 @@ add_library(registration SHARED
     Simulator/GameManagerRegistrar.cpp
 )
 target_include_directories(registration PUBLIC common Simulator)
-target_link_libraries(registration PUBLIC simulator_lib)
 
 # Add other subdirectories
 add_subdirectory(GameManager)

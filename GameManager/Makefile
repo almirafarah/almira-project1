@@ -2,7 +2,7 @@
 
 # Compiler and flags
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra -O2 -fPIC
+CXXFLAGS = -std=c++20 -Wall -Wextra -O2 -fPIC
 INCLUDES = -I../common
 
 # Directories
@@ -27,7 +27,7 @@ directories:
 # Build the shared library
 $(TARGET): $(OBJECTS)
 	@echo "Linking GameManager library..."
-	$(CXX) -shared -o $@ $^ -L../build -lregistration
+	$(CXX) -shared -o $@ $^
 	@echo "GameManager library built: $@"
 
 # Compile source files

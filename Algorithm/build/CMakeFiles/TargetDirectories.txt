@@ -1,3 +1,0 @@
-C:/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/final/hw3/Algorithm/build/CMakeFiles/TankAlgorithm.dir
-C:/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/final/hw3/Algorithm/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/Almira Farah/Documents/computer science/hw2 try2 algorithem/final/hw3/Algorithm/build/CMakeFiles/ZERO_CHECK.dir

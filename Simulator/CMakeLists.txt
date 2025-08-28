@@ -18,21 +18,17 @@ include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../common")
 # ---- Simulator core ----
 set(SIM_SRCS
         Simulator.cpp
+        main.cpp
         
         GameManagerRegistrar.h
         GameManagerRegistrar.cpp
         AlgorithmRegistrar.h
         AlgorithmRegistrar.cpp
+        TankAlgorithmRegistration.cpp
+        PlayerRegistration.cpp
 )
 
-add_library(simulator_lib STATIC ${SIM_SRCS})
-set_property(TARGET simulator_lib PROPERTY POSITION_INDEPENDENT_CODE ON)
-
-add_executable(simulator_212934582_323964676 main.cpp)
-target_link_libraries(simulator_212934582_323964676
-        simulator_lib
-        registration
-)
+add_executable(simulator_212934582_323964676 ${SIM_SRCS})
 
 # Dynamic loading flags
 if (WIN32)
@@ -40,6 +36,8 @@ if (WIN32)
 else()
     target_link_libraries(simulator_212934582_323964676 dl pthread)
     target_compile_definitions(simulator_212934582_323964676 PRIVATE UNIX_DYNAMIC_LOADING)
+    # Export all symbols so dynamically loaded libraries can resolve TankAlgorithmRegistration
+    set_target_properties(simulator_212934582_323964676 PROPERTIES LINK_FLAGS "-rdynamic")
 endif()
 
 # Run from repo root so relative "lib/..." paths work
