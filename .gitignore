@@ -1,0 +1,44 @@
+# Build artifacts and directories
+build/
+cmake-build-*/
+*.o
+*.so
+*.exe
+*.dll
+*.dylib
+
+# CMake files (keep top-level CMakeLists.txt)
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+!CMakeLists.txt
+
+# IDE files
+.vscode/
+.idea/
+*.code-workspace
+
+# Temporary files
+*.tmp
+*.log
+*.bak
+*~
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Executables
+simulator_*
+test_*
+*_test.exe
+
+# User data files (for membership system)
+users.dat
+memberships.dat
+*.user
+
+# Output files from simulator
+comparative_results_*.txt
+competition_*.txt

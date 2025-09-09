@@ -1,8 +1,8 @@
-# Tank Battle Simulator - Assignment 3
+# Tank Battle Simulator - Assignment 3 with Membership Management
 
 ## Implementation Overview
 
-This project implements a multithreaded tank battle simulator with three main components:
+This project implements a multithreaded tank battle simulator with **membership management capabilities** and four main components:
 
 ### 1. GameManager (GameManager folder)
 - **Purpose**: Runs individual tank battles
@@ -26,9 +26,20 @@ This project implements a multithreaded tank battle simulator with three main co
 - **Features**:
   - **Comparative Mode**: Tests multiple GameManagers on same map
   - **Competition Mode**: Tournament between algorithms on multiple maps
+  - **Membership Mode**: User membership management system (NEW!)
   - Dynamic library loading (.so files)
   - Configurable thread pool
   - Result aggregation and output generation
+
+### 4. Membership Management (UserCommon folder) - NEW!
+- **Purpose**: Manages user memberships and subscriptions
+- **Features**:
+  - User account creation and management
+  - Multiple membership tiers (Basic, Pro, Premium)
+  - **Pro membership cancellation** - Core functionality
+  - Persistent data storage
+  - Interactive and command-line interfaces
+  - Comprehensive error handling
 
 ## Build Instructions
 
@@ -140,6 +151,69 @@ hw3/
 2. **Library Integration**: Factory pattern not yet implemented for dynamic instance creation
 3. **Error Handling**: Basic error handling implemented, could be enhanced
 4. **Testing**: Limited testing performed, needs more comprehensive validation
+
+## Membership Management System (NEW!)
+
+This implementation now includes a comprehensive membership management system integrated into the tank battle simulator.
+
+### Key Features
+
+- **User Management**: Create and manage user accounts with email addresses
+- **Membership Tiers**: Support for Basic, Pro, and Premium memberships
+- **Pro Membership Cancellation**: Dedicated functionality to cancel Pro memberships
+- **Data Persistence**: User data is automatically saved and loaded from `users.dat`
+- **Interactive CLI**: Both command-line and interactive modes available
+- **Error Handling**: Comprehensive validation and error reporting
+
+### Usage Examples
+
+#### Creating Users and Managing Pro Memberships
+```bash
+# Create a new user
+./Simulator/simulator_212934582_323964676 -membership create alice alice@example.com
+
+# Subscribe to Pro membership
+./Simulator/simulator_212934582_323964676 -membership subscribe alice pro
+
+# View user status
+./Simulator/simulator_212934582_323964676 -membership show alice
+
+# Cancel Pro membership (Core Feature!)
+./Simulator/simulator_212934582_323964676 -membership cancel-pro alice
+
+# Verify cancellation
+./Simulator/simulator_212934582_323964676 -membership show alice
+```
+
+#### Interactive Mode
+```bash
+./Simulator/simulator_212934582_323964676 -membership
+```
+
+Then type commands interactively:
+```
+membership> create john john@example.com
+membership> subscribe john pro
+membership> cancel-pro john
+membership> list
+membership> quit
+```
+
+### Testing
+
+Run the membership system tests:
+```bash
+# Compile and run tests
+g++ -std=c++17 -I UserCommon -I common test_membership.cpp UserCommon/*.cpp -o test_membership
+./test_membership
+```
+
+### Data Storage
+
+User data is automatically persisted in `users.dat` file with the following format:
+- User accounts with email addresses
+- Membership history with types and dates
+- Cancellation status and timestamps
 
 ## Future Improvements
 
