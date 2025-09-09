@@ -24,6 +24,16 @@ add_library(registration SHARED
 )
 target_include_directories(registration PUBLIC common Simulator)
 
+# Membership management library
+add_library(membership STATIC
+    UserCommon/Membership_212934582_323964676.cpp
+    UserCommon/User_212934582_323964676.cpp
+    UserCommon/MembershipManager_212934582_323964676.cpp
+    UserCommon/MembershipCLI_212934582_323964676.cpp
+)
+target_include_directories(membership PUBLIC UserCommon common)
+target_compile_features(membership PRIVATE cxx_std_17)
+
 # Add other subdirectories
 add_subdirectory(GameManager)
 add_subdirectory(Algorithm)

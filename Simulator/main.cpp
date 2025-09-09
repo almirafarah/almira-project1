@@ -1,4 +1,5 @@
 #include "Simulator.h"
+#include "../UserCommon/MembershipCLI_212934582_323964676.h"
 
 #include <algorithm>
 #include <cctype>
@@ -24,13 +25,18 @@ static void printUsage(const char* prog, const std::string& err = {}) {
         std::cerr << "Error: " << err << "\n\n";
     }
     std::cerr
-        << "Usage:\n"
+        << "Tank Battle Simulator with Membership Management\n\n"
+        << "SIMULATION MODES:\n"
         << "  " << prog << " -comparative "
         << "game_map=<path.txt> game_managers_folder=<dir> algorithm1=<file" DYN_LIB_EXT "> algorithm2=<file" DYN_LIB_EXT ">"
         << " [num_threads=<N>] [-verbose]\n\n"
         << "  " << prog << " -competition "
         << "game_maps_folder=<dir> game_manager=<file" DYN_LIB_EXT "> algorithms_folder=<dir>"
         << " [num_threads=<N>] [-verbose]\n\n"
+        << "MEMBERSHIP MANAGEMENT:\n"
+        << "  " << prog << " -membership [command] [args...]     - Membership management mode\n"
+        << "  " << prog << " -membership                         - Interactive membership mode\n"
+        << "  " << prog << " -membership help                    - Show membership commands\n\n"
         << "Notes:\n"
         << "  - Paths can be relative to the current working directory.\n"
         << "  - On Windows, dynamic libraries use " DYN_LIB_EXT "; on Linux/macOS, they use " DYN_LIB_EXT ".\n";
@@ -77,15 +83,20 @@ bool parseArguments(int argc, char* argv[], std::map<std::string, std::string>& 
     int mode_index = -1;
     for (int i = 1; i < argc; ++i) {
         std::string token = argv[i];
-        if (token == "-comparative" || token == "-competition") {
+        if (token == "-comparative" || token == "-competition" || token == "-membership") {
             mode_index = i;
             args["mode"] = token;
             break;
         }
     }
     if (mode_index == -1) {
-        printUsage(argv[0], "Missing mode: -comparative or -competition");
+        printUsage(argv[0], "Missing mode: -comparative, -competition, or -membership");
         return false;
+    }
+
+    // For membership mode, don't validate other arguments
+    if (args["mode"] == "-membership") {
+        return true;
     }
 
     verbose = false;
@@ -95,7 +106,7 @@ bool parseArguments(int argc, char* argv[], std::map<std::string, std::string>& 
     std::vector<std::string> required_args;
     if (args["mode"] == "-comparative") {
         required_args = {"game_map", "game_managers_folder", "algorithm1", "algorithm2"};
-    } else { // -competition
+    } else if (args["mode"] == "-competition") {
         required_args = {"game_maps_folder", "game_manager", "algorithms_folder"};
     }
 
@@ -232,12 +243,47 @@ int main(int argc, char* argv[]) {
     bool verbose = false;
     int num_threads = 1;
 
-    if (!parseArguments(argc, argv, args, verbose, num_threads) ||
-        !validatePaths(args, argv[0])) {
+    if (!parseArguments(argc, argv, args, verbose, num_threads)) {
+        return 1;
+    }
+    
+    // Skip path validation for membership mode
+    if (args["mode"] != "-membership" && !validatePaths(args, argv[0])) {
         return 1;
     }
 
     try {
+        // Handle membership mode - special case, parse args differently
+        if (args["mode"] == "-membership") {
+            using namespace Membership_212934582_323964676;
+            MembershipCLI cli;
+            
+            // For membership mode, we need to pass all args after "-membership"
+            // Create new argv array with just the membership args
+            std::vector<std::string> membershipArgs;
+            bool foundMembershipFlag = false;
+            
+            for (int i = 1; i < argc; ++i) {
+                if (argv[i] == std::string("-membership")) {
+                    foundMembershipFlag = true;
+                    continue; // Skip the -membership flag itself
+                }
+                if (foundMembershipFlag) {
+                    membershipArgs.push_back(argv[i]);
+                }
+            }
+            
+            // Convert to char* array
+            std::vector<char*> membershipArgv;
+            membershipArgv.push_back(argv[0]); // Program name
+            for (auto& arg : membershipArgs) {
+                membershipArgv.push_back(const_cast<char*>(arg.c_str()));
+            }
+            membershipArgv.push_back(nullptr);
+            
+            return cli.run(static_cast<int>(membershipArgv.size() - 1), membershipArgv.data());
+        }
+        
         auto& simulator = Simulator::getInstance();
 
         bool ok = false;

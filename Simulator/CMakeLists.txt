@@ -12,8 +12,9 @@ endif()
 # Paths
 set(ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/..")
 
-# Include interfaces from ../common
+# Include interfaces from ../common and ../UserCommon
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../common")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../UserCommon")
 
 # ---- Simulator core ----
 set(SIM_SRCS
@@ -29,6 +30,9 @@ set(SIM_SRCS
 )
 
 add_executable(simulator_212934582_323964676 ${SIM_SRCS})
+
+# Link with membership library
+target_link_libraries(simulator_212934582_323964676 membership)
 
 # Dynamic loading flags
 if (WIN32)
