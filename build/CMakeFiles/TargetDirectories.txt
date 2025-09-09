@@ -1,0 +1,14 @@
+/home/runner/work/almira-project1/almira-project1/build/CMakeFiles/registration.dir
+/home/runner/work/almira-project1/almira-project1/build/CMakeFiles/all_targets.dir
+/home/runner/work/almira-project1/almira-project1/build/CMakeFiles/edit_cache.dir
+/home/runner/work/almira-project1/almira-project1/build/CMakeFiles/rebuild_cache.dir
+/home/runner/work/almira-project1/almira-project1/build/Simulator/CMakeFiles/simulator_212934582_323964676.dir
+/home/runner/work/almira-project1/almira-project1/build/Simulator/CMakeFiles/edit_cache.dir
+/home/runner/work/almira-project1/almira-project1/build/Simulator/CMakeFiles/rebuild_cache.dir
+/home/runner/work/almira-project1/almira-project1/build/GameManager/CMakeFiles/GameManager_212934582_323964676.dir
+/home/runner/work/almira-project1/almira-project1/build/GameManager/CMakeFiles/edit_cache.dir
+/home/runner/work/almira-project1/almira-project1/build/GameManager/CMakeFiles/rebuild_cache.dir
+/home/runner/work/almira-project1/almira-project1/build/Algorithm/CMakeFiles/Algorithm_Aggressive_212934582_323964676.dir
+/home/runner/work/almira-project1/almira-project1/build/Algorithm/CMakeFiles/Algorithm_Simple_212934582_323964676.dir
+/home/runner/work/almira-project1/almira-project1/build/Algorithm/CMakeFiles/edit_cache.dir
+/home/runner/work/almira-project1/almira-project1/build/Algorithm/CMakeFiles/rebuild_cache.dir
